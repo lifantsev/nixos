@@ -1,6 +1,5 @@
 { config, ... }@args: {
     # NOTE default shell is set in config/default.nix @ users.users.<username>.shell
-    # NOTE you need to set config.programs.zsh.enable to true in order for the above to work
 
     programs.kitty.shellIntegration.enableZshIntegration = true;
     programs.fzf.enableZshIntegration = true;

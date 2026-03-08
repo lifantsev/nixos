@@ -17,7 +17,6 @@
         isNormalUser = true;
         description = "Mark Lifantsev";
         extraGroups = [ "wheel" "networkmanager" ];
-        # shell = pkgs.bash;
         shell = pkgs.zsh;
         ignoreShellProgramCheck = true;
         home = "/home/${username}";
