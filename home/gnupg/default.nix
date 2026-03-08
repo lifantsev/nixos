@@ -14,8 +14,10 @@
         pinentry.package = pkgs.pinentry-tty; # by default this is null
         extraConfig = "allow-loopback-pinentry";
 
-        # enableSshSupport = true; # more research into opt required
-        # theres some enable<shell>Integration, see docs ig
+        enableSshSupport = true;
+        sshKeys = [ "FB55A337A9642B6A1AE533D93591A61DD30D60D0" ];
+
+        enableZshIntegration = true;
 
         defaultCacheTtl = timeout; # seconds
         defaultCacheTtlSsh = timeout;

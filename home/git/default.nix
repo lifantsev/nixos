@@ -7,6 +7,8 @@
             user.email = "mark.lifantsev@gmail.com";
 
             init.defaultBranch = "main";
+            commit.gpgsign = true;
+            tag.forceSignAnnotated = true;
 
             # gpg.format = "ssh";
             # user.signingkey = "${config.home.homeDirectory}/.ssh/id-github-canoe.pub";
