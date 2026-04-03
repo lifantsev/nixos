@@ -8,10 +8,11 @@
     in {
         enable = true;
 
-        pinentry.package = pkgs.pinentry-tty; # by default this is null
+        pinentry.package = pkgs.pinentry-qt;
+        # i suspect sometimes the tty pinentry prints to the wrong terminal (specifically with git ssh verification)
+        # pinentry.package = pkgs.pinentry-tty;
         extraConfig = "allow-loopback-pinentry";
 
-        # TODO figure out why sometimes the ssh key wont work: `sign_and_send_pubkey: signing failed for RSA "(none)" from agent: agent refused operation`
         enableSshSupport = true;
         sshKeys = [ "FB55A337A9642B6A1AE533D93591A61DD30D60D0" ];
 

@@ -1,6 +1,6 @@
 {
+    # TODO address gitutils usage
     g = "git";
-    gy = "sshkey && gitutils sync"; # TODO redo all this ssh crap when i make my github acc
     gd = "gitutils diff";
     gii = "gitutils init";
 
@@ -20,6 +20,7 @@
     gcl = "sshkey && g clone";
 
 
+    # TODO figure out if we wanna keep crypt
     cry = "crypt";
     yy = "sshkey && crypt sync";
     ys = "sshkey && crypt status";
