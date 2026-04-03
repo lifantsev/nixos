@@ -10,7 +10,7 @@ in {
 
     imports = let
         imports = inputs.nixpkgs.lib.attrsets.filterAttrs (n: v: (v == "directory") || (v == "regular" && n != "default.nix")) (builtins.readDir ./.);
-    in map (name: ./. + "/${name}") (builtins.attrNames imports) ++ [
+    in [
         inputs.nixvim.homeModules.nixvim
-    ];
+    ] ++ map (name: ./. + "/${name}") (builtins.attrNames imports);
 }

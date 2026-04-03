@@ -8,9 +8,7 @@
     in {
         enable = true;
 
-        pinentry.package = pkgs.pinentry-qt;
-        # i suspect sometimes the tty pinentry prints to the wrong terminal (specifically with git ssh verification)
-        # pinentry.package = pkgs.pinentry-tty;
+        pinentry.package = pkgs.pinentry-qt; # tty pinentry is nice but doesn't always work
         extraConfig = "allow-loopback-pinentry";
 
         enableSshSupport = true;
@@ -23,4 +21,6 @@
         maxCacheTtl = timeout;
         maxCacheTtlSsh = timeout;
     };
+
+    qt.platformTheme = "gtk2"; # gtk theme in cursor-and-gtk.nix
 }

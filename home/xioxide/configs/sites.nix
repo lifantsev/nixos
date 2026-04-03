@@ -11,9 +11,10 @@
         nx."mynixos.com/".s = "search?q=";
         ng."noogle.dev/".s = "q?term=";
 
-        gh."github.com/lifantsev/" = {
-            n = "nixos/";
-            p = "pw/";
+        gh."github.com/" = {
+            s = "search?q=";
+            n = "lifantsev/nixos/";
+            p = "lifantsev/pw/";
         };
 
         ibkr = "portal.interactivebrokers.com/";

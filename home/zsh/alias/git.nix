@@ -1,24 +1,23 @@
 {
-    # TODO address gitutils usage
     g = "git";
     gd = "gitutils diff";
     gii = "gitutils init";
 
-    gs = "g status";
     ga = "echo 'git add %%% && git status' | yargs";
     gaa = "ga .";
     gau = "ga -u";
+
+    gs = "g status";
     gc = "g commit";
     gco = "g checkout";
     gb = "g branch";
     gl = "g log --oneline";
     gm = "g merge";
 
-    gll = "sshkey && g pull";
-    gsh = "sshkey && g push";
-    gf = "sshkey && g fetch";
-    gcl = "sshkey && g clone";
-
+    gll = "g pull";
+    gsh = "g push";
+    gf  = "g fetch";
+    gcl = "g clone";
 
     # TODO figure out if we wanna keep crypt
     cry = "crypt";

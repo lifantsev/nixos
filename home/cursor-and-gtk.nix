@@ -23,8 +23,18 @@ in {
         # x11.defaultCursor = cursor.name;
     };
 
+
     gtk = {
         enable = true;
+
+        colorScheme = "dark";
+        theme = {
+            # name = "catppuccin-mocha-mauve-standard+default";
+            # package = pkgs.catppuccin-gtk;
+
+            name = rice.col.gtk-name;
+            package = pkgs.${rice.col.gtk-package};
+        };
 
         font = {
             name = rice.fonts.code.full.family;

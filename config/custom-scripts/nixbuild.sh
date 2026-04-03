@@ -12,9 +12,11 @@ function colorprint() { printf "$1$2$COL_DEFAULT"; }
 function notify() { [ -n "$(pgrep $NOTIF_DAEMON)" ] && notify-send "$1" "$2"; }
 
 while true; do
-    colorprint "$COL_PROMPT" "-> press enter to nixos-rebuild ";
-    [ "$1" == "loop" ] && read -sr
-    colorprint "$COL_PROMPT" "$(timestamp)\n";
+    printf "$COL_PROMPT"
+    echo -n "-> press enter to nixos-rebuild : ";
+    [ "$1" == "loop" ] && read -r
+    echo "-> $(timestamp)";
+    printf "$COL_DEFAULT"
 
     sudo nixos-rebuild switch --flake path:/home/mark/nixos --show-trace
     result=$?

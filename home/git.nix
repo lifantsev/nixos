@@ -15,16 +15,15 @@
     };
     
 
-    # programs.diff-so-fancy = {
-    #     enable = true;
-    #     enableGitIntegration = true;
+    programs.diff-so-fancy = {
+        enable = true;
+        enableGitIntegration = true;
 
-    #     pagerOpts = [ "--tabs=4" "-R" "-F" ];
+        pagerOpts = [ "--tabs=4" "-R" "-F" ];
 
-    #     settings = {
-    #         useUnicodeRuler = true;
-    #         markEmptyLines = false;
-
-    #     };
-    # };
+        settings = {
+            useUnicodeRuler = true;
+            markEmptyLines = false;
+        };
+    };
 }
