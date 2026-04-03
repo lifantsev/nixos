@@ -1,5 +1,3 @@
-/*bash*/''
-
 function x() {
     if [ -f "$1" ] ; then
         case "$1" in
@@ -21,5 +19,3 @@ function x() {
         echo "'$1' is not a valid file"
     fi
 }
-
-''

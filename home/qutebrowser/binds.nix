@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ ... }: {
     normal = {
         "." = "cmd-repeat-last";
         ":" = "cmd-set-text :";
@@ -20,12 +20,14 @@
         gg = "scroll-to-perc 0";
         G = "scroll-to-perc";
 
-        "<up>" = "tab-move -";
-        "<down>" = "tab-move +";
+        "g<up>"   = "tab-move 1";
+        "<up>"    = "tab-move -";
+        "<down>"  = "tab-move +";
+        "g<down>" = "tab-move -1";
 
-        l = "cmd-set-text -s :open";
-        L = "cmd-set-text -s :open -t";
-        "<ctrl-l>" = "spawn drop browseshell nohistory";
+        l = "cmd-set-text -s :open  ;; spawn --userscript urlupdater.sh";
+        L = "cmd-set-text -s :open -t ;; spawn --userscript urlupdater.sh";
+        "<ctrl-l>" = "cmd-set-text -s :open -t -r ;; spawn --userscript urlupdater.sh";
         "<ctrl-h>" = "history -t";
         j = "search-next";
         J = "search-prev";
@@ -40,7 +42,7 @@
         R = "yank ;; tab-close";
         "<ctrl-r>" = "greasemonkey-reload ;; reload";
         f = "fullscreen";
-        "<space>" = "config-cycle tabs.show always never"; # ;; config-cycle statusbar.show always in-mode"; # cycle tabs open close
+        "<space>" = "config-cycle tabs.show always never";
         "<ctrl-space>" = "clear-messages ;; download-clear";
         "+" = "zoom-in";
         "-" = "zoom-out";
@@ -56,8 +58,6 @@
         d = "devtools";
 
         # USERSCRIPTS
-        # TODO uncomment the below
-        # v = "spawn ${ config.home.sessionVariables.TERMINAL} mpv --input-ipc-server=~/.config/mpvc/mpvsocket0 '{url}'"; # open current yt vid in mpv
         t = "spawn --userscript translate.sh";
 
         # WARN: we pre-call 'drop menu' here for optimization,

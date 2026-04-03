@@ -1,0 +1,24 @@
+{ rice, ... }: {
+    programs.imv = {
+        enable = true;
+        settings = {
+            options.background = rice.col.bg.hex;
+            # TODO make sure panning & zooming works normal
+            binds = let pan = "30"; zoom = "7%"; in {
+                "<semicolon>" = "quit";
+
+                n = "pan ${pan} 0";
+                a = "pan 0 ${pan}";
+                i = "pan 0 -${pan}";
+                o = "pan -${pan} 0";
+
+                y = "rotate by 90";
+                c = "rotate by -90";
+                
+                l = "zoom actual";
+                "<Tab>" = "zoom +${zoom}";
+                u = "zoom -${zoom}";
+            };
+        };
+    };
+}

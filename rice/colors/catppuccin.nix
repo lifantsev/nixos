@@ -1,5 +1,5 @@
 {
-    # catpuccin mocha: https://catppuccin.com/palette/
+    # catppuccin mocha: https://catppuccin.com/palette/
     name = "catppuccin";
     flavor = "mocha";
     t0 = {
@@ -90,6 +90,14 @@
         rgb0 = "0.803 0.839 0.956";
         hu = 226; sa = 64; va = 88;
     };
+    black = {
+        hex = "0f0f19"; h = "#0f0f19";
+        r = 15; g = 15; b = 25;
+        r0 = 0.058; g0 = 0.058; b0 = 0.098;
+        rgb = "15, 15, 25";
+        rgb0 = "0.058 0.058 0.098";
+        hu = 240; sa = 25; va = 8;
+    };
     red = {
         hex = "f38ba8"; h = "#f38ba8";
         r = 243; g = 139; b = 168;
@@ -147,11 +155,11 @@
         hu = 267; sa = 84; va = 81;
     };
     brown = {
-        hex = "f2cdcd"; h = "#f2cdcd";
-        r = 242; g = 205; b = 205;
-        r0 = 0.949; g0 = 0.803; b0 = 0.803;
-        rgb = "242, 205, 205";
-        rgb0 = "0.949 0.803 0.803";
-        hu = 0; sa = 59; va = 88;
+        hex = "f5c2e7"; h = "#f5c2e7";
+        r = 245; g = 194; b = 231;
+        r0 = 0.960; g0 = 0.760; b0 = 0.905;
+        rgb = "245, 194, 231";
+        rgb0 = "0.960 0.760 0.905";
+        hu = 201; sa = 41; va = 93;
     };
 }

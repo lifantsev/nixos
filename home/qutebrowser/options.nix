@@ -1,16 +1,21 @@
 {
     settings = { # same tree as running ':set' from inside qb
-        new_instance_open_target = "tab-bg-silent"; # prevents config-source from raising focus, see https://l.opnxng.com/r/qutebrowser/comments/mavj50/how_to_configsource_from_terminal_without_raising/
+        new_instance_open_target = "tab"; # prevents config-source from raising focus, see https://l.opnxng.com/r/qutebrowser/comments/mavj50/how_to_configsource_from_terminal_without_raising/
         messages.timeout = 1000;
         fonts.default_size = "11pt";
+        fonts.default_family = "serif";
         zoom.default = 110;
         qt.highdpi = true;
 
-        content.headers.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"; # btw there are variables like {os_info} u can use
+        # content.headers.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"; # btw there are variables like {os_info} u can use
+        content.headers.user_agent = "Mozilla/5.0 ({os_info}; rv:135.0) Gecko/20100101 Firefox/135";
+        content.pdfjs = true; # view pdf files in browser
+        content.autoplay = false; # video autoplay
 
         hints = {
             border = "none";
             chars = "rsthnaio";
+            radius = 1;
         };
 
         completion = {
@@ -25,10 +30,10 @@
 
         tabs = {
             position = "left";
-            width = 200;
+
+            width = "13%";
             indicator.width = 0;
             last_close = "close";
-            show = "multiple";
             tooltips = false;
             mousewheel_switching = false;
             title = {
@@ -44,10 +49,11 @@
 
         url = {
             default_page = "about:blank";
-            start_pages = "catppuccin.com";
+            start_pages = "en.wikipedia.org/wiki/special:random";
+            # everynoise.com
+            # catppuccin.com
+            # clockie.app
         };
-
-        content.pdfjs = true; # view pdf files in browser
     };
 
     extraConfig = /* py */ ''

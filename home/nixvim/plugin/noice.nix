@@ -15,8 +15,6 @@
             };
         };
 
-        # TODO see what dice.com is for interviewing/resume
-
         messages.enabled = true; # redirect notify, fn.confirm etc
 
         popupmenu.enabled = false; # cmdline completion

@@ -1,10 +1,14 @@
-{ rice, ... }: {
-    # TODO see what this does and enable or delete
-    # console = {
-    #   font = "Lat2-Terminus16";
-    #   keyMap = "us";
-    #   useXkbConfig = true; # use xkb.options in tty.
-    # };
+{ rice, pkgs, ... }: {
+    console = {
+        font = "cozette12x26"; # a bit smaller but nice font
+        packages = [ pkgs.cozette ];
+
+        # font = "ter-v32n";
+        # packages = [ pkgs.terminus_font ];
+
+        # font = "spleen-16x32";
+        # packages = [ pkgs.spleen ];
+    };
 
     boot.initrd.preLVMCommands = with rice.col; /*sh*/ ''
         echo -en "\e]P0${bg.hex}"     #black
@@ -23,7 +27,6 @@
         echo -en "\e]PE${aqua.hex}"   #cyan
         echo -en "\e]P7${t5.hex}"     #lightgrey
         echo -en "\e]PF${fg.hex}"     #white
-        # TODO setfont <font-name>
         clear
     '';
 }

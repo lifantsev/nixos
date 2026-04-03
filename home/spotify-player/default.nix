@@ -6,7 +6,7 @@
 
         themes = [{
             name = "main";
-            component_style = import ./theme.nix args;
+            component_style = import ./colors.nix args;
         }];
 
         actions = lib.attrsets.mapAttrsToList (key: act: { action = act; key_sequence = key; }) (import ./binds.nix).actions;

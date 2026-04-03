@@ -1,8 +1,9 @@
-{ rice, pkgs, ... }: let mainfont = rice.font.name; in {
+{ rice, pkgs, ... }: {
     fonts = {
         packages = with pkgs; [
             victor-mono
             nerd-fonts.fira-code
+            times-newer-roman
 
             monocraft
             scientifica
@@ -10,9 +11,10 @@
         ];
 
         fontconfig.defaultFonts = {
-            serif     = [ mainfont "FiraCode" ];
-            sansSerif = [ mainfont "FiraCode" ];
-            monospace = [ mainfont "FiraCode" ];
+            monospace = [ rice.fonts.code.name ];
+
+            serif     = [ rice.fonts.read.name ];
+            sansSerif = [ rice.fonts.read.name ];
         };
     };
 }

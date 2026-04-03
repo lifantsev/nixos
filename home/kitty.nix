@@ -24,16 +24,16 @@
             confirm_os_window_close = 0;
             allow_remote_control = true;
 
-            font_size = font.size;
+            font_size = fonts.code.size;
             window_padding_width = "2";
             scrollback_lines = 10000;
             update_check_interval = 0;
             mouse_hide_wait = 0;
 
-            font_family = font.full.family;
-            bold_font = font.full.bold;
-            italic_font = font.full.italic;
-            bold_italic_font = font.full.bold-italic;
+            font_family      = fonts.code.full.family;
+            bold_font        = fonts.code.full.bold;
+            italic_font      = fonts.code.full.italic;
+            bold_italic_font = fonts.code.full.bold-italic;
 
             touch_scroll_multiplier = "1.7";
             wheel_scroll_multiplier = "5.0";
@@ -51,8 +51,6 @@
             selection_foreground = "${col.fg.h}";
             selection_background = "${col.t3.h}";
 
-            # TODO change this line
-            # open_url_with = "$ {config.home.sessionVariables.BROWSER}";
             url_color = "${col.blue.h}";
             url_style = "curly";
             undercurl_style = "thick-sparse";

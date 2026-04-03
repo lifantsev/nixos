@@ -20,6 +20,8 @@
     pause_icon = "";
     explicit_icon = "";
 
+    device.volume = 100;
+
     layout = {
         playback_window_position = "Bottom";
         playback_window_height = 2;

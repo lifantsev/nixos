@@ -2,6 +2,9 @@
 # TODO set up DAP
 # TODO set up lsp keybinds: goto def, list ref, etc
 # TODO look into plugin for building project using vim bind (or write it)
+# TODO add lsp diagnostic count to bar
+
+# TODO change markdown highlight colors to something more pleasing
 
 { lib, pkgs, rice, ... }@args: let
     stemOf = file: let
@@ -32,7 +35,7 @@ in {
         plugins = lib.mergeAttrsList (map (file: { ${stemOf file} = (import file args).plugin;}) (filesIn ./plugin));
         extraPlugins = map (file: pkgs.vimPlugins.${stemOf file}) (filesIn ./plugin/extra);
 
-        keymaps = lib.lists.concatLists ( (map (file: import file args) (filesIn ./remap)) 
+        keymaps = lib.lists.concatLists ( (map (file: import file args) (filesIn ./binds)) 
                                        ++ (map (file: (import file args).remap or []) (filesIn ./plugin))
                                        ++ (map (file: if lib.hasSuffix ".nix" file then (import file args).remap or [] else []) (filesIn ./plugin/extra)) );
 

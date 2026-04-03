@@ -10,6 +10,7 @@
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
         nixvim.url = "github:nix-community/nixvim/nixos-25.11";
+        xremap.url = "github:xremap/nix-flake";
     };
 
     outputs = { self, nixpkgs, home-manager, ... }@inputs: let

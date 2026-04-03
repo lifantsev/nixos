@@ -10,13 +10,14 @@
 
     nixpkgs.config.allowUnfree = true;
     nix.settings.experimental-features = [ "flakes" "nix-command" ];
-    time.timeZone = "America/Los_Angeles";
 
-    # programs.zsh.enable = true;
     users.users.${username} = {
         isNormalUser = true;
         description = "Mark Lifantsev";
-        extraGroups = [ "wheel" "networkmanager" ];
+        extraGroups = [
+            "wheel"
+            "networkmanager"
+        ];
         shell = pkgs.zsh;
         ignoreShellProgramCheck = true;
         home = "/home/${username}";

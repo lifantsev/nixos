@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# run with argument: name of colorscheme
+# outputs to a dotfile, you should manually review and apply it
+# ex > ./.generate.sh 'catppuccin'
 
 function block() {
     local name="$1"

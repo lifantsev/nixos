@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-echo "$QUTE_URL" > "/tmp/qute_geturl.out"
+# just a utility to fetch the url to a file, only called by urlupdater.sh script
+
+echo "$QUTE_URL" > "/tmp/qute_url"

@@ -7,13 +7,13 @@
     tooltip = { fg=fg.h; bg=bg.h; };
     hints = {
         fg = fg.h;
-        bg = "rgba(${t2.rgb}, 0.8)";
-        match.fg = blue.h;
+        bg = black.h;
+        match.fg = t6.h;
     };
 
     messages = let mk = col: { fg = col.h; bg = bg.h; border = "#00000000"; }; in {
         error = mk red;
-        warning = mk yellow;
+        warning = mk red;
         info = mk fg;
     };
 
@@ -35,18 +35,22 @@
         system = { fg="none"; bg="none"; };
     };
 
-    tabs = {
-        bar.bg = bg.h;
-        even = { fg = fg.h; bg = bg.h; };
-        odd  = { fg = fg.h; bg = bg.h; };
+    tabs = let
+        b = black.h;
+        m = t2.h;
+        f = fg.h;
+    in {
+        bar.bg = b;
+        even = { fg = f; bg = b; };
+        odd  = { fg = f; bg = b; };
         selected = {
-            even = { fg = fg.h; bg = t2.h; };
-            odd  = { fg = fg.h; bg = t2.h; };
+            even = { fg = f; bg = m; };
+            odd  = { fg = f; bg = m; };
         };
     };
 
     completion = {
-        category = { fg=blue.h; bg=t1.h; border.bottom=t1.h; border.top=t1.h; };
+        category = { fg=green.h; bg=t1.h; border.bottom=t1.h; border.top=t1.h; };
         even.bg = bg.h;
         odd.bg = bg.h;
 
@@ -63,7 +67,18 @@
     };
 
     statusbar = {
-        progress.bg = fg.h;
+        progress.bg = green.h;
+        normal =  { fg = fg.h; bg = black.h; };
+        command = { fg = fg.h; bg = black.h; };
+        insert =  { fg = bg.h; bg = blue.h; };
+        url = {
+            fg               = green.h;
+            success.http.fg  = green.h;
+            success.https.fg = green.h;
+            error.fg         = red.h;
+            warn.fg          = yellow.h;
+            hover.fg         = mg.h;
+        };
         caret = {
             fg = bg.h;
             bg = purple.h;
@@ -71,17 +86,6 @@
                 fg = bg.h;
                 bg = purple.h;
             };
-        };
-        normal =  { fg = fg.h; bg = bg.h; };
-        command = { fg = fg.h; bg = bg.h; };
-        insert =  { fg = bg.h; bg = blue.h; };
-        url = {
-            fg               = mg.h;
-            error.fg         = red.h;
-            warn.fg          = yellow.h;
-            hover.fg         = t6.h;
-            success.http.fg  = mg.h;
-            success.https.fg = mg.h;
         };
     };
 }

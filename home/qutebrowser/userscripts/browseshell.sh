@@ -13,7 +13,7 @@ function encode() {
 }
 
 function open() {
-    echo "open -t $@" >> "$QUTE_FIFO"
+    echo "open -t $1" >> "$QUTE_FIFO"
 }
 
 function default() {
@@ -21,7 +21,7 @@ function default() {
 }
 
 function xio() {
-    source /home/canoe/repos/xioxide/main.sh "" "" echo "" sites "$@" --no-passthrough
+    xioxide sites "$@" --no-passthrough
 }
 
 function handle_query() {
@@ -44,7 +44,7 @@ function handle_query() {
 
 function get_query() {
     hist="$(
-        /home/canoe/repos/xioxide/main.sh parsed sites | awk '{ gsub(/_/, "", $1); print }'
+        cat "$XDG_CONFIG_HOME"/xioxide/sites.binds | awk '{ gsub(/_/, "", $1); print }'
         tac "$BROWSESHELL_HIST"
     )"
 

@@ -1,11 +1,29 @@
-{ config, rice, ... }: {
+{ config, lib, rice, ... }@args: {
     wayland.windowManager.hyprland.enable = true;
+
+    xdg.configFile."hypr/sh" = {
+        source = ./sh;
+        recursive = true;
+    };
+
+    # submap keybinds
+    wayland.windowManager.hyprland.extraConfig = let
+        mkBindsStr = binds: lib.strings.concatStrings (map (b: "bind = ${b}\n") binds);
+        mkSubmapStr = submap: binds: "submap = ${submap}\n${mkBindsStr binds}submap = reset\n";
+    in lib.strings.concatStrings (lib.attrsets.mapAttrsToList mkSubmapStr (import ./binds.nix args).submaps);
+
     wayland.windowManager.hyprland.settings = {
+        binde = (import ./binds.nix args).bind;
+        bindm = [ "SUPER, mouse:272, resizewindow" ];
+
         exec-once = [
-            "kitty" # TODO replace this with variable
+            "pypr"
+            "drop init"
+            "$XDG_CONFIG_HOME/hypr/sh/warp-cursor-on-window-open.sh"
         ];
 
         exec = [
+            "$XDG_CONFIG_HOME/hypr/sh/notcron.sh"
             "hyprctl setcursor ${config.home.pointerCursor.name} ${toString config.home.pointerCursor.size}"
         ];
 
@@ -17,6 +35,13 @@
             ",preferred,auto,auto"
         ];
 
+        windowrulev2 = [
+            "float,class:^(scratchpad)$" # rules to make pypr scratchpads work
+            "workspace special silent,class:^(scratchpad)$"
+
+            "bordersize 0, floating:0, onworkspace:w[t1]" # remove border when only 1 window open
+        ];
+
         dwindle = {
             preserve_split = true;
             smart_resizing = false;
@@ -26,8 +51,10 @@
 
         general = {
             border_size = rice.window.border;
-            gaps_in = rice.window.gaps-in;
-            gaps_out = rice.window.gaps-out;
+            gaps_in = 0;
+            gaps_out = 0;
+            # gaps_in = rice.window.gaps-in;
+            # gaps_out = rice.window.gaps-out;
 
             "col.inactive_border" = "rgba(00000000)";
             "col.nogroup_border"  = "rgba(00000000)";
@@ -74,7 +101,7 @@
             disable_splash_rendering = true;
             force_default_wallpaper = 0;
 
-            font_family = rice.font.name;
+            font_family = rice.fonts.code.name;
 
             enable_swallow = true;
             swallow_regex = "^(kitty)$"; # TODO update this to use a variable
@@ -92,36 +119,4 @@
         # windowrulev2 = float,class:^(scratchpad)$
         # windowrulev2 = workspace special silent,class:^(scratchpad)$
     };
-
-
-    wayland.windowManager.hyprland.extraConfig = ''
-$mainMod = SUPER # Sets "Windows" key as main modifier
-
-# Example binds, see https://wiki.hypr.land/Configuring/Binds/ for more
-bind = $mainMod, T, exec, kitty
-bind = $mainMod, D, killactive,
-
-# Move focus with mainMod + arrow keys
-bind = $mainMod, N, movefocus, l
-bind = $mainMod, O, movefocus, r
-bind = $mainMod, A, movefocus, u
-bind = $mainMod, I, movefocus, d
-
-# Scroll through existing workspaces with mainMod + scroll
-bind = $mainMod, Y, workspace, r+1
-bind = $mainMod, C, workspace, r-1
-
-bind = $mainMod SHIFT, Y, movetoworkspace, r+1
-bind = $mainMod SHIFT, C, movetoworkspace, r-1
-
-# Move/resize windows with mainMod + LMB/RMB and dragging
-bindm = $mainMod, mouse:272, resizewindow
-
-# Laptop multimedia keys for volume and LCD brightness
-bindel = ,XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
-bindel = ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-bindel = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-bindel = ,XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+
-bindel = ,XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-
-    '';
 }

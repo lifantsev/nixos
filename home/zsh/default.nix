@@ -33,15 +33,13 @@
             share = true; # shared hist between files
         };
 
-        shellAliases = (import ./alias/git.nix) //
-                       (import ./alias/other.nix) // {
-            xioxide="source ${config.home.homeDirectory}/repos/xioxide/main.sh";
-        };
+        shellAliases = (import ./alias/git.nix) // (import ./alias/other.nix);
 
         initContent = /*bash*/ ''
             ${import ./function/xioxide.nix args}
-            ${import ./function/download.nix}
-            ${import ./function/extract.nix}
+
+            ${builtins.readFile ./function/download.sh}
+            ${builtins.readFile ./function/extract.sh}
 
             ${builtins.readFile ./bind/binds.zsh}
             ${builtins.readFile ./bind/lazy-comp-init.zsh}

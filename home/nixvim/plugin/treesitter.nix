@@ -2,9 +2,9 @@
     enable = true;
     grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
         json toml yaml xml
-        make regex markdown
+        make markdown
         vim vimdoc
-        bash zsh
+        bash zsh regex 
         lua
         nix
     ];

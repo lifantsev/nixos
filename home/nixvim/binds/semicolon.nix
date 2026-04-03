@@ -15,6 +15,4 @@
     { mode = "i"; key = ";k"; action = "<ESC>A"; }
     { mode = "i"; key = ";h"; action = "<ESC>I"; }
     { mode = "i"; key = ";c"; action = "<ESC><CMD>lua require('Comment.api').insert.linewise.eol()<CR>"; }
-
-    # TODO add some kind of bind to hit enter in {|} and insert semicolon after
 ]

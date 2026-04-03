@@ -8,11 +8,10 @@
     };
 
     keymaps = {
-        # TODO do I A seeking in extra config
+        # NOTE make a way to enter search (ie rebind enter key)
 
         # TRACK NAVIGATION / ACTIONS #
         "space" = "ResumePause";
-        "S-space" = "AddSelectedItemToQueue";
         "enter" = "ChooseSelected";
 
         "n" = "PreviousPage";
@@ -61,6 +60,6 @@
         "z d" = "SortTrackByAddedDate";
         "z t" = "SortTrackByDuration";
         "z z" = "SortLibraryAlphabetically";
-        "z r" = "ReverseOrder";
+        # "z r" = "ReverseOrder"; # apparently this doesnt exist even though its in docs
     };
 }
