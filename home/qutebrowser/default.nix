@@ -1,6 +1,4 @@
 { rice, ... }@args: {
-    # TODO look into the problem of wasting space on tabs when we dont need to look at them most of the time
-
     xdg.configFile = import ./userstyles.nix // { "qutebrowser/userscripts".source = ./userscripts; };
 
     home.sessionVariables.QT_QPA_PLATFORM = "wayland";

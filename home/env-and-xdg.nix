@@ -12,11 +12,8 @@
         MANPAGER = "nvimpager";
     };
 
-    # TODO go thru commented lines and see if i wanna uncomment
     xdg = let home = config.home.homeDirectory; in {
         enable = true;
-
-        # mime.enable = true;
 
         configHome = "${home}/.config";
         dataHome = "${home}/.local/share";
@@ -41,16 +38,5 @@
                 XDG_REPOSITORY_DIR = "${home}/repos";
             };
         };
-
-        # mimeApps = {
-        #     enable = true;
-        #     defaultApplications = { # look in /run/current-system/sw/share/applications for .dekstop files
-        #         "x-scheme-handler/http" = [ "${config.home.sessionVariables.BROWSER}.desktop" ];
-        #         "x-scheme-handler/https" = [ "${config.home.sessionVariables.BROWSER}.desktop" ];
-        #     };
-        #     associations.removed = { # remove associations forced by some apps
-        #         #"mimetype1" = "shittyapp.desktop";
-        #     };
-        # };
     };
 }

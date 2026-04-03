@@ -1,7 +1,8 @@
-# TODO write a quick readme
-# new func
-# obv config and search
-# current item (predot)
+# usage: xioxide <myconfig> <pattern> <args>
+#     myconfig specifies which entries in .config/xioxide to use
+#     pattern specifies what to search through it by (prefix of '.' is replaced by current entry)
+#     args:
+#         --no-passthrough: if there were no matches, print no output (by default it regurgitates <pattern>)
 
 cfg_stem="$1"
 originalinput="$2"

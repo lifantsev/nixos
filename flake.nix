@@ -1,5 +1,6 @@
 # notes for battery life
 # barebones hyprland, and nvim installed: 12 hr, basically no daemons
+# TODO write readme
 {
     description = "configuration flake for asahi macbook";
 

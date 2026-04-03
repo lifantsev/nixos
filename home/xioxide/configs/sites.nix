@@ -24,7 +24,7 @@
         o."bruinlearn.ucla.edu/courses/" = {
             c = "227811/";
             m = "233028/";
-            p = "TODO";
+            p = "todo";
             h = "231956/";
         };
 
