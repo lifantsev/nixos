@@ -23,10 +23,10 @@ while true; do
 
     if [ $result -eq 0 ]; then
         colorprint "$COL_SUCCESS" "-> successful build $(timestamp)\n"
-        notify "nix rebuild" "success"
+        notify "nix rebuild succeeded"
     else
         colorprint "$COL_FAIL" "-> build failed $(timestamp)\n"
-        notify "nix rebuild" "BUILD FAILED"
+        notify "ERROR IN NIX REBUILD"
     fi
 
     [ "$1" == "loop" ] && echo || exit $result
