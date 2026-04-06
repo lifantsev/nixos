@@ -71,12 +71,4 @@
             }
         ];
     };
-
-    lua = with rice.col; /*lua*/ ''
-        vim.api.nvim_set_hl(0, 'NoiceCmdlineIcon', { fg = '${mg.h}' })
-        vim.api.nvim_set_hl(0, 'NoiceFormatConfirm', { bg = 0 })
-        vim.api.nvim_set_hl(0, 'NoiceFormatConfirmDefault', { bg = 0 })
-
-        vim.api.nvim_set_hl(0, 'NoiceCmdlineIconSearch', { link = 'NoiceCmdlineIcon' })
-    '';
 }

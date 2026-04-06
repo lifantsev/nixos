@@ -28,7 +28,18 @@ in {
                 transparent_background = true;
                 float.transparent = true;
                 custom_highlights = with rice.col; {
-                    FloatTitle = { fg = blue.h; };
+                    FloatTitle.fg = blue.h;
+                    FloatBorder.fg = mg.h;
+
+                    MiniFilesTitleFocused = { fg = blue.h; bold = true; };
+                    MiniFilesBorderModified.fg = red.h;
+
+                    LeapLabel = { fg = purple.h; bg = t0.h; bold = true; };
+
+                    NoiceCmdlineIcon.fg = mg.h;
+                    NoiceCmdlineIconSearch.link = "NoiceCmdlineIcon";
+                    NoiceFormatConfirm.bg = 0;
+                    NoiceFormatConfirmDefault.bg = 0;
                 };
             };
         };
@@ -39,6 +50,7 @@ in {
                                        ++ (map (file: (import file args).remap or []) (filesIn ./plugin))
                                        ++ (map (file: if lib.hasSuffix ".nix" file then (import file args).remap or [] else []) (filesIn ./plugin/extra)) );
 
+        # this needs to be pre
         extraConfigLuaPre = lib.concatStrings (map (file: if lib.hasSuffix ".nix" file then (import file args).lua else builtins.readFile file) (filesIn ./plugin/extra))
                           + lib.concatStrings (map (file: (import file args).lua or "") (filesIn ./plugin))
                           + lib.concatStrings (map builtins.readFile (filesIn ./extralua));

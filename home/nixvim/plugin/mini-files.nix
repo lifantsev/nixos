@@ -1,5 +1,4 @@
 { ... }: {
-    # TODO update title color, changed color, and maybe try borderless design
     plugin = {
         enable = true;
 
@@ -26,10 +25,6 @@
             };
         };
     };
-
-    lua = /*lua*/ ''
-        vim.api.nvim_set_hl(0, "MiniFilesTitleFocused", { link = "FloatTitle" })
-    '';
 
     remap = [{
         mode = "n";
