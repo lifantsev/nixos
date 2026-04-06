@@ -16,6 +16,7 @@
 
     "<c-r>" = "reload";
     ";" = "quit";
+    "z" = "custom_quitcd";
     "n" = "updir";
     "a" = "up";
     "i" = "down";

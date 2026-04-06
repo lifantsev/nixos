@@ -2,7 +2,6 @@
     xdg.configFile."lf/colors".source = ./colors;
     xdg.configFile."lf/scripts".source = ./scripts;
 
-    # TODO maybe re-add typetonav
     programs.lf = let scriptdir = "${config.xdg.configHome}/lf/scripts"; in {
         enable = true;
 

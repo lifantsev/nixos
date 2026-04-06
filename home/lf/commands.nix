@@ -2,14 +2,13 @@ scriptdir: {
     custom_open = ''%${scriptdir}/opener'';
     custom_wall = ''%wpp desktop "$f"'';
     custom_fullwall = ''$wpp browser "$f" && echo -n "press enter" && read'';
+    custom_quitcd = ''%touch /tmp/lfcd && lf --remote "send $id quit"'';
 
     custom_extract = /* bash */ ''%{{
     x "$f"
     }}'';
 
-
-
-
+    # XIOXIDE STUFF
 
     custom_ee = "cd ~";
 
@@ -29,9 +28,7 @@ scriptdir: {
     lf --remote "send $id \$$EDITOR \"$target\""
     }}'';
 
-    
-
-
+    # FILE MANIPULATION
 
     custom_mkdir = /* bash */ ''%{{
     printf " dir name: "
@@ -55,19 +52,6 @@ scriptdir: {
     lf -remote 'send reload'
     }}'';
 
-
-
-
-    custom_drag = /* bash */ ''%{{
-    num="$(echo "$fx" | wc -l)"
-
-    if [ "$num" = "1" ]; then
-    dragon-drop -T -x "$f" &
-    else
-    dragon-drop -T -a -x $(echo $fx) &
-    fi
-    }}'';
-
     custom_trash =
     let
     file = "\${files%%;*}";
@@ -85,5 +69,17 @@ scriptdir: {
     files="${files}"
     fi
     done
+    }}'';
+
+    # APP INTEGRATION
+
+    custom_drag = /* bash */ ''%{{
+    num="$(echo "$fx" | wc -l)"
+
+    if [ "$num" = "1" ]; then
+    dragon-drop -T -x "$f" &
+    else
+    dragon-drop -T -a -x $(echo $fx) &
+    fi
     }}'';
 }
