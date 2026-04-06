@@ -3,8 +3,7 @@
         enable = true;
         settings = {
             options.background = rice.col.bg.hex;
-            # TODO make sure panning & zooming works normal
-            binds = let pan = "30"; zoom = "7%"; in {
+            binds = let pan = "50"; zoom = "3"; in {
                 "<semicolon>" = "quit";
 
                 n = "pan ${pan} 0";
