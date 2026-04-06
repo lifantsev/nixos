@@ -2,14 +2,15 @@
     home.sessionVariables = {
         VISUAL = "nvim";
         EDITOR = "nvim";
-        EDITORS = "nvim";
         BROWSER = "org.qutebrowser.qutebrowser";
-        BROWSERS = "firefox\nbrave-browser\norg.qutebrowser.qutebrowser";
         TERMINAL = "kitty";
-        TERMINALS = "kitty";
-        DMENU_PROGRAM = "menu";
         NIX_BUILD_SHELL = "zsh";
+        DMENU_PROGRAM = "menu";
         MANPAGER = "nvimpager";
+
+        EDITORS = "nvim";
+        BROWSERS = "firefox\nbrave-browser\norg.qutebrowser.qutebrowser";
+        TERMINALS = "kitty";
     };
 
     xdg = let home = config.home.homeDirectory; in {
