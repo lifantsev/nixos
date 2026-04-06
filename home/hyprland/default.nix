@@ -19,17 +19,16 @@
         exec-once = [
             "pypr"
             "drop init"
-            "$XDG_CONFIG_HOME/hypr/sh/warp-cursor-on-window-open.sh"
         ];
 
         exec = [
             "$XDG_CONFIG_HOME/hypr/sh/notcron.sh"
+            "$XDG_CONFIG_HOME/hypr/sh/warp-cursor.sh"
             "hyprctl setcursor ${config.home.pointerCursor.name} ${toString config.home.pointerCursor.size}"
         ];
 
         env = [ "XCURSOR_SIZE,${toString config.home.pointerCursor.size}" ];
 
-        # TODO setup monitor = line
         monitor = [
             "eDP-1,3456x2160@60,0x0,2"
             ",preferred,auto,auto"
@@ -38,8 +37,7 @@
         windowrulev2 = [
             "float,class:^(scratchpad)$" # rules to make pypr scratchpads work
             "workspace special silent,class:^(scratchpad)$"
-
-            "bordersize 0, floating:0, onworkspace:w[t1]" # remove border when only 1 window open
+            # "bordersize 0, floating:0, onworkspace:w[t1]" # remove border when only 1 window open
         ];
 
         dwindle = {
@@ -60,8 +58,6 @@
             "col.nogroup_border"  = "rgba(00000000)";
             "col.active_border"         = "0xFF${rice.col.mg.hex}";
             "col.nogroup_border_active" = "0xFF${rice.col.mg.hex}";
-
-            # TODO checkout scrolling and monocle layouts
 
             no_focus_fallback = true; # don't wraparound when switching windows
         };
@@ -104,7 +100,7 @@
             font_family = rice.fonts.code.name;
 
             enable_swallow = true;
-            swallow_regex = "^(kitty)$"; # TODO update this to use a variable
+            swallow_regex = "^(${config.home.sessionVariables.TERMINAL})$";
 
             middle_click_paste = false;
 
@@ -114,9 +110,5 @@
         cursor.inactive_timeout = 15;
 
         # xwayland.force_zero_scaling = true; # NOTE this might improve image quality
-
-        # below might be needed for setting up scratchpad
-        # windowrulev2 = float,class:^(scratchpad)$
-        # windowrulev2 = workspace special silent,class:^(scratchpad)$
     };
 }
