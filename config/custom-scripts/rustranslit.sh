@@ -1,0 +1,1 @@
+cat | sed 'y|абвгдезийклмнопрстуфхцыэ|abvgdeziiklmnoprstufxcie|; y|АБВГДЕЗИЙКЛМНОПРСТУФХЦЫЭ|ABVGDEZIIKLMNOPRSTUFXCIE|; s|[Ъъ]||g; s|[Ьь]||g; s|[Чч]|ch|g; s|[Шш]|sh|g; s|[Щщ]|sh|g; s|[Юю]|yu|g; s|[Яя]|ya|g; s|[Ёё]|yo|g; s|[Жж]|zh|g'

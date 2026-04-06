@@ -41,6 +41,11 @@
         pdftk
         yt-dlp
         tldr
+        mediainfo
+
+        playerctl
+        mpvc
+        mpc
 
         pyprland
         mako libnotify

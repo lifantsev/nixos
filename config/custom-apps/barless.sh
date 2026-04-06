@@ -36,6 +36,31 @@ case "$action" in
         [ "$state" == "-" ] && [ "${percentage//%/}" -le 30 ] && warning="warning: please charge"
         [ "$state" == "+" ] && [ "${percentage//%/}" -ge 80 ] && warning="warning: please disconnect"
         ;;
+    music*)
+        song="$(plyr current)"
+        song="$(echo "$song" | rustranslit)"
+        song="$(echo "$song" | iconv -f utf8 -t ascii//TRANSLIT//IGNORE | LC_COLLATE=C sed -e "s/[^ 0-9a-zA-Z':().,-]//g")"
+
+        # removes trailing whitespace
+        # removes leading whitespace
+        # any trailing [] square brackets
+        # removes any trailing () parens
+        # changes feat. to ft.
+        # compresses all whitespace to single spaces
+        song="$(echo "$song" | sed \
+            -e 's|\s*$||' \
+            -e 's|^\s*||' \
+            -e 's|\[.*\]\s*$||' \
+            -e 's|\s*(.*)$||' \
+            -e 's|feat\.|ft\.|' \
+            -e 's|\s\+| |g'
+        )"
+
+        song="$(echo "$song" | tr '[:upper:]' '[:lower:]')"
+
+        title="$song"
+        body="$(plyr indicator) $(plyr progress)%"
+        ;;
 esac
 
 [[ "$action" == *"warn" ]] && [ -z "$warning" ] && exit # only warn when theres a warning
