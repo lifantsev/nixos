@@ -23,7 +23,7 @@
             
             text-color = "${fg.h}ff";
             border-color = "${fg.h}b0";
-            background-color = "${bg.h}b0";
+            background-color = "${bg.h}d0";
             progress-color = "${blue.h}ff";
         };
     };
