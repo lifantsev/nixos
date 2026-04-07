@@ -7,6 +7,7 @@
         W = subreset (exec "drop");
 
         T = subreset (exec "drop term");
+        B = subreset (exec "drop blue");
         N = subreset (exec "drop nixbuild");
         Q = subreset (exec "drop qalc");
         S = subreset (exec "drop spotify");
