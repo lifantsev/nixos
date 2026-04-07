@@ -71,8 +71,8 @@ function handle_command() {
         "r"|"reload") reload ;;
         "c"|"credentials") credentials ;;
         "p"|"ping") ping google.com ;;
+        "v"|"vpn") vpn "$2" "$3" ;;
         "h"|"help") print_help ;;
-        # TODO add vpn support
     esac
 }
 
@@ -82,7 +82,7 @@ if [ -n "$1" ]; then
 fi
 
 while true; do
-    curname="$(current | tr '[:upper:]' '[:lower:]')"
+    curname="$(vpn current | sed 's|.\+|v |')$(current | tr '[:upper:]' '[:lower:]')"
     [ -n "$curname" ] && curname+=": "
 
     colorprint "$COL_PROMPT" "-> $curname"
