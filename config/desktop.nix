@@ -20,4 +20,7 @@
     environment.etc."wireguard".source = ../ignore/wireguard; # put wg.conf files for vpn here
 
     security.sudo.extraConfig = "Defaults pwfeedback"; # show asterisks on sudo prompt
+
+    # handling power keys & stuff if we ever want to
+    # services.logind.settings.Login
 }
