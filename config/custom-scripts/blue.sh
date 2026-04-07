@@ -3,6 +3,17 @@
 
 source color-helper
 
+function print_help() {
+    echo "'blue' allows you to interact with bluetoothctl using device names instead of blueooth addresses"
+    echo
+    echo "h|help            : prints this help menu"
+    echo "u|connect <name?> : connect to either specified device or default device"
+    echo "d|disconnect      : disconnect from current device"
+    echo "r|reload          : reload the connection to current device"
+    echo "p|pair <str>      : search for a device with <str> in its name and pair with it"
+    echo "drop              : open a bluetoothctl subshell"
+}
+
 # TRIVIAL HELPERS
 function name_to_address() { bluetoothctl devices Paired | awk "/ $1[^ ]*\$/ { print \$2 }" ;}
 function is_address() { echo "$1" | grep -q '^\([0-9A-F]\{2\}:\)\{5\}[0-9A-F]\{2\}$' ;}
@@ -99,6 +110,7 @@ function handle_command() {
         "d"|"disconnect") bluetoothctl disconnect;;
         "r"|"reload") reload;;
         "p"|"pair") pair "$2";;
+        "h"|"help") print_help;;
         "drop") bluetoothctl;;
     esac
 }
