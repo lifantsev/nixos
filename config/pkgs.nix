@@ -20,6 +20,7 @@
         zsh
         bash
         vim
+        git
         lf
         spotify-player
         libqalculate
@@ -53,30 +54,29 @@
         #############
         # CLI UTILS #
         #############
-        git
-        gnupg
-        upower
-        sshfs
-        fzf
-        eza
-        jq
-        unzip
-        ripgrep
-        bc
-        socat
         ansifilter
-        trash-cli
-        dragon-drop
         bat
+        bc
+        dragon-drop
+        eza
         file
-        mpv
+        fzf
+        gnupg
         imv
-        pdftk
-        yt-dlp
-        tldr
+        jq
         mediainfo
-        playerctl
-        mpvc
         mpc
+        mpv
+        mpvc
+        pdftk
+        playerctl
+        ripgrep
+        socat
+        sshfs
+        tldr
+        trash-cli
+        unzip
+        upower
+        yt-dlp
     ];
 }
