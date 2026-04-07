@@ -7,6 +7,6 @@ case "$type" in
     image/*) imv "$f" ;;
     video/*) mpv "$f" ;;
     audio/*) mpv "$f" ;;
-    */pdf) zathura "$f" ;;
+    */pdf) sioyek "$f" ;;
     *) lf --remote "send $id \$nvim \"$f\"" ;;
 esac
