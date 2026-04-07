@@ -38,7 +38,7 @@
 
         # OTHER
         mako libnotify
-        networkmanagerapplet
+        networkmanagerapplet wireguard-tools
         grim slurp
         brightnessctl
         wl-clipboard wtype
