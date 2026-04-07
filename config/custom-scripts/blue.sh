@@ -23,19 +23,6 @@ function default() { bluetoothctl devices Paired | awk 'NR==1 { print $2 }'; }
 function address_to_name() { bluetoothctl devices | awk "/ $1 / { print \$3 }" ;}
 function address_to_desc() { echo "$(address_to_name "$1") ($1)" ;}
 
-function printmsg() {
-    if [[ "$1" == "fail"* ]]; then
-        colorprint "$COL_FAIL" "-> $1\n"
-        return 1
-    elif [[ "$1" == "info"* ]]; then
-        colorprint "$COL_INFO" "-> $1\n"
-    else
-        colorprint "$COL_SUCCESS" "-> $1\n"
-    fi
-
-    return 0
-}
-
 # NONTRIVIAL HELPERS
 function connect_address() {
     if bluetoothctl connect "$1";
@@ -53,7 +40,9 @@ function disconnect() {
 
 function reload() {
     current="$(current)"
-    [ -z "$current" ] && echo "cannot reload: not currently connected to anything" && return 1
+    if [ -z "$current" ]
+    then printmsg "failed to reload: not currently connected to anything" ; return 1
+    fi
 
     playing="$(plyr playing)"
 

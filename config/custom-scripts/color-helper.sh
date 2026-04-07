@@ -6,3 +6,16 @@ COL_SUCCESS="\033[0;32m"
 COL_INFO="\033[0;33m"
 
 function colorprint() { printf "$1$2$COL_DEFAULT"; }
+
+function printmsg() {
+    if [[ "$1" == "fail"* ]]; then
+        colorprint "$COL_FAIL" "-> $1\n"
+        return 1
+    elif [[ "$1" == "info"* ]]; then
+        colorprint "$COL_INFO" "-> $1\n"
+    else
+        colorprint "$COL_SUCCESS" "-> $1\n"
+    fi
+
+    return 0
+}
