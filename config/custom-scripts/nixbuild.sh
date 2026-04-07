@@ -17,10 +17,10 @@ while true; do
     result=$?
 
     if [ $result -eq 0 ]; then
-        colorprint "$COL_SUCCESS" "-> successful build $(timestamp)\n"
+        printmsg "successful build $(timestamp)"
         notify "nix rebuild succeeded"
     else
-        colorprint "$COL_FAIL" "-> build failed $(timestamp)\n"
+        printmsg "failed to build $(timestamp)"
         notify "ERROR IN NIX REBUILD"
     fi
 
