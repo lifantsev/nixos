@@ -17,6 +17,7 @@
 
     services.upower.enable = true;
     hardware.bluetooth.enable = true;
+    environment.etc."wireguard".source = ../ignore/wireguard; # put wg.conf files for vpn here
 
     security.sudo.extraConfig = "Defaults pwfeedback"; # show asterisks on sudo prompt
 }
