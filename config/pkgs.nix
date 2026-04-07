@@ -25,7 +25,7 @@
         libqalculate
 
         ## OTHER
-        zathura
+        sioyek
         kitty
         kicad
 
