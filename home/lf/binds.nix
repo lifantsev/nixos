@@ -35,8 +35,6 @@
 
     "c" = "custom_chmod";
     "." = "set hidden!";
-    "w" = "custom_wall";
-    "W" = "custom_fullwall";
     "x" = "custom_extract";
     "<c-d>" = "custom_drag";
 }
