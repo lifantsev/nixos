@@ -10,9 +10,8 @@ in {
         XF86MonBrightnessUp   = exec "${setbright} 3%+ && barless brightness 500";
         XF86MonBrightnessDown = exec "${setbright} 3%- && barless brightness 500";
 
-        # TODO install my plyr script, modernize it and then uncomment these
-        # XF86AudioPlay = exec "plyr toggle";
-        # XF86AudioNext = exec "plyr next";
-        # XF86AudioPrev = exec "plyr prev";
+        XF86AudioPlay = exec "plyr toggle";
+        XF86AudioNext = exec "plyr next && sleep 2.2 && barless music-short";
+        XF86AudioPrev = exec "plyr prev && sleep 2.2 && barless music-short";
     };
 }
