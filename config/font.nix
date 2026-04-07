@@ -1,10 +1,10 @@
 { rice, pkgs, ... }: {
     fonts = {
-        packages = with pkgs; [
+        packages = [
             pkgs.${rice.font.code.package}
             pkgs.${rice.font.read.package}
 
-            # nerd-fonts.fira-code
+            # pkgs.nerd-fonts.fira-code
         ];
 
         fontconfig.defaultFonts = {
