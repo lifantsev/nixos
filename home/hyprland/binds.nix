@@ -1,10 +1,10 @@
-{ lib, ... }: let
+{ config, lib, ... }: let
     dispatch  = x: "hyprctl dispatch ${x}";
     exec      = x: dispatch "exec '${x}'";
     submap    = x: dispatch "submap ${x}";
     subreset  = cmd: cmd + " && " + submap "reset";
 
-    args = { inherit dispatch exec submap subreset; };
+    args = { inherit config dispatch exec submap subreset; };
 
     # takes a bigbindset: keys are either:
     # <keystr> : then value is a cmdlist/str

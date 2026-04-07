@@ -1,4 +1,4 @@
-{ dispatch, exec, submap, subreset,  ... }: let
+{ config, dispatch, exec, submap, subreset,  ... }: let
     preselect = x: dispatch "layoutmsg preselect ${x}";
 in {
     main = {
@@ -17,11 +17,11 @@ in {
     # the intention is that on my upcoming custom keyboard i can have super as a oneshot key
     # so i hit <oneshot(super) 'q' 't'> and it works even though the 't' doesnt have a modifier applied
     # once i get the keyboard, see if it is practical this way, and decide if i want to keep or change this config
-    apps =  {
+    apps = let term = config.home.sessionVariables.TERMINAL; in {
         Space = submap "reset";
-        L = subreset (exec "kitty -e launcher");
+        L = subreset (exec term+" launcher");
 
-        T = subreset (exec "kitty");
+        T = subreset (exec term);
         H = subreset (exec "browser new-window");
         B = subreset (exec "brave");
     };
