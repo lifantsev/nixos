@@ -8,21 +8,55 @@
         custom-pkgs = map (file: if lib.hasSuffix ".nix" file then import file args else pkgs.writeShellScriptBin (stemOf file) (builtins.readFile file)) files;
     in custom-pkgs ++
     [
-        zathura
-        kitty
-        qutebrowser brave
+        #############
+        # USER APPS #
+        #############
 
-        vim
+        ### BROWSERS
+        qutebrowser
+        brave
+
+        ### TUI
         zsh
         bash
+        vim
+        lf
+        spotify-player
+        libqalculate
 
-        apple-cursor
+        ## OTHER
+        zathura
+        kitty
+        kicad
 
+        ###############
+        # DESKTOP ENV #
+        ###############
+
+        # HYPRLAND
+        pyprland
+
+        # OTHER
+        mako libnotify
+        networkmanagerapplet
+        grim slurp
+        brightnessctl
+        wl-clipboard wtype
+
+        #########
+        # OTHER #
+        #########
+
+        asahi-nvram # to turn off bootsound: `sudo asahi-nvram write system:StartupMute=%01`
+        asahi-bless # to boot into macos temporarily: `sudo asahi-bless --next --set-boot-macos`
+
+        #############
+        # CLI UTILS #
+        #############
         git
         gnupg
         upower
         sshfs
-        lf
         fzf
         eza
         jq
@@ -37,28 +71,12 @@
         file
         mpv
         imv
-        libqalculate
         pdftk
         yt-dlp
         tldr
         mediainfo
-
         playerctl
         mpvc
         mpc
-
-        pyprland
-        mako libnotify
-        brightnessctl
-        networkmanagerapplet
-        grim slurp
-
-        spotify-player
-        kicad
-
-        wl-clipboard wtype
-
-        asahi-nvram # to turn off bootsound: `sudo asahi-nvram write system:StartupMute=%01`
-        asahi-bless # to boot into macos temporarily
     ];
 }
