@@ -37,8 +37,8 @@ in {
         };
 
         font = {
-            name = rice.fonts.code.full.family;
-            size = rice.fonts.code.size;
+            name = rice.font.code.full.family;
+            size = rice.font.code.size;
         };
 
         cursorTheme = cursor;

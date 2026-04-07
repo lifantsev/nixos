@@ -1,14 +1,13 @@
 { rice, pkgs, ... }: {
     console = {
-        font = "cozette12x26"; # a bit smaller but nice font
-        packages = [ pkgs.cozette ];
-
-        # font = "ter-v32n";
-        # packages = [ pkgs.terminus_font ];
-
-        # font = "spleen-16x32";
-        # packages = [ pkgs.spleen ];
+        earlySetup = true;
+        font = rice.font.tty.name; # a bit smaller but nice font
+        packages = [ pkgs.${rice.font.tty.package} ];
     };
+
+    services.udev.extraRules = ''
+        ACTION=="add", SUBSYSTEM=="graphics", KERNEL=="fb*", RUN+="${pkgs.kbd}/bin/setfont ${rice.font.tty.name}"
+    '';
 
     boot.initrd.preLVMCommands = with rice.col; /*sh*/ ''
         echo -en "\e]P0${bg.hex}"     #black
@@ -27,6 +26,7 @@
         echo -en "\e]PE${aqua.hex}"   #cyan
         echo -en "\e]P7${t5.hex}"     #lightgrey
         echo -en "\e]PF${fg.hex}"     #white
+
         clear
     '';
 }

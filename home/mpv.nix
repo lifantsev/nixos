@@ -33,8 +33,8 @@
 
         config = {
             no-keepaspect-window = true;
-            osd-font = rice.fonts.read.name;
-            sub-font = rice.fonts.read.name;
+            osd-font = rice.font.read.name;
+            sub-font = rice.font.read.name;
         };
     };
 }

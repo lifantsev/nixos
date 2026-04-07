@@ -3,7 +3,7 @@
         enable = true;
         
         settings = with rice.col; {
-            font = "monospace ${toString rice.fonts.code.size}";
+            font = "monospace ${toString rice.font.code.size}";
             icons = false;
             actions = false;
             default-timeout = 7*1000; # millis

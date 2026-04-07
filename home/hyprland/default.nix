@@ -96,7 +96,7 @@
             force_default_wallpaper = 0;
             background_color = "0x${rice.col.black.hex}";
 
-            font_family = rice.fonts.code.name;
+            font_family = rice.font.code.name;
 
             enable_swallow = true;
             swallow_regex = "^(${config.home.sessionVariables.TERMINAL})$";

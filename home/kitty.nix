@@ -24,16 +24,16 @@
             confirm_os_window_close = 0;
             allow_remote_control = true;
 
-            font_size = fonts.code.size;
+            font_size = font.code.size;
             window_padding_width = "2";
             scrollback_lines = 10000;
             update_check_interval = 0;
             mouse_hide_wait = 0;
 
-            font_family      = fonts.code.full.family;
-            bold_font        = fonts.code.full.bold;
-            italic_font      = fonts.code.full.italic;
-            bold_italic_font = fonts.code.full.bold-italic;
+            font_family      = font.code.full.family;
+            bold_font        = font.code.full.bold;
+            italic_font      = font.code.full.italic;
+            bold_italic_font = font.code.full.bold-italic;
 
             touch_scroll_multiplier = "1.7";
             wheel_scroll_multiplier = "5.0";
