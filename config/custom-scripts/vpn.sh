@@ -18,7 +18,7 @@ function print_help() {
 
 # TRIVIAL HELPERS
 function list() { ls $WGPATH | sed 's|\.conf$||' ;}
-function current() { wg show 2>&1 | sed 's|.* interface \([^ ]*\): .*|\1|' | head -n 1 ;}
+function current() { sudo wg show | grep '^interface:' | head -n 1 | sed 's|^interface: ||' ;}
 function complete_name() {
     result="$(list | grep -i "^$name" | head -n 1)"
     [ -z "$result" ] && result="$(list | grep -i "$id" | head -n 1)"
@@ -30,7 +30,7 @@ function complete_name() {
 }
 
 # NONTRIVIAL HELPERS
-# NOTE these require root access to run
+# NOTE these require root access
 function connect_name() {
     if wg-quick up "$name"
     then printmsg "succesfully connected to $name"
