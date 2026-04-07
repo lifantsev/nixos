@@ -1,14 +1,9 @@
 # NOTE THIS ASSUMES USE OF MAKO NOTIF-DAEMON
 NOTIF_DAEMON="mako"
 
-# https://gist.github.com/vratiu/9780109
-COL_DEFAULT="\033[0m"
-COL_PROMPT="\033[0;34m"
-COL_FAIL="\033[0;31m"
-COL_SUCCESS="\033[0;32m"
+source color-helper
 
 function timestamp() { date +'(%H:%M)'; }
-function colorprint() { printf "$1$2$COL_DEFAULT"; }
 function notify() { [ -n "$(pgrep $NOTIF_DAEMON)" ] && notify-send "$1" "$2"; }
 
 while true; do
