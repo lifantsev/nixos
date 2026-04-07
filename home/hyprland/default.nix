@@ -51,13 +51,11 @@
             border_size = rice.window.border;
             gaps_in = 0;
             gaps_out = 0;
-            # gaps_in = rice.window.gaps-in;
-            # gaps_out = rice.window.gaps-out;
 
-            "col.inactive_border" = "rgba(00000000)";
-            "col.nogroup_border"  = "rgba(00000000)";
-            "col.active_border"         = "0xFF${rice.col.mg.hex}";
-            "col.nogroup_border_active" = "0xFF${rice.col.mg.hex}";
+            "col.inactive_border"       = "0xFF${rice.col.bg.hex}";
+            "col.nogroup_border"        = "0xFF${rice.col.bg.hex}";
+            "col.active_border"         = "0xFF${rice.col.blue.hex}";
+            "col.nogroup_border_active" = "0xFF${rice.col.blue.hex}";
 
             no_focus_fallback = true; # don't wraparound when switching windows
         };
@@ -96,6 +94,7 @@
             disable_hyprland_logo = true;
             disable_splash_rendering = true;
             force_default_wallpaper = 0;
+            background_color = "0x${rice.col.black.hex}";
 
             font_family = rice.fonts.code.name;
 
