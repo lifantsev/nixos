@@ -19,6 +19,8 @@ in {
     # once i get the keyboard, see if it is practical this way, and decide if i want to keep or change this config
     apps =  {
         Space = submap "reset";
+        L = subreset (exec "kitty -e launcher");
+
         T = subreset (exec "kitty");
         H = subreset (exec "browser new-window");
         B = subreset (exec "brave");
