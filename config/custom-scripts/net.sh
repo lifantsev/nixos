@@ -85,9 +85,8 @@ while true; do
     curname="$(current | tr '[:upper:]' '[:lower:]')"
     [ -n "$curname" ] && curname+=": "
 
-    printf "$COL_PROMPT-> $curname"
+    colorprint "$COL_PROMPT" "-> $curname"
     read -r response
-    printf "$COL_DEFAULT"
 
     if [[ "$response" == *" "* ]]
     then handle_command "${response%% *}" "${response#* }"
