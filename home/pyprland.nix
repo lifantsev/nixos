@@ -33,6 +33,7 @@
         ${term_pad { name = "menu";     sh = "menuui"; }}
         ${term_pad { name = "qalc";     sh = "qalc"; }}
         ${term_pad { name = "blue";     sh = "blue"; }}
+        ${term_pad { name = "net";      sh = "net"; }}
         ${term_pad { name = "nixbuild"; sh = "nixbuild loop"; }}
         ${term_pad { name = "spotify";  sh = "spotify_player"; lazy = true; }}
 
