@@ -59,7 +59,7 @@ case "$action" in
         song="$(echo "$song" | tr '[:upper:]' '[:lower:]')"
 
         title="$song"
-        [[ "$action" != *"short" ]] && body="$(plyr indicator) $(plyr progress)%"
+        [[ "$action" != *"short" ]] && [ "$(plyr client)" == "spotify" ] && body="$(plyr indicator)$(plyr progress)%"
         ;;
 esac
 

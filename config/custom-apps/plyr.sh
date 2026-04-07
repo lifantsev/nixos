@@ -131,7 +131,7 @@ case "$cmd" in
             "playerctl") ;;
         esac
 
-        echo "$indicator" | sed 's|\s*$||g' # remove trailing whitespace
+        echo "$indicator" # NOTE this includes the trailing space
         ;;
     "client"):
         echo "$current"
