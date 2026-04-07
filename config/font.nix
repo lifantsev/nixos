@@ -3,11 +3,8 @@
         packages = with pkgs; [
             pkgs.${rice.font.code.package}
             pkgs.${rice.font.read.package}
-            nerd-fonts.fira-code
 
-            monocraft
-            scientifica
-            comic-mono
+            # nerd-fonts.fira-code
         ];
 
         fontconfig.defaultFonts = {
