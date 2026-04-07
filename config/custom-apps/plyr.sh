@@ -62,7 +62,7 @@ case "$cmd" in
     "prev"):
         case "$current" in
             "mpc") mpc prev;;
-            "spotify") spotify_player playback previous &>/dev/null;;
+            "spotify") spotify_player playback previous && spotify_player playback previous &>/dev/null;;
             "mpv") mpvc prev;;
             "playerctl") playerctl previous;;
         esac
