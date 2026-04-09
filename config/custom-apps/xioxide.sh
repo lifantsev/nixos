@@ -11,21 +11,19 @@ args="$3"
 config="$XDG_CONFIG_HOME/xioxide/$cfg_stem"
 input="$originalinput"
 
-[ ! -f "$config.binds" ] && echo "ERR: binds dont exist: $config.binds" >&2 && exit 1
+[ ! -f "$config.binds" ] && echo "xioxide error: binds dont exist: $config.binds" >&2 && exit 1
 
 # apply sed processing if available
 [ -f "$config.sed" ] && input="$(echo "$input" | sed -f "$config.sed")"
 
 # expand predot if present
 if [ "${input:0:1}" == "." ]; then
-    [ ! -f "$config.current" ] && echo "ERR: attempted using predot without $config.current setup" >&2 && exit 1
+    [ ! -f "$config.current" ] && echo "xioxide error: attempted using predot without $config.current setup" >&2 && exit 1
 
     current="$(sh "$config.current")" # sed is to escape . ^ $ (for grepping)
     curname="$(cat "$config.binds" | grep -F "$current" | head -n 1 | awk '{ print $1 }')"
 
-    [ ! -n "$curname" ] && echo "ERR: not currently in a '$cfg_stem' bind entry: $current" >&2 && exit 1
-
-    input="$curname${input:1}"
+    [ -n "$curname" ] && input="$curname${input:1}"
 fi
 
 output="$(cat "$config.binds" | grep "^$input " | sed 's|^[^ ]* ||')"
