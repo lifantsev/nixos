@@ -23,6 +23,7 @@ in {
         # x11.defaultCursor = cursor.name;
     };
 
+    dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
 
     gtk = {
         enable = true;
