@@ -45,6 +45,9 @@
             ${builtins.readFile ./bind/lazy-comp-init.zsh}
 
             source $ZDOTDIR/plugins/nix-shell.plugin.zsh
+
+            # startup command
+            ${config.programs.zsh.shellAliases.n}
         '';
     };
 
