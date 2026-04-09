@@ -27,7 +27,7 @@
 
             zoom_in = "<tab>";
             zoom_out = "u";
-            fit_to_page_width= "l";
+            fit_to_page_width_smart= "l";
             fit_to_page_height_smart = "L";
 
             rotate_clockwise = "r";
