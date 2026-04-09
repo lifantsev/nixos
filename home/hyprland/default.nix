@@ -19,6 +19,7 @@
         exec-once = [
             "pypr"
             "drop init"
+            "browser new-window"
         ];
 
         exec = [
