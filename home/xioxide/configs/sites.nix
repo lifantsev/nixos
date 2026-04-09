@@ -36,6 +36,7 @@
         gs."docs.google.com/spreadsheets/" = googleusers;
         gp."docs.google.com/presentation/" = googleusers;
         gc."calendar.google.com/" = googleusers;
+        gt."tasks.google.com/" = googleusers;
         gv."drive.google.com/drive/" = googleusers;
         gg."gemini.google.com/" = googleusers;
     };

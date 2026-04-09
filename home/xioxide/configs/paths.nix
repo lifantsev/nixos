@@ -52,9 +52,8 @@
                 c = "colors/src/";
             };
 
-            h."home/" = mkBinds 2 ../.. //
-                {
-                    inherit d;
+            h."home/" = mkBinds 2 ../.. // {
+                inherit d;
 
                 y."hyprland/" = {
                     inherit d;
@@ -102,6 +101,11 @@
                     f = "function/";
                     a = "alias/";
                     b = "bind/";
+                };
+
+                o."obsidian/" = {
+                    inherit d;
+                    p."plugins/".c = "config/";
                 };
             };
 
