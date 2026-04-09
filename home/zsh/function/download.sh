@@ -1,3 +1,5 @@
+# NOTE to download playlist videos use this:
+# maximum audio qual with 1080 res
 # yt-dlp --preset-alias mp4 --audio-quality 0 -S res:1080 "$(wl-paste)"
 
 function vdl() {
