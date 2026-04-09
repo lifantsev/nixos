@@ -52,8 +52,8 @@
             gaps_in = 0;
             gaps_out = 0;
 
-            "col.inactive_border"       = "0xFF${rice.col.bg.hex}";
-            "col.nogroup_border"        = "0xFF${rice.col.bg.hex}";
+            "col.inactive_border"       = "0x80${rice.col.fg.hex}";
+            "col.nogroup_border"        = "0x80${rice.col.fg.hex}";
             "col.active_border"         = "0xFF${rice.col.blue.hex}";
             "col.nogroup_border_active" = "0xFF${rice.col.blue.hex}";
 
