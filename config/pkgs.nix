@@ -59,6 +59,7 @@
         bc
         dragon-drop
         eza
+        ffmpeg
         file
         fzf
         gnupg
