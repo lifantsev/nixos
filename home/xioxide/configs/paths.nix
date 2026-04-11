@@ -113,8 +113,8 @@
                 inherit d;
                 p = "pkgs.nix";
 
-                c."custom-apps/" = mkBinds 1 ../../../config/custom-apps;
-                s."custom-scripts/" = mkBinds 1 ../../../config/custom-scripts;
+                # c."custom-apps/" = mkBinds 1 ../../../config/custom-apps;
+                # s."custom-scripts/" = mkBinds 1 ../../../config/custom-scripts;
             };
         };
     };

@@ -1,13 +1,14 @@
 { pkgs, ... }@args: {
     environment.systemPackages = with pkgs; let
-        stemOf = file: builtins.elemAt (builtins.match "^(.*)\\.[a-z]*$" (builtins.baseNameOf file)) 0;
-
         filesIn = path: map (name: path + "/${name}") (builtins.attrNames (lib.attrsets.filterAttrs (n: v: v == "regular") (builtins.readDir path)));
 
-        files = filesIn ./custom-apps ++ filesIn ./custom-scripts;
-        custom-pkgs = map (file: if lib.hasSuffix ".nix" file then pkgs.callPackage file {} else pkgs.writeShellScriptBin (stemOf file) (builtins.readFile file)) files;
+        custom-pkgs = map (import ../pkgs/import.nix args) (filesIn ../pkgs/apps ++ filesIn ../pkgs/scripts);
     in custom-pkgs ++
     [
+        # TMP #
+        pinentry-qt
+        rofi
+
         #############
         # USER APPS #
         #############
@@ -43,6 +44,7 @@
         grim slurp
         brightnessctl
         wl-clipboard wtype
+        wf-recorder
 
         #########
         # OTHER #
