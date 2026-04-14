@@ -1,4 +1,4 @@
-{ ... }@args: {
+{ pkgs, ... }@args: {
     programs.gpg.enable = true;
 
     # NOTE after changing anything, run `gpgconf --reload gpg-agent` to apply
@@ -8,7 +8,7 @@
     in {
         enable = true;
 
-        pinentry.package = (import ../pkgs/import.nix args) ../pkgs/apps/pinentry-pypr;
+        pinentry.package = (import ../pkgs/import.nix args) ../pkgs/apps/pinentry-custom;
 
         extraConfig = ''
             allow-loopback-pinentry
