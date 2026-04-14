@@ -1,4 +1,4 @@
-{ pkgs, ... }@args: {
+{ ... }@args: {
     programs.gpg.enable = true;
 
     # NOTE after changing anything, run `gpgconf --reload gpg-agent` to apply
@@ -8,16 +8,10 @@
     in {
         enable = true;
 
-        pinentry.package = pkgs.pinentry-qt;
-        # pinentry.package = (import ../pkgs/import.nix args) ../pkgs/apps/pinentry-pypr;
-        # pinentry.package = (import ../pkgs/import.nix args) ../pkgs/apps/pinentry-bash;
+        pinentry.package = (import ../pkgs/import.nix args) ../pkgs/apps/pinentry-pypr;
 
-        # TODO remove logging
         extraConfig = ''
             allow-loopback-pinentry
-            log-file /tmp/gpg-agent.log
-            debug-level advanced
-            debug-pinentry
         '';
 
         enableSshSupport = true;
@@ -30,6 +24,4 @@
         maxCacheTtl = timeout;
         maxCacheTtlSsh = timeout;
     };
-
-    qt.platformTheme = "gtk2"; # gtk theme in cursor-and-gtk.nix
 }
