@@ -49,7 +49,8 @@
 
         url = {
             default_page = "about:blank";
-            start_pages = "en.wikipedia.org/wiki/special:random";
+            start_pages = "calendar.google.com/calendar/";
+            # en.wikipedia.org/wiki/special:random
             # everynoise.com
             # catppuccin.com
             # clockie.app
