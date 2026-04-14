@@ -63,6 +63,7 @@
         eza
         ffmpeg
         file
+        psmisc
         fzf
         gnupg
         imv
