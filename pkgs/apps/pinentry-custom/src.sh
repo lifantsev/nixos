@@ -53,8 +53,8 @@ while :; do
     case "$cmd" in
         "BYE"*) assuan "OK Closing connection"; exit 0 ;;
         "GETPIN"*)
-            desc_head="$(echo "$desc" | head -n 1 | sed 's|Please enter the passphrase to|Please|')"
-            desc_tail="$(echo "$desc" | tail -n +2)"
+            desc_head="$(echo "$desc" | head -n 1 | sed -e 's|Please enter the passphrase to|Please|' -e 's|^\s*||' -e 's|\s*$||')"
+            desc_tail="$(echo "$desc" | tail -n +2 | sed -e 's|^\s*||' -e 's|\s*$||')"
             [ -n "$desc_tail" ] && desc_tail+="\n"
 
             # todo: show pinentry prompt on currently open terminal, if that exists
