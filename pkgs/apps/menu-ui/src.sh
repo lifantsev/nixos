@@ -83,12 +83,14 @@ while true; do
     flag_allow_new=0
     flag_print_query=0
     flag_secure=0
+    flag_fast=0
 
     while IFS= read -r flag; do
         case "$flag" in
             "--secure") flag_secure=1; lg . "set flag_secure[$flag_secure] NOTE: LOGGING WILL DISABLE" ;;
             "--allow-new") flag_allow_new=1; lg . "set flag_allow_new[$flag_allow_new]" ;;
             "--print-query") flag_print_query=1; lg . "set flag_print_query[$flag_print_query]" ;;
+            "--fast") flag_fast=1; lg . "set flag_fast[$flag_fast]" ;;
         esac
     done < <(echo "$input" | awk "/$separator/{section++; next} section==1")
 
@@ -116,14 +118,17 @@ while true; do
         result="$(echo "$list" | fzf || :)"
     fi
 
-    lg F "loop end: returning result to fifo: $(echo "$result" | tr '\n' '$')"
-
     if ui_is_hidden; then
         lg . "menu-ui is already hidden, finishing"
     else
         lg I "closing ui"
-        hide_ui &
+        if (( flag_fast ));
+        then hide_ui &
+        else hide_ui
+        fi
     fi
+
+    lg F "loop end: returning result to fifo: $(echo "$result" | tr '\n' '$')"
 
     echo "$result" > "$fifo_path"
 done
