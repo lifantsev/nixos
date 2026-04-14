@@ -14,18 +14,20 @@ flag_desc=""
 flag_prompt=""
 flag_error=""
 
-while [ -n "${1:-}" ]; do
+while [ $# -gt 0 ]; do
     flag="$1"
+    shift
+
     lg I "handling flag[$flag]"
 
-    case "$1" in
+    case "$flag" in
         "--fifo"|"--title"|"--desc"|"--prompt"|"--error")
-            if [ -z "${2:-}" ] || [[ "${2:-}" == "-"* ]]; then
-                lg E "option $flag expects an argument[${2:-}], but it was malformed, exiting";
+            if [ $# -eq 0 ] || [[ "${1:-}" == "-"* ]]; then
+                lg E "option $flag expects an argument[${1:-}], but it was malformed, exiting";
                 finish 1;
             fi
-
-            arg="$2"
+            
+            arg="$1"
             shift
 
             lg . "found arg[$arg]"
@@ -47,8 +49,6 @@ while [ -n "${1:-}" ]; do
 
         *) lg E "unrecognized flag[$flag]" ; finish 1 ;;
     esac
-
-    shift
 done
 
 if (( flag_fifo ));
