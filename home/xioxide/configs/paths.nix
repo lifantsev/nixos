@@ -113,8 +113,17 @@
                 inherit d;
                 p = "pkgs.nix";
 
-                # c."custom-apps/" = mkBinds 1 ../../../config/custom-apps;
-                # s."custom-scripts/" = mkBinds 1 ../../../config/custom-scripts;
+                b = "boot.nix";
+                e = "desktop.nix";
+                f = "font.nix";
+                n = "networking.nix";
+                t = "tty.nix";
+            };
+
+            p."pkgs/" = {
+                i = "import.nix";
+                a."apps/" = mkBinds 1 ../../../pkgs/apps;
+                s."scripts/" = mkBinds 1 ../../../pkgs/scripts;
             };
         };
     };
