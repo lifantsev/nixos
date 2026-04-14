@@ -1,13 +1,12 @@
 # article about pinentry: https://velvetcache.org/2023/03/26/a-peek-inside-pinentry/
 # pinentry documentation: https://gist.github.com/mdeguzis/05d1f284f931223624834788da045c65
 
-export LGENABLE=1 # TODO set to 0 when done debugging
+export LGENABLE=0 # other apps inherit this, but pinentry runs in a clean environment (need to set manually)
 export LGSTEM=pinentry
 
 if [ -z "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
     # shellcheck disable=SC2012
-    # the files in this directory only have alphanumeric + underscores
-    # so we'll use ls instead of find for simplicity
+    # we use ls instead of find b/c this directory is a predictable environment
     hypr="$(ls -1t "$XDG_RUNTIME_DIR/hypr/" | head -n 1)"
     export HYPRLAND_INSTANCE_SIGNATURE="$hypr"
 fi
@@ -30,9 +29,17 @@ function assuan() {
     echo "$1"
 }
 
+if ! command -v getpin &> /dev/null;
+then lg E "getpin is not available in this environment, exiting" ; bye
+fi
+
+if ! command -v sed &> /dev/null;
+then lg E "sed is not available in this environment, exiting" ; bye
+fi
+
+prompt="Passphrase"
 desc=""
-prompt=""
-title=""
+error=""
 repeat=""
 
 assuan "OK Pleased to meet you"
@@ -46,38 +53,78 @@ while :; do
     case "$cmd" in
         "BYE"*) assuan "OK Closing connection"; exit 0 ;;
         "GETPIN"*)
-            # TODO if repeat is set -> act accordingly
-            # TODO if error is set -> act accordingly
+            desc_head="$(echo "$desc" | head -n 1 | sed 's|Please enter the passphrase to|Please|')"
+            desc_tail="$(echo "$desc" | tail -n +2)"
+            [ -n "$desc_tail" ] && desc_tail+="\n"
 
-            lg I "getting pass using menu"
-            lg . "  title[$title]"
-            lg . "  desc[$desc]"
-            lg . "  prompt[$prompt]"
+            # todo: show pinentry prompt on currently open terminal, if that exists
 
-            # TODO pass menu --secure
-            # todo: display menu on currently focused terminal if it exists
-            if ! res="$(echo -e "$title:\n${desc%%:*}\n=== $prompt ===" | menu --allow-new || :)"; then
-                lg E "menu exited with an error!!!, exiting" > /dev/null
-                bye
+            if [ -z "$repeat" ]; then
+                lg I "getting pin"
+
+                if ! pin="$(getpin --title "$desc_head" --desc "$desc_tail" --prompt "$prompt" --error "$error")"
+                then pin=""; fi
+            else
+                while true; do
+                    lg I "getting pin"
+
+                    if ! pin="$(getpin --donthide --title "$desc_head" --desc "$desc_tail" --prompt "$prompt" --error "$error")"
+                    then pin=""; fi
+                    [ -z "$pin" ] && break
+
+                    error=""
+
+                    lg I "getting repeat pin"
+
+                    if ! repeat_pin="$(getpin --donthide --title "$desc_head" --desc "$desc_tail" --prompt "$repeat" --error "$error")"
+                    then repeat_pin=""; fi
+
+                    [ -z "$repeat_pin" ] && pin="" && break # break on cancel
+
+                    if [ "$repeat_pin" == "$pin" ]; then
+                        lg I "success: pins match"
+                        assuan "S PIN_REPEATED"
+                        break
+                    else
+                        lg I "fail: pins didn't match, trying again"
+                        error="Did not match"
+                    fi
+                done
+
+                getpin --justhide &
             fi
 
-            lg I "got result starting with: '${res:0:3}'"
+            if [ -n "$pin" ];
+            then assuan "D $pin"
+            else assuan "ERR 83886179 Operation cancelled <getpin>"; ok=0
+            fi
 
-            if [ -n "$res" ]; then
-                lg . "sending result back thru assuan"
-                assuan "D $res"
-            else
+            # reset
+            repeat=""
+            error=""
+        ;;
+        "CONFIRM"*)
+            if ! res="$(getpin --showpin --title "Please confirm: $desc" --prompt "[yes]/no")"; then
+                lg E "getpin exited with an error, using res=no" > /dev/null # devnull to not screw with assuan ipc
+                res="no"
+            fi
+
+            if [[ "${res,,}" == "n"* ]]; then
                 assuan "ERR 83886179 Operation cancelled <menu>"; ok=0
             fi
+        ;;
+        "MESSAGE"*)
+            getpin --title "$desc" --desc "Press enter to dismiss" ||:
+        ;;
+        "SETDESC"*)
+            # args=Please enter the passphrase... %0A %22 followed by <keyinfo>
+            # shellcheck disable=SC2059
+            desc="$(printf "${args//\%/\\x}")"
             ;;
+        "SETPROMPT"*) prompt="${args%:}" ;; # Passphrase:
+        "SETERROR"*) error="${args#Bad }" ;; # Bad Passphrase (try 2 of 3)
 
-        "CONFIRM"*)
-            if [ "$(echo -e 'yes\nno' | menu)" != "yes" ];
-            then assuan "ERR 83886179 Operation cancelled <menu>"; ok=0
-            fi
-            ;;
-
-        "MESSAGE"*) ;;
+        "SETREPEAT"*) repeat="$args" ;;
 
         "GETINFO"*) case "$args" in
             "pid" ) assuan "D $$" ;;
@@ -85,20 +132,9 @@ while :; do
             "flavor" ) assuan "D pinentry-pypr" ;;
             "ttyinfo" ) assuan "D - - - - $(id -u 2>/dev/null || echo 0)/$(id -g 2>/dev/null || echo 0) -" ;;
         esac ;;
-        "SETDESC"*)   desc="$args" ;;
-        "SETPROMPT"*) title="$args" ;;
-        "SETTITLE"*)  prompt="$args" ;;
-        "SETREPEAT"*) repeat="$args" ;;
-        "SETERROR"*) ;; # TODO, this should be reset by GETPIN
-
-        "OPTION"*) ;;
-        "SETKEYINFO"*) ;;
-
-        # *) bye ;;
     esac
 
     (( ok )) && assuan "OK Success"
 done
 
-lg . "TODO REMOVE: $repeat$desc$title$prompt"
 lg finish
