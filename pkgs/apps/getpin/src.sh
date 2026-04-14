@@ -9,48 +9,43 @@ function finish() { lg finish ; exit "$1" ; }
 
 flag_fifo=0
 fifo_name=""
+flag_title=""
 flag_desc=""
 flag_prompt=""
 flag_error=""
 
 while [ -n "${1:-}" ]; do
-    lg I "handling flag[$1]"
+    flag="$1"
+    lg I "handling flag[$flag]"
 
     case "$1" in
-        "--fifo") # set fifo stem to use
-            if [ -z "${2:-}" ] || [[ "$2" == "-"* ]];
-            then lg E "option --fifo expects an argument, but it was either not provided or invalid, exiting"; finish 1; fi
+        "--fifo"|"--title"|"--desc"|"--prompt"|"--error")
+            if [ -z "${2:-}" ] || [[ "${2:-}" == "-"* ]]; then
+                lg E "option $flag expects an argument[${2:-}], but it was malformed, exiting";
+                finish 1;
+            fi
 
+            arg="$2"
+            shift
+
+            lg . "found arg[$arg]"
+        ;;
+    esac
+
+    case "$flag" in
+        "--fifo") # set fifo stem to use
             flag_fifo=1
             lg . "set flag_fifo[$flag_fifo]"
-            fifo_name="$2" ; shift
+            fifo_name="$arg"
             lg . "set fifo_name[$fifo_name]"
         ;;
-        "--desc")
-            if [ -z "${2:-}" ] || [[ "$2" == "-"* ]];
-            then lg E "option --desc expects an argument, but it was either not provided or invalid, exiting"; finish 1; fi
 
-            flag_desc="$2" ; shift
-            lg . "set flag_desc[$flag_desc]"
-        ;;
-        "--prompt")
-            if [ -z "${2:-}" ] || [[ "$2" == "-"* ]];
-            then lg E "option --prompt expects an argument, but it was either not provided or invalid, exiting"; finish 1; fi
+        "--title")   flag_title="$arg" ; lg . "set flag_title[$flag_title]" ;;
+        "--desc")     flag_desc="$arg" ; lg . "set flag_desc[$flag_desc]" ;;
+        "--prompt") flag_prompt="$arg" ; lg . "set flag_prompt[$flag_prompt]" ;;
+        "--error")   flag_error="$arg" ; lg . "set fifo_name[$flag_error]" ;;
 
-            flag_prompt="$2" ; shift
-            lg . "set flag_prompt[$flag_prompt]"
-        ;;
-        "--error")
-            if [ -z "${2:-}" ] || [[ "$2" == "-"* ]];
-            then lg E "option --error expects an argument, but it was either not provided or invalid, exiting"; finish 1; fi
-
-            flag_error="$2" ; shift
-            lg . "set fifo_name[$flag_error]"
-        ;;
-        *)
-            lg E "unrecognized flag[$1]"
-            finish 1
-        ;;
+        *) lg E "unrecognized flag[$flag]" ; finish 1 ;;
     esac
 
     shift
@@ -63,13 +58,9 @@ fi
 
 lg I "writing request to fifo[$fifo_path]"
 
-echo "$(
-    echo "$flag_desc"
-    echo "$flag_prompt"
-    echo "$flag_error"
-)" > "$fifo_path"
+printf "%s\x1F%s\x1F%s\x1F%s\x1F" "$flag_title" "$flag_desc" "$flag_prompt" "$flag_error" > "$fifo_path"
 
 lg . "awaiting result from fifo[$fifo_path]"
 pin="$(cat "$fifo_path")"
-lg . "printing resu;t"
+lg . "printing result"
 echo "$pin"
