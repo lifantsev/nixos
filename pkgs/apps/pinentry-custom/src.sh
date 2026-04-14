@@ -4,36 +4,6 @@
 export LGENABLE=0 # other apps inherit this, but pinentry runs in a clean environment (need to set manually)
 export LGSTEM=pinentry
 
-# TTY
-# ttyname = /dev/tty2
-# ttytype = linux
-# DISPLAY[]
-# WDISPLAY[]
-
-# KITTY
-# ttyname = /dev/pts/8
-# ttytype = xterm-kitty
-# DISPLAY :0
-# WAYLAND_DISPLAY wayland-1
-
-# HYPRLAND
-# ttyname = /dev/tty1
-# ttytype = linux
-# DISPLAY :0
-# WAYLAND_DISPLAY wayland-1
-
-# QUTEBROWSER
-# linux
-# displays set
-
-# GIT SIGN COMMIT
-# kitty
-# displays set
-
-# GIT PUSH
-# kitty
-# displays set
-
 if [ -z "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
     # shellcheck disable=SC2012
     # we use ls instead of find b/c this directory is a predictable environment
@@ -115,10 +85,6 @@ while :; do
             desc_head="$(echo "$desc" | head -n 1 | sed -e 's|Please enter the passphrase to|Please|' -e 's|^\s*||' -e 's|\s*$||')"
             desc_tail="$(echo "$desc" | tail -n +2 | sed -e 's|^\s*||' -e 's|\s*$||')"
             [ -n "$desc_tail" ] && desc_tail+="\n"
-
-            # todo: show pinentry prompt on currently open terminal, if that exists
-            lg . "have ttytype[$ttytype] & ttyname[$ttyname]"
-            lg . "have DISPLAY[${DISPLAY:-}] & WAYLAND_DISPLAY[${WAYLAND_DISPLAY:-}]"
 
             if [ -z "$repeat" ]; then
                 lg I "getting pin"
