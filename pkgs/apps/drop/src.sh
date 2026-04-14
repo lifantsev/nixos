@@ -1,12 +1,14 @@
 # drop/src.sh
 
+# TODO don't depend on FILE_CURR, use hyprctl to figure that out
+# only use FILE_LAST
+
 FILE_LAST="$XDG_STATE_HOME/drop/last"
 FILE_CURR="$XDG_STATE_HOME/drop/curr"
 
 mkdir -p "$(dirname "$FILE_LAST")"
 mkdir -p "$(dirname "$FILE_CURR")"
 
-export LGENABLE=1 # TODO set to 0 when done dumpging
 export LGSTEM=drop
 
 last=""
