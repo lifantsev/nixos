@@ -17,22 +17,17 @@ in {
         enable = true;
         hyprcursor.enable = true;
         gtk.enable = true; 
-
-        # sway.enable = true;
-        # x11.enable = true;
-        # x11.defaultCursor = cursor.name;
     };
 
     dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
 
     gtk = {
         enable = true;
-
         colorScheme = "dark";
-        theme = {
-            # name = "catppuccin-mocha-mauve-standard+default";
-            # package = pkgs.catppuccin-gtk;
 
+        cursorTheme = cursor;
+
+        theme = {
             name = rice.col.gtk-name;
             package = pkgs.${rice.col.gtk-package};
         };
@@ -41,7 +36,5 @@ in {
             name = rice.font.code.full.family;
             size = rice.font.code.size;
         };
-
-        cursorTheme = cursor;
     };
 }
