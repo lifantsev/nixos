@@ -14,7 +14,7 @@
         gh."github.com/" = {
             s = "search?q=";
             n = "lifantsev/nixos/";
-            p = "lifantsev/pw/";
+            p = "lifantsev/pass-autotype/";
         };
 
         ibkr = "portal.interactivebrokers.com/";

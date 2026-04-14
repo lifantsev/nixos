@@ -7,8 +7,8 @@ in {
         U   = [ (preselect "d") (submap "apps") ];
         Q   = [ (preselect "r") (submap "apps") ];
 
-        P = exec "pw";
-        SHIFT.P = exec "pw --interactive";
+        P = exec "pass-autotype";
+        SHIFT.P = exec "pass-autotype --interactive";
 
         Z = exec "screenshot";
         SHIFT.Z = exec "screenrecord";

@@ -36,7 +36,7 @@
         };
 
         r."${extraConfig.XDG_REPOSITORY_DIR}/" = {
-            p."pw/" = {
+            p."pass-autotype/" = {
                 m = "main.sh";
                 r = "README.md";
             };
