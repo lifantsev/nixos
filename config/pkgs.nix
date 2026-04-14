@@ -1,8 +1,8 @@
 { pkgs, ... }@args: {
     environment.systemPackages = with pkgs; let
-        filesIn = path: map (name: path + "/${name}") (builtins.attrNames (lib.attrsets.filterAttrs (n: v: v == "regular") (builtins.readDir path)));
+        entriesIn = path: map (name: path + "/${name}") (builtins.attrNames (builtins.readDir path));
 
-        custom-pkgs = map (import ../pkgs/import.nix args) (filesIn ../pkgs/apps ++ filesIn ../pkgs/scripts);
+        custom-pkgs = map (import ../pkgs/import.nix args) (entriesIn ../pkgs/apps ++ entriesIn ../pkgs/scripts);
     in custom-pkgs ++
     [
         # TMP #

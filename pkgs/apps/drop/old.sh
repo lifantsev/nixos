@@ -1,23 +1,6 @@
-LASTFILE="/tmp/pypr-drop-last.save"
-CURRENTFILE="/tmp/pypr-drop-current.save"
-
-last="$(cat "$LASTFILE")"
-current="$(cat "$CURRENTFILE")"
-
-if [ "$1" == "init" ]; then
-    echo > "$LASTFILE"
-    echo > "$CURRENTFILE"
-    exit
-elif [ "$1" == "focus" ]; then
-    if [ "$(hyprctl activewindow -j | jq .floating)" == "true" ]; then
-        hyprctl dispatch cyclenext
-    else
-        [ -z "$current" ] && exit
-        hyprctl dispatch focuswindow floating
-    fi
-    exit
-fi
-
+# OLD FILE FOR REFERENCE
+# ONLY STUFF LEFT HERE IS FEATUERES I DROPPED
+# IN CASE I WANT TO GET THOSE FEATURES BACK
 function hide() {
     # only run focuslast IF
     # - dropdown is focused
@@ -25,11 +8,7 @@ function hide() {
     numwindows="$(hyprctl activeworkspace -j | jq .windows)" # number of windows in workspace
     scratchfocused="$(hyprctl activewindow -j | grep -e '"class": "scratchpad",' -e '"title": "\[scratch\]')" # -n if a scratch window is focused
 
-    [ $numwindows -gt 1 ] && [ -n "$scratchfocused" ] && hyprctl dispatch focuscurrentorlast &> /dev/null
-
-    pypr hide "$1" > /dev/null
-
-    echo > "$CURRENTFILE"
+    [ "$numwindows" -gt 1 ] && [ -n "$scratchfocused" ] && hyprctl dispatch focuscurrentorlast &> /dev/null
 }
 
 function show() {
@@ -48,26 +27,4 @@ function show() {
         hyprctl keyword animations:enabled true
     fi
 
-    echo "$1" > "$CURRENTFILE"
-
-    [ "$2" == "nohistory" ] && return
-    echo "$1" > "$LASTFILE"
 }
-
-if [ -z "$1" ]; then
-    if [ -n "$current" ]; then
-        hide "$current"
-    else
-        show "$last"
-    fi
-else
-    if [ "$current" == "$1" ]; then
-        hide "$current"
-    elif [ -n "$current" ]; then
-        # [ -z "$alt" ] && hide "$current"
-        hide "$current"
-        show "$1" "$2"
-    else
-        show "$1" "$2"
-    fi
-fi

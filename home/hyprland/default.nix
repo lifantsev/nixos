@@ -1,6 +1,8 @@
 { config, lib, rice, ... }@args: {
     wayland.windowManager.hyprland.enable = true;
 
+    services.wl-clip-persist.enable = true;
+
     xdg.configFile."hypr/sh" = {
         source = ./sh;
         recursive = true;
@@ -18,7 +20,7 @@
 
         exec-once = [
             "pypr"
-            "drop init"
+            "drop --init"
             "browser new-window"
         ];
 
@@ -28,7 +30,11 @@
             "hyprctl setcursor ${config.home.pointerCursor.name} ${toString config.home.pointerCursor.size}"
         ];
 
-        env = [ "XCURSOR_SIZE,${toString config.home.pointerCursor.size}" ];
+        env = [
+            "XCURSOR_SIZE,${toString config.home.pointerCursor.size}"
+            "GET_WINDOW_CLASS,hyprctl activewindow -j | jq -r .class"
+            "GET_WINDOW_TITLE,t=\"$(hyprctl activewindow -j | jq -r .title)\"; [[ \"$(eval \"$GET_WINDOW_CLASS\")\" == *\"qutebrowser\"* ]] && echo \"\${t/ - [^ ]*/} $(browser get-url | sed -e 's|^[^/]*//\\([^/]*\\)/.*|[\\1]|')\" || echo \"$t\""
+        ];
 
         monitor = [
             "eDP-1,3456x2160@60,0x0,2"

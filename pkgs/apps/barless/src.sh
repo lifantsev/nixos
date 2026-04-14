@@ -1,7 +1,7 @@
 # NOTE this script assumes we are using mako
 
 action="$1"
-[ -n "$2" ] && ms="$2" || ms=3000
+[ -n "${2:-}" ] && ms="$2" || ms=3000
 
 title=""
 body=""

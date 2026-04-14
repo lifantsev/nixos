@@ -1,6 +1,17 @@
 # net.sh
 # a script to easily interact with nmcli
 
+# TODO permanently elevate priveleges when using vpn
+# so that we don't have to enter password at the start
+# but once we do, we never have to again
+
+# TODO pass --ask to nmcli
+
+# TODO prevent waiting long times for network list lookup
+# by first only looking thru saved networks
+
+# TODO add a command that runs `systemctl restart NetworkManager`
+
 source color-helper
 
 function print_help() {

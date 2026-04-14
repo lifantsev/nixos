@@ -5,6 +5,9 @@
 # - playerctl
 # supports pause/play, skip, get current song etc
 
+# TODO fix error in `mpvc status`
+# 'use mpvc --mpv blablalba'
+
 function mpc_playing() { mpc 2>/dev/null | sed -n 2p | grep -q '\[playing\]'; }
 function spotify_playing() { spotify_player get key playback 2>/dev/null | jq .is_playing | grep -q true; }
 function mpv_playing() { mpvc status 2>/dev/null | sed -n 2p | grep -q '^\[play\] '; }

@@ -60,9 +60,8 @@
         # USERSCRIPTS
         t = "spawn --userscript translate.sh";
 
-        # WARN: we pre-call 'drop menu' here for optimization,
-        # so in the script we have to pass --menuui-is-open to menu
-        w = "spawn drop menu nohistory ;; spawn --userscript browseshell.sh";
+        # we pre-call 'drop menu-ui' to make it menu appear faster
+        w = "spawn drop menu-ui --nohist;; spawn --userscript browseshell.sh";
     };
 
     insert = {
