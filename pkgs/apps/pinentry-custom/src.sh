@@ -4,6 +4,36 @@
 export LGENABLE=0 # other apps inherit this, but pinentry runs in a clean environment (need to set manually)
 export LGSTEM=pinentry
 
+# TTY
+# ttyname = /dev/tty2
+# ttytype = linux
+# DISPLAY[]
+# WDISPLAY[]
+
+# KITTY
+# ttyname = /dev/pts/8
+# ttytype = xterm-kitty
+# DISPLAY :0
+# WAYLAND_DISPLAY wayland-1
+
+# HYPRLAND
+# ttyname = /dev/tty1
+# ttytype = linux
+# DISPLAY :0
+# WAYLAND_DISPLAY wayland-1
+
+# QUTEBROWSER
+# linux
+# displays set
+
+# GIT SIGN COMMIT
+# kitty
+# displays set
+
+# GIT PUSH
+# kitty
+# displays set
+
 if [ -z "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
     # shellcheck disable=SC2012
     # we use ls instead of find b/c this directory is a predictable environment
@@ -37,10 +67,39 @@ if ! command -v sed &> /dev/null;
 then lg E "sed is not available in this environment, exiting" ; bye
 fi
 
+# first_call=1
+function mygetpin() {
+    lg . "mygetpin with ttyname[$ttyname] DISPLAY[$DISPLAY] ttytype[$ttytype]"
+
+    # fallback to standard getpin if environment isn't suitable for tty control
+    if [ -z "$ttyname" ];
+    then getpin "$@" ; return ; fi
+
+    if [ -n "${DISPLAY:-}" ] && [ "$ttytype" == linux ]
+    then getpin "$@" ; return ; fi
+
+    # control the tty given to use by gpg-agent to show getpin on a specific terminal
+    lg . "using custom tty control"
+
+    [ "${1:-}" == "--justhide" ] && return
+
+    fuser --kill -STOP "$ttyname" &>/dev/null
+
+    echo > "$ttyname"
+    # shellcheck disable=SC2094
+    getpin-ui --once --fifo pinentry > "$ttyname" < "$ttyname" &
+    getpin --fifo pinentry "$@"
+
+    fuser --kill -CONT "$ttyname" &>/dev/null
+}
+
 prompt="Passphrase"
 desc=""
 error=""
 repeat=""
+
+ttytype=""
+ttyname=""
 
 assuan "OK Pleased to meet you"
 
@@ -58,17 +117,19 @@ while :; do
             [ -n "$desc_tail" ] && desc_tail+="\n"
 
             # todo: show pinentry prompt on currently open terminal, if that exists
+            lg . "have ttytype[$ttytype] & ttyname[$ttyname]"
+            lg . "have DISPLAY[${DISPLAY:-}] & WAYLAND_DISPLAY[${WAYLAND_DISPLAY:-}]"
 
             if [ -z "$repeat" ]; then
                 lg I "getting pin"
 
-                if ! pin="$(getpin --title "$desc_head" --desc "$desc_tail" --prompt "$prompt" --error "$error")"
+                if ! pin="$(mygetpin --title "$desc_head" --desc "$desc_tail" --prompt "$prompt" --error "$error")"
                 then pin=""; fi
             else
                 while true; do
                     lg I "getting pin"
 
-                    if ! pin="$(getpin --donthide --title "$desc_head" --desc "$desc_tail" --prompt "$prompt" --error "$error")"
+                    if ! pin="$(mygetpin --donthide --title "$desc_head" --desc "$desc_tail" --prompt "$prompt" --error "$error")"
                     then pin=""; fi
                     [ -z "$pin" ] && break
 
@@ -76,7 +137,7 @@ while :; do
 
                     lg I "getting repeat pin"
 
-                    if ! repeat_pin="$(getpin --donthide --title "$desc_head" --desc "$desc_tail" --prompt "$repeat" --error "$error")"
+                    if ! repeat_pin="$(mygetpin --donthide --title "$desc_head" --desc "$desc_tail" --prompt "$repeat" --error "$error")"
                     then repeat_pin=""; fi
 
                     [ -z "$repeat_pin" ] && pin="" && break # break on cancel
@@ -91,7 +152,7 @@ while :; do
                     fi
                 done
 
-                getpin --justhide &
+                mygetpin --justhide &
             fi
 
             if [ -n "$pin" ];
@@ -104,7 +165,7 @@ while :; do
             error=""
         ;;
         "CONFIRM"*)
-            if ! res="$(getpin --showpin --title "Please confirm: $desc" --prompt "[yes]/no")"; then
+            if ! res="$(mygetpin --showpin --title "Please confirm: $desc" --prompt "[yes]/no")"; then
                 lg E "getpin exited with an error, using res=no" > /dev/null # devnull to not screw with assuan ipc
                 res="no"
             fi
@@ -114,7 +175,7 @@ while :; do
             fi
         ;;
         "MESSAGE"*)
-            getpin --title "$desc" --desc "Press enter to dismiss" ||:
+            mygetpin --title "$desc" --desc "Press enter to dismiss" ||:
         ;;
         "SETDESC"*)
             # args=Please enter the passphrase... %0A %22 followed by <keyinfo>
@@ -131,6 +192,11 @@ while :; do
             "version" ) assuan "D 0" ;;
             "flavor" ) assuan "D pinentry-pypr" ;;
             "ttyinfo" ) assuan "D - - - - $(id -u 2>/dev/null || echo 0)/$(id -g 2>/dev/null || echo 0) -" ;;
+        esac ;;
+
+        "OPTION"*) case "$args" in
+            "ttytype="* ) ttytype="${args#ttytype=}";;
+            "ttyname="* ) ttyname="${args#ttyname=}";;
         esac ;;
     esac
 
