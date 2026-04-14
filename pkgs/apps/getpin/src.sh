@@ -13,6 +13,9 @@ flag_title=""
 flag_desc=""
 flag_prompt=""
 flag_error=""
+flag_showpin=0
+flag_donthide=0
+flag_justhide=0
 
 while [ $# -gt 0 ]; do
     flag="$1"
@@ -47,6 +50,10 @@ while [ $# -gt 0 ]; do
         "--prompt") flag_prompt="$arg" ; lg . "set flag_prompt[$flag_prompt]" ;;
         "--error")   flag_error="$arg" ; lg . "set fifo_name[$flag_error]" ;;
 
+        "--showpin") flag_showpin=1    ; lg . "set flag_showpin[$flag_showpin]" ;;
+        "--donthide") flag_donthide=1  ; lg . "set flag_donthide[$flag_donthide]" ;;
+        "--justhide") flag_justhide=1  ; lg . "set flag_justhide[$flag_justhide]" ;;
+
         *) lg E "unrecognized flag[$flag]" ; finish 1 ;;
     esac
 done
@@ -56,11 +63,16 @@ then fifo_path="$(getpin-ui --fifo "$fifo_name" --getfifo)"
 else fifo_path="$(getpin-ui --getfifo)"
 fi
 
+if (( flag_justhide )); then
+    getpin-ui --justhide
+    exit 0
+fi
+
 lg I "writing request to fifo[$fifo_path]"
 
-printf "%s\x1F%s\x1F%s\x1F%s\x1F" "$flag_title" "$flag_desc" "$flag_prompt" "$flag_error" > "$fifo_path"
+printf "%s\x1F%s\x1F%s\x1F%s\x1F%s\x1F%s\x1F" "$flag_showpin" "$flag_donthide" "$flag_title" "$flag_desc" "$flag_prompt" "$flag_error" > "$fifo_path"
 
 lg . "awaiting result from fifo[$fifo_path]"
 pin="$(cat "$fifo_path")"
-lg . "printing result"
+lg . "got a pin, printing it"
 echo "$pin"
