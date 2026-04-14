@@ -30,6 +30,12 @@ mkfifo "$fifo_path"
 
 # NOTE these functions assume hyprland + pyprland
 function ui_is_hidden() {
+    if [ -z "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
+        lg E "HYPRLAND_INSTANCE_SIGNATURE is not set! this is needed by hyprctl to work properly"
+        exit 1
+    fi
+
+    lg . "checking if ui_is_hidden using hyprctl"
     hyprctl clients -j |
         jq -r 'first(.[] | select(.class == "scratchpad" and .title == "menu-ui") | .workspace.name)' |
         grep -q '^special'
