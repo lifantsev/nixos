@@ -110,7 +110,7 @@ while :; do
             fi
 
             if [[ "${res,,}" == "n"* ]]; then
-                assuan "ERR 83886179 Operation cancelled <menu>"; ok=0
+                assuan "ERR 83886179 Operation cancelled <getpin>"; ok=0
             fi
         ;;
         "MESSAGE"*)
