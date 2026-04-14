@@ -37,7 +37,7 @@ if ! command -v sed &> /dev/null;
 then lg E "sed is not available in this environment, exiting" ; bye
 fi
 
-# first_call=1
+# NOTE --donthide and --justhide MUST BE FIRST ARGUMENT!!!!
 function mygetpin() {
     lg . "mygetpin with ttyname[$ttyname] DISPLAY[$DISPLAY] ttytype[$ttytype]"
 
@@ -51,14 +51,24 @@ function mygetpin() {
     # control the tty given to use by gpg-agent to show getpin on a specific terminal
     lg . "using custom tty control"
 
-    [ "${1:-}" == "--justhide" ] && return
+    # process first arg
+    flag_donthide=0
+    flag_justhide=0
+    case "${1:-}" in
+        "--donthide") flag_donthide=1 ; shift ;;
+        "--justhide") flag_justhide=1 ; shift ;;
+    esac
 
-    fuser --kill -STOP "$ttyname" &>/dev/null
+    if (( ! flag_justhide )); then
+        fuser --kill -STOP "$ttyname" &>/dev/null
+        echo > "$ttyname"
 
-    echo > "$ttyname"
-    # shellcheck disable=SC2094
-    getpin-ui --once --fifo pinentry > "$ttyname" < "$ttyname" &
-    getpin --fifo pinentry "$@"
+        # shellcheck disable=SC2094
+        getpin-ui --once --fifo pinentry > "$ttyname" < "$ttyname" &
+        getpin --fifo pinentry "$@"
+    fi
+
+    (( flag_donthide )) && return 0
 
     fuser --kill -CONT "$ttyname" &>/dev/null
 }
