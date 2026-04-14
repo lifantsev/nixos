@@ -6,14 +6,12 @@
         else if lib.hasSuffix ".sh" fpath then
             pkgs.writeShellScriptBin (builtins.elemAt (builtins.match "^(.*)\\.[a-z]*$" (builtins.baseNameOf fpath)) 0)
             (builtins.readFile fpath)
-            # pkgs.writeShellScriptApplication {
-            #     name = builtins.elemAt (builtins.match "^(.*)\\.[a-z]*$" (builtins.baseNameOf fpath)) 0;
-            #     text = builtins.readFile fpath;
-            # }
         else
-            pkgs.writeShellApplication {
-                name = builtins.baseNameOf fpath;
-                text = builtins.readFile (fpath + "/src.sh");
-                runtimeInputs = [ pkgs.coreutils ] ++ import (fpath + "/inputs.nix") input_args;
-            };
+            pkgs.resholve.writeScriptBin (builtins.baseNameOf fpath) (let
+                settings = import fpath input_args;
+            in {
+                interpreter = "${pkgs.bash}/bin/bash";
+                inputs = [ pkgs.coreutils ] ++ settings.inputs;
+                execer = settings.execer or [] ++ [ "cannot:${pkg_import ./scripts/lg.sh}/bin/lg" ];
+            }) (builtins.readFile (fpath + "/src.sh"));
 in pkg_import
