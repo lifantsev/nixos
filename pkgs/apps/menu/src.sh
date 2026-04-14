@@ -1,6 +1,5 @@
 # menu/src.sh
 
-export LGENABLE=1 # TODO set to 0 when done debugging
 export LGSTEM=menu
 export LGSPEC=sh
 
