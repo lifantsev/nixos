@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }: {
     home.activation.pyprland = lib.hm.dag.entryAfter ["onFilesChange"] "$DRY_RUN_CMD ${pkgs.pyprland}/bin/pypr reload > /dev/null";
 
-    # NOTE make sure to automatically float windows with scratchpad in title
+    # NOTE make sure to set float when class='scratchpad' in your wm config
 
     xdg.configFile."hypr/pyprland.toml".text = let
         sizes = let
@@ -29,23 +29,14 @@
         [pyprland]
         plugins = [ "scratchpads" ]
 
-        ${term_pad { name = "term";     sh = ""; }}
         ${term_pad { name = "menu-ui";  sh = "menu-ui"; }}
+        ${term_pad { name = "getpin-ui";sh = "getpin-ui"; size=sizes.mini; }}
+
+        ${term_pad { name = "term";     sh = ""; }}
         ${term_pad { name = "qalc";     sh = "qalc"; }}
         ${term_pad { name = "blue";     sh = "blue"; }}
         ${term_pad { name = "net";      sh = "net"; }}
         ${term_pad { name = "nixbuild"; sh = "nixbuild loop"; }}
         ${term_pad { name = "spotify";  sh = "spotify_player"; lazy = true; }}
-
-        ${term_pad { name = "gpg";  sh = "$XDG_CONFIG_HOME/hypr/pyprland/gpg.sh"; lazy = true; size = sizes.mini; }}
     '';
-
-    xdg.configFile."hypr/pyprland/gpg.sh" = {
-        executable = true;
-        text = /*sh*/ ''
-            #!/usr/bin/env bash
-            echo "Please unlock password store gpg key"
-            gpg --pinentry-mode loopback --quiet -d $PASSWORD_STORE_DIR/blank.gpg
-        '';
-    };
 }
