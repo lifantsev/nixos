@@ -44,7 +44,7 @@ function get_query() {
         tac "$BROWSESHELL_HIST"
     )"
 
-    fzout="$(echo "$hist" | menu --print-query)"
+    fzout="$(echo "$hist" | menu --fast --print-query)"
 
     if [ -z "$(echo "$fzout" | head -n 1)" ]; then # we just chose sum, no type
         prequery="$(echo "$fzout" | tail -n 1)"
