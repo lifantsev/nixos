@@ -11,6 +11,7 @@ in {
         SHIFT.P = exec "pw --interactive";
 
         Z = exec "screenshot";
+        SHIFT.Z = exec "screenrecord";
     };
 
     # I have it set so these binds are made both w/ and w/o the SUPER mod

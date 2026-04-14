@@ -5,6 +5,7 @@
 # TODO add lsp diagnostic count to bar
 
 # TODO change markdown highlight colors to something more pleasing
+# TODO per filetype wrapping
 
 { lib, pkgs, rice, ... }@args: let
     stemOf = file: let

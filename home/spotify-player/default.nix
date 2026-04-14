@@ -1,4 +1,5 @@
 { lib, rice, ... }@args: {
+    # TODO add a bind to start playback
     programs.spotify-player = {
         enable = true;
 
