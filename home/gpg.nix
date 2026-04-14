@@ -13,6 +13,9 @@
         extraConfig = ''
             allow-loopback-pinentry
         '';
+        # log-file /tmp/gpg-agent.log
+        # debug-level advanced
+        # debug-pinentry
 
         enableSshSupport = true;
         sshKeys = [ "FB55A337A9642B6A1AE533D93591A61DD30D60D0" ]; # keygrip, not sensitive info
