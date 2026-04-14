@@ -1,6 +1,5 @@
 # menu-ui/src.sh
 
-export LGENABLE=1 # TODO set to 0 when done debugging
 export LGSTEM=menu
 export LGSPEC=ui
 
@@ -29,10 +28,6 @@ lg I "initializing fifo: $fifo_path"
 mkdir -p "$(dirname "$fifo_path")"
 mkfifo "$fifo_path"
 
-logging_state="$LGENABLE"
-
-lg I "beginning main loop: reading from fifo and processing"
-
 # NOTE these functions assume hyprland + pyprland
 function ui_is_hidden() {
     hyprctl clients -j |
@@ -58,6 +53,10 @@ function hide_ui() {
     lg . "drop finished with output[$output]"
 }
 
+logging_state="$LGENABLE"
+
+lg I "beginning main loop: reading from fifo and processing"
+
 while true; do
     export LGENABLE="$logging_state"
 
@@ -66,11 +65,9 @@ while true; do
     input="$(cat "$fifo_path")"
     lg F "got input from infile"
 
-    if ui_is_hidden; then
-        lg I "opening menu-ui"
-        show_ui &
-    else
-        lg I "menu-ui is already open, continuing"
+    if ui_is_hidden;
+    then lg I "opening ui" ; show_ui &
+    else lg I "menu-ui is already open, continuing"
     fi
 
     separator="$(echo "$input" | head -n 1)"
