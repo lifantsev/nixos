@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, ... }@args: {
     programs.gpg.enable = true;
 
     # NOTE after changing anything, run `gpgconf --reload gpg-agent` to apply
@@ -8,11 +8,20 @@
     in {
         enable = true;
 
-        pinentry.package = pkgs.pinentry-qt; # tty pinentry is nice but doesn't always work
-        extraConfig = "allow-loopback-pinentry";
+        pinentry.package = pkgs.pinentry-qt;
+        # pinentry.package = (import ../pkgs/import.nix args) ../pkgs/apps/pinentry-pypr;
+        # pinentry.package = (import ../pkgs/import.nix args) ../pkgs/apps/pinentry-bash;
+
+        # TODO remove logging
+        extraConfig = ''
+            allow-loopback-pinentry
+            log-file /tmp/gpg-agent.log
+            debug-level advanced
+            debug-pinentry
+        '';
 
         enableSshSupport = true;
-        sshKeys = [ "FB55A337A9642B6A1AE533D93591A61DD30D60D0" ];
+        sshKeys = [ "FB55A337A9642B6A1AE533D93591A61DD30D60D0" ]; # keygrip, not sensitive info
 
         enableZshIntegration = true;
 
