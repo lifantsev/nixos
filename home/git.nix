@@ -1,4 +1,4 @@
-{ ...}: {
+{ pkgs, ... }: {
     programs.git = {
         enable = true;
         settings = {
@@ -9,8 +9,8 @@
             commit.gpgsign = true;
             tag.forceSignAnnotated = true;
 
-            # gpg.format = "ssh";
-            # user.signingkey = "${config.home.homeDirectory}/.ssh/id-github-canoe.pub";
+            # update gpg tty so that gpg-agent binds pinentry to correct term
+            core.sshCommand = "${pkgs.gnupg}/bin/gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1; ssh";
         };
     };
     
