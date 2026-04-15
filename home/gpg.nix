@@ -17,8 +17,11 @@
         # debug-level advanced
         # debug-pinentry
 
-        enableSshSupport = true;
+        enableSshSupport = true; # use ssh-copy-id <remote-machine> to use key to login
         sshKeys = [ "FB55A337A9642B6A1AE533D93591A61DD30D60D0" ]; # keygrip, not sensitive info
+        # to get the keygrip:
+        # make authentication subkey: gpg --expert --edit-key, addkey (8), just Authenticate, save
+        # then gpg --list-keys --with-keygrip (& pick the auth key)
 
         enableZshIntegration = true;
 
