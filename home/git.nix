@@ -4,6 +4,7 @@
         settings = {
             user.name = "Mark Lifantsev";
             user.email = "mark.lifantsev@gmail.com";
+            user.signingkey = "0x8C0EDE730F3B6A1D";
 
             init.defaultBranch = "main";
             commit.gpgsign = true;
