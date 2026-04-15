@@ -25,10 +25,10 @@ in {
     errorfmt = ''${red+italic}'';
     previewer = "${scriptdir}/previewer";
     promptfmt = ''${purple+italic}%d%f${na}'';
-    dupfilefmt = ''%f.%n'';
+    dupfilefmt = "%n%f";
     rulerfmt = ''${mg}%a${na}  |${mg}%p${na}  |\033[7;31m %m ${na}  |\033[7;33m %c ${na}  |\033[7;35m %s ${na}  |\033[7;34m %f ${na}  |${mg+italic} %i / %t${na}'';
-    statfmt = ''${aqua+italic}%p${na}| ${green+italic}%u:%g${na}| ${red+italic}%s${na}| ${mg+italic}%t${na}| ${aqua}-> %l${na}'';
-    timefmt = ''02.01.2006 @ 15:04'';
+    # statfmt = ''${aqua+italic}%p${na}| ${green+italic}%u:%g${na}| ${red+italic}%s${na}| ${mg+italic}%t${na}| ${aqua}-> %l${na}'';
+    statfmt = ''${aqua}%l${na}| ${mg}%s${na}'';
     incsearch = true;
     ratios = [ 1 2 3 ];
 }
