@@ -55,10 +55,10 @@
     programs.starship = {
         enable = true;
         settings = let
-            dirstyle      = "cyan italic";
-            nixshellstyle = "red italic";
-            gitstyle      = "blue";
-            gitstylealt   = "yellow bold";
+            dirstyle      = "blue italic";
+            nixshellstyle = "cyan italic";
+            gitstyle      = "purple";
+            gitstylealt   = "red bold";
         in {
             add_newline = true;
             format = "$env_var$git_status$directory";
