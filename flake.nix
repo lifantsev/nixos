@@ -1,5 +1,3 @@
-# notes for battery life
-# barebones hyprland, and nvim installed: 12 hr, basically no daemons
 # TODO write readme
 {
     description = "configuration flake for asahi macbook";
@@ -10,8 +8,7 @@
         home-manager.url = "github:nix-community/home-manager/release-25.11";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-        nixvim.url = "github:nix-community/nixvim/nixos-25.11";
-        xremap.url = "github:xremap/nix-flake";
+        lifantsev-nixvim.url = "github:lifantsev/nixvim";
     };
 
     outputs = { self, nixpkgs, home-manager, ... }@inputs: let
