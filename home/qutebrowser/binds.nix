@@ -12,6 +12,9 @@
         O = "forward";
         ga = "tab-focus 1";
         gi = "tab-focus -1";
+        go = "tab-give";
+        gn = "cmd-set-test -s :tab-take";
+        gO = "cmd-set-test -s :tab-give";
 
         n = "scroll left";
         a = "scroll up";
@@ -37,13 +40,10 @@
         m = "tab-mute";
         z = "tab-close";
         u = "undo";
-        q = "tab-detach";
         r = "reload";
-        R = "yank ;; tab-close";
         "<ctrl-r>" = "greasemonkey-reload ;; reload";
         f = "fullscreen";
         "<space>" = "config-cycle tabs.show always never";
-        "<ctrl-space>" = "clear-messages ;; download-clear";
         "+" = "zoom-in";
         "-" = "zoom-out";
         "=" = "zoom";
