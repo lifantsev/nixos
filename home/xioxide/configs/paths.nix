@@ -40,6 +40,14 @@
                 m = "main.sh";
                 r = "README.md";
             };
+
+            v."nixvim/" = {
+                f = "flake.nix";
+                d = "module/default.nix";
+                o = "module/options.nix";
+                b = "module/binds/";
+                p = "module/plugin/";
+            };
         };
 
         n."${home}/nixos/" = let
@@ -65,13 +73,6 @@
                     inherit d;
                     b = "binds.nix";
                     o = "options.nix";
-                };
-
-                v."nixvim/" = {
-                    inherit d;
-                    o = "options.nix";
-                    b = "binds/";
-                    p = "plugin/";
                 };
 
                 q."qutebrowser/" = {
