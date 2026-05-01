@@ -2,6 +2,7 @@
     webpage = {
         preferred_color_scheme = "dark";
         darkmode.enabled = true;
+        bg = bg.h;
     };
 
     tooltip = { fg=fg.h; bg=bg.h; };
