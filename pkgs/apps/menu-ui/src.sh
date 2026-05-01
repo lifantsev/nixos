@@ -77,6 +77,7 @@ while true; do
     fi
 
     separator="$(echo "$input" | head -n 1)"
+    lg . "got separator[$separator]"
     list="$(echo "$input" | awk "/$separator/{section++; next} section==2")"
     lg . "got list '$(echo "$list" | tr '\n' ',')'"
 
