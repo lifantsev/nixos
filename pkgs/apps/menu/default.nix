@@ -4,6 +4,6 @@
     inputs = [
         menu-ui
         (pkg_import ../drop)
-        (pkg_import ../../scripts/lg.sh)
+        (pkg_import ../../scripts/lg)
     ];
 }

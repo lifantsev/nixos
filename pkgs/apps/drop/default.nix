@@ -2,7 +2,7 @@
     execer = [ "cannot:${pypr}/bin/pypr" ];
 
     inputs = [
-        (pkg_import ../../scripts/lg.sh)
+        (pkg_import ../../scripts/lg)
         pypr
     ];
 }

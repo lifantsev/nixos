@@ -3,6 +3,6 @@
 
     inputs = [
         getpin-ui
-        (pkg_import ../../scripts/lg.sh)
+        (pkg_import ../../scripts/lg)
     ];
 }
