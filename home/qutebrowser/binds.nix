@@ -10,11 +10,15 @@
         A = "tab-prev";
         I = "tab-next";
         O = "forward";
+
+        gA = "tab-focus 1";
         ga = "tab-focus 1";
+        gI = "tab-focus -1";
         gi = "tab-focus -1";
+
         go = "tab-give";
-        gn = "cmd-set-test -s :tab-take";
-        gO = "cmd-set-test -s :tab-give";
+        gn = "cmd-set-text -s :tab-take";
+        gO = "cmd-set-text -s :tab-give";
 
         n = "scroll left";
         a = "scroll up";
@@ -60,8 +64,7 @@
         # USERSCRIPTS
         t = "spawn --userscript translate.sh";
 
-        # we pre-call 'drop menu-ui' to make it menu appear faster
-        w = "spawn drop menu-ui --nohist;; spawn --userscript browseshell.sh";
+        w = "spawn --userscript browseshell.sh";
     };
 
     insert = {
