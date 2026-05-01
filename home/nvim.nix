@@ -6,6 +6,7 @@
                 (lib.filterAttrs (k: v: builtins.typeOf v == "attrs") rice.col); # filter out metadata
 
         keys = {
+            swap-rd = true;
             directional = {
                 left  = "n";
                 up    = "a";
