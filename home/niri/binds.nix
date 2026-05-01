@@ -36,7 +36,10 @@ in {
 
         Semicolon = "close-window";
 
+        Period = mode "dropdown";
+
         NONE = {
+            # TODO remove from config.kdl when set up
             XF86AudioRaiseVolume.sh = "echo";
             XF86AudioLowerVolume.sh = "echo";
             XF86AudioMute.sh = "echo";
@@ -44,5 +47,10 @@ in {
             XF86MonBrightnessUp.sh   = "brightnessctl -e3 set 3%+";
             XF86MonBrightnessDown.sh = "brightnessctl -e3 set 3%-";
         };
+    };
+
+    dropdown = {
+        W.sh = "niridrop";
+        T.sh = "niridrop term";
     };
 }

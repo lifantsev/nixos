@@ -1,4 +1,4 @@
-{ ... }@args: {
+{ ... }: {
     programs.niri = {
         extraConfig = builtins.readFile ./config.kdl;
         bind = {
