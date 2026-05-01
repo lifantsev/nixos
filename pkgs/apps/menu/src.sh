@@ -61,3 +61,5 @@ lg I "awaiting result from fifo: $fifo_path"
 result="$(cat "$fifo_path")"
 lg . "got result[$(echo "$result" | tr '\n' '$')], printing"
 echo "$result"
+
+lg finish
