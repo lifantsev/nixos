@@ -110,6 +110,21 @@
         "type": "github"
       }
     },
+    "niri-bind-modes": {
+      "locked": {
+        "lastModified": 1777620118,
+        "narHash": "sha256-S9MM56BsL3P1L/RlntVsPVRqZg6w3yzN6GG/rM3ixGw=",
+        "owner": "lifantsev",
+        "repo": "niri-bind-modes",
+        "rev": "c9b522593f982e4c547b2371af6b6b21c27961f5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lifantsev",
+        "repo": "niri-bind-modes",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1776067740,
@@ -208,6 +223,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "lifantsev-nixvim": "lifantsev-nixvim",
+        "niri-bind-modes": "niri-bind-modes",
         "nixpkgs": "nixpkgs_3"
       }
     },

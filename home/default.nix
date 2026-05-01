@@ -12,5 +12,6 @@ in {
         imports = inputs.nixpkgs.lib.attrsets.filterAttrs (n: v: (v == "directory") || (v == "regular" && n != "default.nix")) (builtins.readDir ./.);
     in [
         inputs.lifantsev-nixvim.homeManagerModules.default
+        inputs.niri-bind-modes.homeManagerModules.default
     ] ++ map (name: ./. + "/${name}") (builtins.attrNames imports);
 }

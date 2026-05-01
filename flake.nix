@@ -9,6 +9,7 @@
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
         lifantsev-nixvim.url = "github:lifantsev/nixvim";
+        niri-bind-modes.url = "github:lifantsev/niri-bind-modes";
     };
 
     outputs = { self, nixpkgs, home-manager, ... }@inputs: let
