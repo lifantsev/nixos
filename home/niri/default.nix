@@ -1,9 +1,13 @@
 { ... }: {
     programs.niri = {
-        extraConfig = builtins.readFile ./config.kdl;
-        bind = {
+        bind-modes = {
+            enableBindsFile = true;
+            enableConfigFile = true;
+
             defaultModifiers = [ "MOD" ];
-            set = import ./binds.nix;
+            binds = import ./binds.nix;
+
+            extraConfig = builtins.readFile ./config.kdl;
         };
     };
 }
