@@ -35,6 +35,9 @@
         # DESKTOP ENV #
         ###############
 
+        # NIRI
+        xwayland-satellite
+
         # HYPRLAND
         pyprland
 
