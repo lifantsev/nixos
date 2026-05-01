@@ -25,7 +25,7 @@ function init() {
     git branch -M main
     git remote add origin "$remote"
     git add .
-    git commit -m "INIT COMMIT from $(whoami)@$(hostname) at $(date +"%H:%M on %a %d.%m.%Y")"
+    git commit
     git push -u origin main
 }
 
