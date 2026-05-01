@@ -49,7 +49,9 @@
 
         url = {
             default_page = "about:blank";
-            start_pages = "calendar.google.com/calendar/";
+            start_pages = "tasks.google.com/tasks";
+            # calendar.google.com/calendar/
+            # tasks.google.com/tasks
             # en.wikipedia.org/wiki/special:random
             # everynoise.com
             # catppuccin.com
