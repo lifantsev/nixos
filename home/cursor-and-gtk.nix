@@ -17,6 +17,7 @@ in {
         enable = true;
         hyprcursor.enable = true;
         gtk.enable = true; 
+        x11.enable = true;
     };
 
     dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
