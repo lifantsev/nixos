@@ -1,3 +1,8 @@
+# TODO add more features
+
+# nixos-rebuild ... --override-input nvim /path/to/nixvim
+# nix flake update "spec"
+
 # NOTE THIS ASSUMES USE OF MAKO NOTIF-DAEMON
 NOTIF_DAEMON="mako"
 
