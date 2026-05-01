@@ -18,5 +18,11 @@
         fileset = lib.attrsets.filterAttrs (n: v: v == "regular") (builtins.readDir path);
     in map (name: path + "/${name}") (builtins.attrNames fileset);
 in {
-    xdg.configFile = lib.mergeAttrsList ( map (file: lib.mapAttrs' (key: val: lib.nameValuePair "xioxide/${stemOf file}.${key}" { text = val; }) (import file args)) (filesIn ./configs));
+    xdg.configFile = lib.mergeAttrsList (
+        map
+        (file: lib.mapAttrs' (option: text:
+            lib.nameValuePair "xioxide/${stemOf file}.${option}" { inherit text; })
+            (import file args))
+        (filesIn ./configs)
+    );
 }
