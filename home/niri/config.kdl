@@ -1,7 +1,3 @@
-// asdasd
-
-include "test.kdl"
-
 input {
     keyboard {
         repeat-delay 160
