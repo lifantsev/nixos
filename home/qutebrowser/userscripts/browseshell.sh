@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# we pre-call 'drop menu-ui' to make the menu appear faster
+drop menu-ui --nohist
+
 BROWSESHELL_HIST="/tmp/browseshell.hist"
 touch $BROWSESHELL_HIST > /dev/null
 
@@ -40,7 +43,7 @@ function handle_query() {
 
 function get_query() {
     hist="$(
-        cat "$XDG_CONFIG_HOME"/xioxide/sites.binds | awk '{ gsub(/_/, "", $1); print }'
+        cat "$XDG_CONFIG_HOME"/xioxide/sites.binds
         tac "$BROWSESHELL_HIST"
     )"
 
