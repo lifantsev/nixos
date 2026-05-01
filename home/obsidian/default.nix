@@ -2,11 +2,11 @@
     programs.obsidian = {
         enable = true;
 
-        vaults = lib.mergeAttrsList (map (n: { ${n}.target = "obsidian/${n}"; }) [
+        vaults = lib.genAttrs [
             "stem"
             "hum"
             "projects"
-        ]);
+        ] (n: { target = "obsidian/"+n; });
 
         defaultSettings = {
             app = {
