@@ -5,7 +5,9 @@
         custom-pkgs = map (import ../pkgs/import.nix args) (entriesIn ../pkgs/apps ++ entriesIn ../pkgs/scripts);
     in custom-pkgs ++
     [
+        # custom pkgs
         lg
+        niridrop
 
         # TMP #
         pinentry-qt

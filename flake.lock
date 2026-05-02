@@ -147,6 +147,29 @@
         "type": "github"
       }
     },
+    "niridrop": {
+      "inputs": {
+        "lg": [
+          "lg"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1777686308,
+        "narHash": "sha256-MfKBoBugi1rZcFy3FLDhn4JpCFJa3ndtM0BwJri33jg=",
+        "owner": "lifantsev",
+        "repo": "niridrop",
+        "rev": "050905524ca009f7a684473d43480b6de97143e0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lifantsev",
+        "repo": "niridrop",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1768323494,
@@ -231,6 +254,7 @@
         "lg": "lg",
         "lifantsev-nixvim": "lifantsev-nixvim",
         "niri-bind-modes": "niri-bind-modes",
+        "niridrop": "niridrop",
         "nixpkgs": "nixpkgs_2"
       }
     },

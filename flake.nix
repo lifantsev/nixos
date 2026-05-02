@@ -8,14 +8,23 @@
         home-manager.url = "github:nix-community/home-manager/release-25.11";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+        # custom flakes
         niri-bind-modes.url = "github:lifantsev/niri-bind-modes";
+
         lifantsev-nixvim = {
             url = "github:lifantsev/nixvim";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
         lg = {
             url = "github:lifantsev/lg";
             inputs.nixpkgs.follows = "nixpkgs";
+        };
+
+        niridrop = {
+            url = "github:lifantsev/niridrop";
+            inputs.nixpkgs.follows = "nixpkgs";
+            inputs.lg.follows = "lg";
         };
     };
 
@@ -31,6 +40,7 @@
 
         overlay = ( final: prev: {
             lg = inputs.lg.packages.${system}.default;
+            niridrop = inputs.niridrop.packages.${system}.default;
         });
     in {
         nixosConfigurations.${specialArgs.hostname} = nixpkgs.lib.nixosSystem {
