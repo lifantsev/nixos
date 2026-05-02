@@ -6,7 +6,7 @@ in {
     ];
 
     inputs = [
-        (pkg_import ../../scripts/lg)
+        pkgs.lg
         niri
         pkgs.jq
         pkgs.gnugrep

@@ -12,6 +12,6 @@
             in {
                 interpreter = "${pkgs.bash}/bin/bash";
                 inputs = [ pkgs.coreutils ] ++ settings.inputs;
-                execer = (settings.execer or []) ++ (if fpath != ./scripts/lg then [ "cannot:${pkg_import ./scripts/lg}/bin/lg" ] else []);
+                execer = (settings.execer or []) ++ [ "cannot:${pkgs.lg}/bin/lg" ];
             }) (builtins.readFile (fpath + "/src.sh"));
 in pkg_import

@@ -3,7 +3,7 @@
 
     inputs = [
         drop
-        (pkg_import ../../scripts/lg)
+        pkgs.lg
         (pkg_import ../../scripts/color-helper.sh)
         pkgs.ncurses # clear
         pkgs.hyprland

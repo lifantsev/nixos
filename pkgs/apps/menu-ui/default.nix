@@ -10,7 +10,7 @@ in {
     inputs = [
         drop
         fzf
-        (pkg_import ../../scripts/lg)
+        pkgs.lg
         pkgs.hyprland
         pkgs.jq
         pkgs.gnugrep

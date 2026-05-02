@@ -9,7 +9,7 @@ in {
 
     inputs = [
         getpin getpin-ui
-        (pkg_import ../../scripts/lg)
+        pkgs.lg
         pkgs.gnused
         pkgs.psmisc
     ];
