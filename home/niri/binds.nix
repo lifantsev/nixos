@@ -50,5 +50,6 @@
     dropdown = {
         W = sh "niridrop";
         T = sh "niridrop term";
+        Q = sh "niridrop qalc";
     };
 }
