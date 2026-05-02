@@ -1,3 +1,5 @@
+spawn-sh-at-startup "niridrop --init"
+
 input {
     keyboard {
         repeat-delay 160
