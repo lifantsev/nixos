@@ -1,5 +1,3 @@
-spawn-sh-at-startup "niridrop --init"
-
 input {
     keyboard {
         repeat-delay 160
@@ -55,18 +53,6 @@ prefer-no-csd
 screenshot-path null
 
 animations { slowdown 0.5; }
-
-workspace "dropdown" { }
-window-rule {
-    match app-id=r#"^dropdown-"#
-    open-on-workspace "dropdown"
-
-    open-floating true
-    open-focused false
-
-    default-column-width { proportion 0.75; }
-    default-window-height { proportion 0.75; }
-}
 
 binds {
 
