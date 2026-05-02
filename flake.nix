@@ -8,9 +8,15 @@
         home-manager.url = "github:nix-community/home-manager/release-25.11";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-        lifantsev-nixvim.url = "github:lifantsev/nixvim";
         niri-bind-modes.url = "github:lifantsev/niri-bind-modes";
-        lg.url = "github:lifantsev/lg";
+        lifantsev-nixvim = {
+            url = "github:lifantsev/nixvim";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+        lg = {
+            url = "github:lifantsev/lg";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = { self, nixpkgs, home-manager, ... }@inputs: let
@@ -23,15 +29,15 @@
             username = "mark";
         }; 
 
-        overlays = [( final: prev: {
+        overlay = ( final: prev: {
             lg = inputs.lg.packages.${system}.default;
-        })];
+        });
     in {
         nixosConfigurations.${specialArgs.hostname} = nixpkgs.lib.nixosSystem {
             inherit specialArgs system;
             modules = [ 
                 ./config
-                { nixpkgs.overlays = overlays; }
+                { nixpkgs.overlays = [ overlay ]; }
                 home-manager.nixosModules.home-manager { home-manager = {
                     useGlobalPkgs = true;
                     useUserPackages = true;
