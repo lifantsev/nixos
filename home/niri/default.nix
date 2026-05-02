@@ -21,10 +21,9 @@
                     cmd = "kitty --class dropdown-term";
                 };
 
-                small = {
-                    app_id = "dropdown-smallterm";
-                    cmd = "kitty --class dropdown-smallterm";
-                    size = [ 0.6 0.3 ];
+                menu-ui = {
+                    app_id = "dropdown-menu-ui";
+                    cmd = "kitty --class dropdown-menu-ui menu-ui";
                 };
 
                 qalc = {

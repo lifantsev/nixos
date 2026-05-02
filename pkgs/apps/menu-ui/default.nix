@@ -1,18 +1,13 @@
-{ pkgs, pkg_import, ... }: let
-    drop = pkg_import ../drop;
-    fzf = pkgs.fzf;
-in {
+{ pkgs, ... }: {
     execer = [
-        "cannot:${drop}/bin/drop"
-        "cannot:${fzf}/bin/fzf"
+        "cannot:${pkgs.niridrop}/bin/niridrop"
+        "cannot:${pkgs.fzf}/bin/fzf"
     ];
 
     inputs = [
-        drop
-        fzf
+        pkgs.fzf
+        pkgs.niridrop
         pkgs.lg
-        pkgs.hyprland
-        pkgs.jq
         pkgs.gnugrep
         pkgs.gnused
         pkgs.gawk

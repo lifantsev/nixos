@@ -3,7 +3,6 @@
 
     inputs = [
         menu-ui
-        (pkg_import ../drop)
         pkgs.lg
     ];
 }

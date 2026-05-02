@@ -28,37 +28,6 @@ lg I "initializing fifo: $fifo_path"
 mkdir -p "$(dirname "$fifo_path")"
 mkfifo "$fifo_path"
 
-# NOTE these functions assume hyprland + pyprland
-function ui_is_hidden() {
-    if [ -z "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
-        lg E "HYPRLAND_INSTANCE_SIGNATURE is not set! this is needed by hyprctl to work properly"
-        exit 1
-    fi
-
-    lg . "checking if ui_is_hidden using hyprctl"
-    hyprctl clients -j |
-        jq -r 'first(.[] | select(.class == "scratchpad" and .title == "menu-ui") | .workspace.name)' |
-        grep -q '^special'
-}
-
-function show_ui() {
-    lg . "running drop menui-ui --nohist"
-    if ! output="$(drop menu-ui --nohist 2>&1)"; then
-        lg E "drop failed with output: $output"
-        exit 1
-    fi
-    lg . "drop finished with output[$output]"
-}
-
-function hide_ui() {
-    lg . "running drop menui-ui --nohist"
-    if ! output="$(drop menu-ui --nohist 2>&1)"; then
-        lg E "drop failed with output: $output"
-        exit 1
-    fi
-    lg . "drop finished with output[$output]"
-}
-
 logging_state="$LGENABLE"
 
 lg I "beginning main loop: reading from fifo and processing"
@@ -71,10 +40,8 @@ while true; do
     input="$(cat "$fifo_path")"
     lg F "got input from infile"
 
-    if ui_is_hidden;
-    then lg I "opening ui" ; show_ui &
-    else lg I "menu-ui is already open, continuing"
-    fi
+    lg . "showing menu-ui"
+    niridrop menu-ui --show --forget
 
     separator="$(echo "$input" | head -n 1)"
     lg . "got separator[$separator]"
@@ -119,15 +86,8 @@ while true; do
         result="$(echo "$list" | fzf || :)"
     fi
 
-    if ui_is_hidden; then
-        lg . "menu-ui is already hidden, finishing"
-    else
-        lg I "closing ui"
-        if (( flag_fast ));
-        then hide_ui &
-        else hide_ui
-        fi
-    fi
+    lg . "hiding menu-ui"
+    niridrop menu-ui --hide --forget
 
     lg F "loop end: returning result to fifo: $(echo "$result" | tr '\n' '$')"
 
