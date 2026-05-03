@@ -14,5 +14,6 @@ in {
         inputs.lifantsev-nixvim.homeManagerModules.default
         inputs.niri-bind-modes.homeManagerModules.default
         inputs.niridrop.homeManagerModules.default
+        inputs.dropmenu.homeManagerModules.default
     ] ++ map (name: ./. + "/${name}") (builtins.attrNames imports);
 }

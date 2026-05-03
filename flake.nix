@@ -28,7 +28,7 @@
         };
 
         dropmenu = {
-            url = "path:/home/mark/repos/dropmenu";
+            url = "github:lifantsev/dropmenu";
             inputs.nixpkgs.follows = "nixpkgs";
             inputs.lg.follows = "lg";
         };

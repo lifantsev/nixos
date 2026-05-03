@@ -1,4 +1,10 @@
 { ... }: {
+    programs.dropmenu = {
+        enable = true;
+        integrations.niridrop = true;
+        dropdownProgram.niri = "niridrop";
+    };
+
     programs.niri = {
         bind-modes = {
             enableBindsFile = true;
@@ -19,11 +25,6 @@
                 term = {
                     app_id = "dropdown-term";
                     cmd = "kitty --class dropdown-term";
-                };
-
-                dropmenu-ui = {
-                    app_id = "dropmenu-ui";
-                    cmd = "kitty --class dropmenu-ui dropmenu-ui";
                 };
 
                 qalc = {

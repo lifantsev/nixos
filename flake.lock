@@ -10,14 +10,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1777795248,
-        "narHash": "sha256-U3gtPb2bKweQYs+QdkLmbxG6bolzYujTT2frbOVEwrk=",
-        "path": "/home/mark/repos/dropmenu",
-        "type": "path"
+        "lastModified": 1777801776,
+        "narHash": "sha256-Tk2brDZfIa0QWNBdfU5v53BkHfJtI/i91ZUwrvaQo4A=",
+        "owner": "lifantsev",
+        "repo": "dropmenu",
+        "rev": "24501214b2db82482bc14e57d77840562bc86d96",
+        "type": "github"
       },
       "original": {
-        "path": "/home/mark/repos/dropmenu",
-        "type": "path"
+        "owner": "lifantsev",
+        "repo": "dropmenu",
+        "type": "github"
       }
     },
     "flake-parts": {
