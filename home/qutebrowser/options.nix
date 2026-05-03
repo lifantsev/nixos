@@ -12,6 +12,11 @@
         content.pdfjs = true; # view pdf files in browser
         content.autoplay = false; # video autoplay
 
+        # show url in window title
+        window.title_format = "{current_title} [{host}]";
+        # current_url
+        # host
+
         hints = {
             border = "none";
             chars = "rsthnaio";

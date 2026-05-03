@@ -42,7 +42,7 @@ overview {
 }
 
 environment {
-    QT_QPA_PLATFORM "xcb"
+    // QT_QPA_PLATFORM "xcb"
     LGENABLE "1"
 }
 
