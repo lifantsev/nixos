@@ -26,6 +26,12 @@
             inputs.nixpkgs.follows = "nixpkgs";
             inputs.lg.follows = "lg";
         };
+
+        dropmenu = {
+            url = "path:/home/mark/repos/dropmenu";
+            inputs.nixpkgs.follows = "nixpkgs";
+            inputs.lg.follows = "lg";
+        };
     };
 
     outputs = { self, nixpkgs, home-manager, ... }@inputs: let

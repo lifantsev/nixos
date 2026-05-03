@@ -5,7 +5,7 @@
         BROWSER = "org.qutebrowser.qutebrowser";
         TERMINAL = "kitty";
         NIX_BUILD_SHELL = "zsh";
-        DMENU_PROGRAM = "menu";
+        DMENU_PROGRAM = "dropmenu";
         MANPAGER = "nvimpager";
 
         EDITORS = "nvim";

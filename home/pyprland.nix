@@ -29,7 +29,7 @@
         [pyprland]
         plugins = [ "scratchpads" ]
 
-        ${term_pad { name = "menu-ui";  sh = "menu-ui"; }}
+        ${term_pad { name = "dropmenu-ui";  sh = "dropmenu-ui"; }}
         ${term_pad { name = "getpin-ui";sh = "getpin-ui"; size=sizes.mini; }}
 
         ${term_pad { name = "term";     sh = ""; }}

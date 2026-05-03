@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "dropmenu": {
+      "inputs": {
+        "lg": [
+          "lg"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1777795248,
+        "narHash": "sha256-U3gtPb2bKweQYs+QdkLmbxG6bolzYujTT2frbOVEwrk=",
+        "path": "/home/mark/repos/dropmenu",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/mark/repos/dropmenu",
+        "type": "path"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -250,6 +270,7 @@
     },
     "root": {
       "inputs": {
+        "dropmenu": "dropmenu",
         "home-manager": "home-manager",
         "lg": "lg",
         "lifantsev-nixvim": "lifantsev-nixvim",

@@ -21,9 +21,9 @@
                     cmd = "kitty --class dropdown-term";
                 };
 
-                menu-ui = {
-                    app_id = "dropdown-menu-ui";
-                    cmd = "kitty --class dropdown-menu-ui menu-ui";
+                dropmenu-ui = {
+                    app_id = "dropmenu-ui";
+                    cmd = "kitty --class dropmenu-ui dropmenu-ui";
                 };
 
                 qalc = {
