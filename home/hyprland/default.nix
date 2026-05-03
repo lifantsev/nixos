@@ -21,7 +21,7 @@
         exec-once = [
             "pypr"
             "drop --init"
-            "browser new-window"
+            "${config.home.sessionVariables.BROWSER}"
         ];
 
         exec = [
@@ -33,8 +33,8 @@
         env = [
             "XCURSOR_SIZE,${toString config.home.pointerCursor.size}"
             "GET_WINDOW_CLASS,hyprctl activewindow -j | jq -r .class"
-            "GET_WINDOW_TITLE,t=\"$(hyprctl activewindow -j | jq -r .title)\"; [[ \"$(eval \"$GET_WINDOW_CLASS\")\" == *\"qutebrowser\"* ]] && echo \"\${t/ - [^ ]*/} $(browser get-url | sed -e 's|^[^/]*//\\([^/]*\\)/.*|[\\1]|')\" || echo \"$t\""
-            "LGENABLE,1" # TODO disable when done debugging
+            "GET_WINDOW_CLASS,hyprctl activewindow -j | jq -r .title"
+            "LGENABLE,0"
         ];
 
         monitor = [

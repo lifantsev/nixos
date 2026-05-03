@@ -18,12 +18,15 @@ in {
     # the intention is that on my upcoming custom keyboard i can have super as a oneshot key
     # so i hit <oneshot(super) 'q' 't'> and it works even though the 't' doesnt have a modifier applied
     # once i get the keyboard, see if it is practical this way, and decide if i want to keep or change this config
-    apps = let term = config.home.sessionVariables.TERMINAL; in {
+    apps = let
+        term = config.home.sessionVariables.TERMINAL;
+        browser = config.home.sessionVariables.BROWSER;
+    in {
         Space = submap "reset";
         L = subreset (exec term+" launcher");
 
         T = subreset (exec term);
-        H = subreset (exec "browser new-window");
+        H = subreset (exec browser);
         B = subreset (exec "brave");
     };
 }
