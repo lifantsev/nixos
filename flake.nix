@@ -39,7 +39,6 @@
         }; 
 
         overlay = ( final: prev: {
-            lg = inputs.lg.packages.${system}.default;
             niridrop = inputs.niridrop.packages.${system}.default;
         });
     in {

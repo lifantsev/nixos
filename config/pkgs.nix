@@ -6,7 +6,6 @@
     in custom-pkgs ++
     [
         # custom pkgs
-        lg
         niridrop
 
         # TMP #
