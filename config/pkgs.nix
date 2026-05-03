@@ -5,9 +5,6 @@
         custom-pkgs = map (import ../pkgs/import.nix args) (entriesIn ../pkgs/apps ++ entriesIn ../pkgs/scripts);
     in custom-pkgs ++
     [
-        # custom pkgs
-        niridrop
-
         # TMP #
         pinentry-qt
         rofi

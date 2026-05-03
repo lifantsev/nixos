@@ -37,16 +37,11 @@
             hostname = "nixbook";
             username = "mark";
         }; 
-
-        overlay = ( final: prev: {
-            niridrop = inputs.niridrop.packages.${system}.default;
-        });
     in {
         nixosConfigurations.${specialArgs.hostname} = nixpkgs.lib.nixosSystem {
             inherit specialArgs system;
             modules = [ 
                 ./config
-                { nixpkgs.overlays = [ overlay ]; }
                 home-manager.nixosModules.home-manager { home-manager = {
                     useGlobalPkgs = true;
                     useUserPackages = true;
