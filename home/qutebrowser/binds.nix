@@ -32,9 +32,9 @@
         "<down>"  = "tab-move +";
         "g<down>" = "tab-move -1";
 
-        l = "cmd-set-text -s :open  ;; spawn --userscript urlupdater.sh";
-        L = "cmd-set-text -s :open -t ;; spawn --userscript urlupdater.sh";
-        "<ctrl-l>" = "cmd-set-text -s :open -t -r ;; spawn --userscript urlupdater.sh";
+        l = "cmd-set-text -s :open";
+        L = "cmd-set-text -s :open -t";
+        "<ctrl-l>" = "cmd-set-text -s :open -t -r";
         "<ctrl-h>" = "history -t";
         j = "search-next";
         J = "search-prev";
