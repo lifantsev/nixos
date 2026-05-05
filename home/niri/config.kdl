@@ -1,3 +1,5 @@
+spawn-at-startup "mako"
+
 input {
     keyboard {
         repeat-delay 160
