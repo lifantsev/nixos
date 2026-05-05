@@ -35,6 +35,10 @@
         Semicolon = "close-window";
 
         Period = mode "dropdown";
+        W = mode "bar";
+
+        Z = sh "screenshot";
+        SHIFT.Z = sh "screenrecord";
 
         NONE = {
             # TODO remove from config.kdl when set up
@@ -45,6 +49,14 @@
             XF86MonBrightnessUp   = sh "brightnessctl -e3 set 3%+";
             XF86MonBrightnessDown = sh "brightnessctl -e3 set 3%-";
         };
+    };
+
+    bar = {
+        D = sh "barless date";
+        T = sh "barless time";
+        B = sh "barless battery";
+        V = sh "barless volume";
+        M = sh "barless music";
     };
 
     dropdown = {
