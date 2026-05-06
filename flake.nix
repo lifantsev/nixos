@@ -36,12 +36,11 @@
         pinentry-dropdown = {
             url = "github:lifantsev/pinentry-dropdown";
             inputs.nixpkgs.follows = "nixpkgs";
-            inputs.niridrop.follows = "niridrop";
             inputs.lg.follows = "lg";
         };
     };
 
-    outputs = { self, nixpkgs, home-manager, ... }@inputs: let
+    outputs = { nixpkgs, home-manager, ... }@inputs: let
         system = "aarch64-linux";
 
         specialArgs = {
