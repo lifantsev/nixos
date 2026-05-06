@@ -180,11 +180,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1777792954,
-        "narHash": "sha256-dEE3VBHDA6DNJk3/92JZlg4zyF0sxNuf3AcXmCkNFRg=",
+        "lastModified": 1778103640,
+        "narHash": "sha256-SCiU6jqPtoUlYIcoiQ1hVHSsyyzFEqwaiPMJPT7keN4=",
         "owner": "lifantsev",
         "repo": "niridrop",
-        "rev": "2e5ed87882b14aedb4caeeae2818b8d66d84e37b",
+        "rev": "a2e778da4537ed5c0a83a1748485b818e90886a3",
         "type": "github"
       },
       "original": {
