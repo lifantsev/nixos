@@ -5,9 +5,7 @@
         dropdownProgram.niri = "niridrop";
     };
 
-    # programs.pinentry-niridrop = {
-    #     enable = true;
-    # };
+    programs.pinentry-niridrop.enable = true; # register pinentry dropdown window
 
     programs.niri = {
         bind-modes = {
@@ -34,12 +32,6 @@
                 qalc = {
                     app_id = "dropdown-qalc";
                     cmd = "kitty --class dropdown-qalc qalc";
-                };
-
-                getpin-ui = {
-                    app_id = "getpin-ui";
-                    cmd = "kitty --class getpin-ui getpin-ui";
-                    size = [ 0.3 0.16 ];
                 };
             };
         };
