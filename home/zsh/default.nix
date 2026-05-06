@@ -1,4 +1,4 @@
-{ config, ... }@args: {
+{ config, rice, ... }@args: {
     # NOTE default shell is set in config/default.nix @ users.users.<username>.shell
 
     programs.kitty.shellIntegration.enableZshIntegration = true;
@@ -19,7 +19,18 @@
 
         enableCompletion = false;
         autosuggestion.enable = true;
-        syntaxHighlighting.enable = true;
+        syntaxHighlighting = {
+            enable = true;
+            styles = let
+                mk = c: "fg=${rice.col.${c}.h}";
+            in {
+                comment = mk "mg";
+                single-quoted-argument = "fg=blue";
+                double-quoted-argument = "fg=blue";
+                single-quoted-argument-unclosed = "fg=blue";
+                double-quoted-argument-unclosed = "fg=blue";
+            };
+        };
 
         sessionVariables = {
             ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=7";
@@ -45,6 +56,8 @@
             ${builtins.readFile ./bind/lazy-comp-init.zsh}
 
             source $ZDOTDIR/plugins/nix-shell.plugin.zsh
+
+            setopt INTERACTIVE_COMMENTS # allow comments on cmdline
 
             # startup command
             ${config.programs.zsh.shellAliases.n}
