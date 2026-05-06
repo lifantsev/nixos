@@ -5,7 +5,11 @@
         dropdownProgram.niri = "niridrop";
     };
 
-    programs.pinentry-niridrop.enable = true; # register pinentry dropdown window
+    programs.pinentry-dropdown = {
+        enable = true;
+        integrations.niridrop = true; # register pinentry dropdown window
+        showhide = "niridrop";
+    };
 
     programs.niri = {
         bind-modes = {

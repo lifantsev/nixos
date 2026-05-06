@@ -8,7 +8,7 @@
     in {
         enable = true;
 
-        pinentry.package = pkgs.pinentry-niridrop;
+        pinentry.package = pkgs.pinentry-dropdown;
 
         extraConfig = ''
             allow-loopback-pinentry

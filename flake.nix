@@ -33,8 +33,8 @@
             inputs.lg.follows = "lg";
         };
 
-        pinentry-niridrop = {
-            url = "github:lifantsev/pinentry-niridrop";
+        pinentry-dropdown = {
+            url = "github:lifantsev/pinentry-dropdown";
             inputs.nixpkgs.follows = "nixpkgs";
             inputs.niridrop.follows = "niridrop";
             inputs.lg.follows = "lg";
