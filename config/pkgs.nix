@@ -5,10 +5,6 @@
         custom-pkgs = map (import ../pkgs/import.nix args) (entriesIn ../pkgs/apps ++ entriesIn ../pkgs/scripts);
     in custom-pkgs ++
     [
-        # TMP #
-        pinentry-qt
-        rofi
-
         #############
         # USER APPS #
         #############
