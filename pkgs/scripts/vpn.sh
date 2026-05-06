@@ -18,7 +18,14 @@ function print_help() {
 
 # TRIVIAL HELPERS
 function list() { ls $WGPATH | sed 's|\.conf$||' ;}
-function current() { sudo wg show | grep '^interface:' | head -n 1 | sed 's|^interface: ||' ;}
+function current() {
+    if [[ "$EUID" -eq 0 ]]; then
+        # we have root privelege
+        wg show | grep '^interface:' | head -n 1 | sed 's|^interface: ||'
+    else
+        wg show 2>&1 | grep interface | head -n 1 | sed -e 's|^Unable to access interface ||' -e 's|: Operation not permitted$||'
+    fi
+}
 function complete_name() {
     result="$(list | grep -i "^$name" | head -n 1)"
     [ -z "$result" ] && result="$(list | grep -i "$id" | head -n 1)"
@@ -66,6 +73,9 @@ function handle_command() {
         "r"|"reload") reload ;;
         "c"|"current") current ;;
         "h"|"help") print_help ;;
+        "isup") 
+            wg show 2>&1 | grep -q . && exit 0
+            exit 1
     esac
 }
 

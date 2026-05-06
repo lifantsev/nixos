@@ -1,10 +1,6 @@
 # net.sh
 # a script to easily interact with nmcli
 
-# TODO permanently elevate priveleges when using vpn
-# so that we don't have to enter password at the start
-# but once we do, we never have to again
-
 # TODO pass --ask to nmcli
 
 # TODO prevent waiting long times for network list lookup
@@ -93,7 +89,7 @@ if [ -n "$1" ]; then
 fi
 
 while true; do
-    curname="$(vpn current | sed 's|.\+|v |')$(current | tr '[:upper:]' '[:lower:]')"
+    curname="$(vpn isup && echo "v ")$(current | tr '[:upper:]' '[:lower:]')"
     [ -n "$curname" ] && curname+=": "
 
     colorprint "$COL_PROMPT" "-> $curname"
