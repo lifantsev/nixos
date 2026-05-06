@@ -1,5 +1,9 @@
 spawn-at-startup "mako"
 
+debug {
+    render-drm-device "/dev/dri/renderD128"
+}
+
 input {
     keyboard {
         repeat-delay 160
