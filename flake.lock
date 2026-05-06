@@ -157,11 +157,11 @@
     },
     "niri-bind-modes": {
       "locked": {
-        "lastModified": 1777677036,
-        "narHash": "sha256-8kkW3yi6gkTP3LMunHHbbb/egnt6uDrBeFUhGw21gJM=",
+        "lastModified": 1778052945,
+        "narHash": "sha256-g96YymwgQK9iQWk5JNmm643FcDUfALen0iyvNSz4PSk=",
         "owner": "lifantsev",
         "repo": "niri-bind-modes",
-        "rev": "e97c5645bd387846231e73d4854895553aec0b86",
+        "rev": "567941aa36401a898dd94a6c57f90c92c3d06a1f",
         "type": "github"
       },
       "original": {
