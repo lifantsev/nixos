@@ -1,9 +1,13 @@
 { ... }: {
     programs.dropmenu = {
         enable = true;
-        integrations.niridrop = true;
+        integrations.niridrop = true; # register niridrop window
         dropdownProgram.niri = "niridrop";
     };
+
+    # programs.pinentry-niridrop = {
+    #     enable = true;
+    # };
 
     programs.niri = {
         bind-modes = {
@@ -19,7 +23,7 @@
         niridrop = {
             enableJSON = true;
             enableKDL = true;
-            bindModesIntegration = true;
+            bindModesIntegration = true; # piggyback off bind-modes.extraConfig to include dropdown.kdl
 
             windows = {
                 term = {
@@ -31,8 +35,13 @@
                     app_id = "dropdown-qalc";
                     cmd = "kitty --class dropdown-qalc qalc";
                 };
+
+                getpin-ui = {
+                    app_id = "getpin-ui";
+                    cmd = "kitty --class getpin-ui getpin-ui";
+                    size = [ 0.3 0.16 ];
+                };
             };
         };
     };
 }
-

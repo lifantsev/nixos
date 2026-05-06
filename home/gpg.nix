@@ -8,7 +8,7 @@
     in {
         enable = true;
 
-        pinentry.package = (import ../pkgs/import.nix args) ../pkgs/apps/pinentry-custom;
+        pinentry.package = pkgs.pinentry-niridrop;
 
         extraConfig = ''
             allow-loopback-pinentry

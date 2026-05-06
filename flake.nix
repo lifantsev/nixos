@@ -32,6 +32,13 @@
             inputs.nixpkgs.follows = "nixpkgs";
             inputs.lg.follows = "lg";
         };
+
+        pinentry-niridrop = {
+            url = "github:lifantsev/pinentry-niridrop";
+            inputs.nixpkgs.follows = "nixpkgs";
+            inputs.niridrop.follows = "niridrop";
+            inputs.lg.follows = "lg";
+        };
     };
 
     outputs = { self, nixpkgs, home-manager, ... }@inputs: let

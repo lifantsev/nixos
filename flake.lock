@@ -271,6 +271,32 @@
         "type": "github"
       }
     },
+    "pinentry-niridrop": {
+      "inputs": {
+        "lg": [
+          "lg"
+        ],
+        "niridrop": [
+          "niridrop"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1778026665,
+        "narHash": "sha256-SWENISAIPOmwudTePBVGiN//H2/n4u77mdzdLhn/Uo0=",
+        "owner": "lifantsev",
+        "repo": "pinentry-niridrop",
+        "rev": "bf7d7895142f9399a5964fe50c419000449777ad",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lifantsev",
+        "repo": "pinentry-niridrop",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "dropmenu": "dropmenu",
@@ -279,7 +305,8 @@
         "lifantsev-nixvim": "lifantsev-nixvim",
         "niri-bind-modes": "niri-bind-modes",
         "niridrop": "niridrop",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "pinentry-niridrop": "pinentry-niridrop"
       }
     },
     "systems": {
