@@ -10,11 +10,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1777801776,
-        "narHash": "sha256-Tk2brDZfIa0QWNBdfU5v53BkHfJtI/i91ZUwrvaQo4A=",
+        "lastModified": 1778048504,
+        "narHash": "sha256-aIQPibb0so/biiP007z3LKIERRS1Xc20ODkA5bZ0Okc=",
         "owner": "lifantsev",
         "repo": "dropmenu",
-        "rev": "24501214b2db82482bc14e57d77840562bc86d96",
+        "rev": "f2b1d453939886453f25490bf085b415a6a373a6",
         "type": "github"
       },
       "original": {
@@ -271,29 +271,26 @@
         "type": "github"
       }
     },
-    "pinentry-niridrop": {
+    "pinentry-dropdown": {
       "inputs": {
         "lg": [
           "lg"
-        ],
-        "niridrop": [
-          "niridrop"
         ],
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1778027529,
-        "narHash": "sha256-INsBWCueyF6bf01YWuFTzf0ugjHKrarwDjul481uoaw=",
+        "lastModified": 1778047901,
+        "narHash": "sha256-kv1lxF/XBwkoOTDgbwiNFZ4YiEYrUE1SHJwm/Dw3G3s=",
         "owner": "lifantsev",
-        "repo": "pinentry-niridrop",
-        "rev": "8f0bc667c2b483219b4500759c39792e85f5961c",
+        "repo": "pinentry-dropdown",
+        "rev": "710ed3d442fab390545467dc61ca23fb82abeb35",
         "type": "github"
       },
       "original": {
         "owner": "lifantsev",
-        "repo": "pinentry-niridrop",
+        "repo": "pinentry-dropdown",
         "type": "github"
       }
     },
@@ -306,7 +303,7 @@
         "niri-bind-modes": "niri-bind-modes",
         "niridrop": "niridrop",
         "nixpkgs": "nixpkgs_2",
-        "pinentry-niridrop": "pinentry-niridrop"
+        "pinentry-dropdown": "pinentry-dropdown"
       }
     },
     "systems": {

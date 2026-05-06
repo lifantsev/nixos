@@ -1,13 +1,13 @@
 { ... }: {
     programs.dropmenu = {
         enable = true;
-        integrations.niridrop = true; # register niridrop window
-        dropdownProgram.niri = "niridrop";
+        integrations.niridrop = true; # register dropmenu-ui window
+        showhide = "niridrop";
     };
 
     programs.pinentry-dropdown = {
         enable = true;
-        integrations.niridrop = true; # register pinentry dropdown window
+        integrations.niridrop = true; # register getpin-ui window
         showhide = "niridrop";
     };
 
