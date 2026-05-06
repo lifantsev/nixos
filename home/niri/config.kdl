@@ -18,6 +18,10 @@ input {
     }
 }
 
+gestures {
+    hot-corners { off; }
+}
+
 layout {
     gaps 0
 
