@@ -59,9 +59,16 @@
         M = sh "barless music";
     };
 
-    dropdown = {
+    dropdown = let
+        drop = name: sh "niridrop ${name}";
+    in {
         W = sh "niridrop";
-        T = sh "niridrop term";
-        Q = sh "niridrop qalc";
+        T = drop "term";
+        S = drop "spotify";
+
+        Q = drop "qalc";
+        N = drop "nixbuild";
+        M = drop "net";
+        B = drop "blue";
     };
 }
