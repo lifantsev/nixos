@@ -1,10 +1,5 @@
 { pkgs, ... }@args: {
-    environment.systemPackages = with pkgs; let
-        entriesIn = path: map (name: path + "/${name}") (builtins.attrNames (builtins.readDir path));
-
-        custom-pkgs = map (import ../pkgs/import.nix args) (entriesIn ../pkgs/apps ++ entriesIn ../pkgs/scripts);
-    in custom-pkgs ++
-    [
+    environment.systemPackages = with pkgs; (import ../pkgs args) ++ [
         #############
         # USER APPS #
         #############
