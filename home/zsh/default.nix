@@ -25,10 +25,10 @@
                 mk = c: "fg=${rice.col.${c}.h}";
             in {
                 comment = mk "mg";
-                single-quoted-argument = "fg=blue";
-                double-quoted-argument = "fg=blue";
-                single-quoted-argument-unclosed = "fg=blue";
-                double-quoted-argument-unclosed = "fg=blue";
+                single-quoted-argument = "fg=green";
+                double-quoted-argument = "fg=green";
+                single-quoted-argument-unclosed = "fg=green";
+                double-quoted-argument-unclosed = "fg=green";
             };
         };
 
