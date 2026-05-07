@@ -1,5 +1,5 @@
 with (import ../../../rice).col; {
-    urls.include = [ "*reddit.com*" ];
+    urls.include = [ "*TODOreddit.com*" ]; # TODO revert
     css = /*css*/ ''
         * { border: none !important; }
 
