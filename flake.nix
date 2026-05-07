@@ -1,4 +1,6 @@
 # TODO write readme
+# installed with the help of this guide
+# https://github.com/zzywysm/nixos-asahi/blob/supreme-asahi-6.12/docs/uefi-standalone.md
 {
     description = "configuration flake for asahi macbook";
 
