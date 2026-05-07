@@ -3,7 +3,8 @@
         fileset = lib.attrsets.filterAttrs (n: v: v == "regular" && n != "default.nix") (builtins.readDir ./.);
     in map (file: ./. + "/${file}") (builtins.attrNames fileset) ++ [
         ./ignore/hardware-configuration.nix # nixos hardware scan
-        ./apple-silicon-support # support module from nixos-apple-silicon
+
+        inputs.nixos-apple-silicon.nixosModules.default # apple silicon support module
 
         inputs.lg.nixosModules.default
         inputs.niridrop.nixosModules.default
@@ -14,8 +15,12 @@
     hardware.asahi.peripheralFirmwareDirectory = ./ignore/firmware; # files copied from /mnt/boot/asahi/{all_firmware.tar.gz,kernelcache*} during install
 
     nixpkgs.config.allowUnfree = true;
-    nix.settings.experimental-features = [ "flakes" "nix-command" ];
+    nix.settings = {
+        experimental-features = [ "flakes" "nix-command" ];
 
+        extra-substituters = [ "https://nixos-apple-silicon.cachix.org" ];
+        extra-trusted-public-keys = [ "nixos-apple-silicon.cachix.org-1:8psDu5SA5dAD7qA0zMy5UT292TxeEPzIz8VVEr2Js20=" ];
+    };
     users.users.${username} = {
         isNormalUser = true;
         description = "Mark Lifantsev";

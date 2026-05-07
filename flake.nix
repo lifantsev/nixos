@@ -1,6 +1,6 @@
 # TODO write readme
 # installed with the help of this guide
-# https://github.com/zzywysm/nixos-asahi/blob/supreme-asahi-6.12/docs/uefi-standalone.md
+# https://github.com/nix-community/nixos-apple-silicon/blob/main/docs/uefi-standalone.md
 {
     description = "configuration flake for asahi macbook";
 
@@ -9,6 +9,12 @@
 
         home-manager.url = "github:nix-community/home-manager/release-25.11";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+        # FIXME using master branch to get around kernel build error
+        # (https://github.com/nix-community/nixos-apple-silicon/issues/427)
+        # will revert to a stable branch when this is fixed
+        nixos-apple-silicon.url = "github:nix-community/nixos-apple-silicon";
+        nixos-apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
 
         # custom flakes
         niri-bind-modes.url = "github:lifantsev/niri-bind-modes";
