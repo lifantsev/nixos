@@ -1,4 +1,4 @@
-{ ... }@args: { programs = {
+{ rice, ... }@args: { programs = {
     dropmenu = {
         enable = true;
         integrations.niridrop = true; # register dropmenu-ui window
@@ -17,9 +17,9 @@
             enableConfigFile = true;
 
             defaultModifiers = [ "MOD" ];
-            binds = import ./binds args;
 
-            extraConfig = builtins.readFile ./config.kdl;
+            binds = import ./binds args;
+            extraConfig = import ./config args;
         };
 
         niridrop = {

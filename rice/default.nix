@@ -2,13 +2,14 @@
     col = import ./colors/catppuccin.nix;
 
     style = {
-        rounding = false;
+        rounding = false; # just use window.radius instead
         animation = false;
     };
 
     window = let gaps = 5; in {
         border = 2;
-        radius = 7;
+        radius = 0;
+        gaps = 0; # TODO make this make sense
         gaps-in = gaps;
         gaps-out = 2*gaps;
     };

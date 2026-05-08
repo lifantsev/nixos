@@ -26,31 +26,6 @@ gestures {
     hot-corners { off; }
 }
 
-layout {
-    gaps 0
-
-    center-focused-column "never"
-
-    default-column-width { proportion 0.5; }
-
-    focus-ring { off; }
-
-    background-color "#11111b"
-
-    border {
-        on
-        width 2
-
-        active-gradient from="#89b4fa" to="#cba6f7" angle=45 relative-to="workspace-view" in="oklch shorter hue"
-        inactive-gradient from="#1e1e2e" to="#313244" angle=45 relative-to="workspace-view" in="oklch shorter hue"
-        urgent-color "#f38ba8"
-    }
-}
-
-overview {
-    backdrop-color "#0f0f19"
-}
-
 environment {
     LGENABLE "1"
     GET_WINDOW_CLASS "niri msg --json focused-window | jq -r .app_id"
@@ -66,7 +41,6 @@ screenshot-path null
 animations { slowdown 0.5; }
 
 binds {
-
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }

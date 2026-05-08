@@ -1,3 +1,4 @@
+# TODO make this a list that gets zipped for readability
 { config, ... }: let 
     term = config.home.sessionVariables.TERMINAL;
     mkTerm = name: sh: extra: {
