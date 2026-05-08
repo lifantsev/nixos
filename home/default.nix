@@ -16,5 +16,6 @@ in {
         inputs.niridrop.homeManagerModules.default
         inputs.dropmenu.homeManagerModules.default
         inputs.pinentry-dropdown.homeManagerModules.default
+        inputs.niri.homeModules.config
     ];
 }

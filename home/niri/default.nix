@@ -1,4 +1,4 @@
-{ rice, ... }@args: { programs = {
+{ pkgs, rice, ... }@args: { programs = {
     dropmenu = {
         enable = true;
         integrations.niridrop = true; # register dropmenu-ui window
@@ -12,21 +12,18 @@
     };
 
     niri = {
+        package = pkgs.niri;
+
+        settings = import ./config args;
+
         bind-modes = {
-            enableBindsFile = true;
-            enableConfigFile = true;
-
+            enable = true;
             defaultModifiers = [ "MOD" ];
-
             binds = import ./binds args;
-            extraConfig = import ./config args;
         };
 
         niridrop = {
-            enableJSON = true;
-            enableKDL = true;
-            bindModesIntegration = true; # piggyback off bind-modes.extraConfig to include dropdown.kdl
-
+            enable = true;
             windows = import ./dropdowns.nix args;
         };
     };

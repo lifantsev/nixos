@@ -16,8 +16,20 @@
         nixos-apple-silicon.url = "github:nix-community/nixos-apple-silicon";
         nixos-apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
 
-        # custom flakes
+        # auxiliary
+        niri = {
+            url = "github:sodiboo/niri-flake";
+            inputs.nixpkgs-stable.follows = "nixpkgs";
+        };
+
+        # my flakes
         niri-bind-modes.url = "github:lifantsev/niri-bind-modes";
+
+        niridrop = {
+            url = "github:lifantsev/niridrop";
+            inputs.nixpkgs.follows = "nixpkgs";
+            inputs.lg.follows = "lg";
+        };
 
         lifantsev-nixvim = {
             url = "github:lifantsev/nixvim";
@@ -27,12 +39,6 @@
         lg = {
             url = "github:lifantsev/lg";
             inputs.nixpkgs.follows = "nixpkgs";
-        };
-
-        niridrop = {
-            url = "github:lifantsev/niridrop";
-            inputs.nixpkgs.follows = "nixpkgs";
-            inputs.lg.follows = "lg";
         };
 
         dropmenu = {
