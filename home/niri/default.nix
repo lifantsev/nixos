@@ -1,23 +1,23 @@
-{ ... }@args: {
-    programs.dropmenu = {
+{ ... }@args: { programs = {
+    dropmenu = {
         enable = true;
         integrations.niridrop = true; # register dropmenu-ui window
         showhide = "niridrop";
     };
 
-    programs.pinentry-dropdown = {
+    pinentry-dropdown = {
         enable = true;
         integrations.niridrop = true; # register getpin-ui window
         showhide = "niridrop";
     };
 
-    programs.niri = {
+    niri = {
         bind-modes = {
             enableBindsFile = true;
             enableConfigFile = true;
 
             defaultModifiers = [ "MOD" ];
-            binds = import ./binds.nix;
+            binds = import ./binds args;
 
             extraConfig = builtins.readFile ./config.kdl;
         };
@@ -30,4 +30,4 @@
             windows = import ./dropdowns.nix args;
         };
     };
-}
+};}
