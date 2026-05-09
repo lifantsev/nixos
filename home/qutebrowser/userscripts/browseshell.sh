@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-# TODO PORT THIS
-# we pre-call 'drop menu-ui' to make the menu appear faster
-# drop menu-ui --nohist
+# pre-open ui to make it look snappier
+niridrop --forget --show menu-ui &
 
 BROWSESHELL_HIST="/tmp/browseshell.hist"
 touch $BROWSESHELL_HIST > /dev/null
@@ -48,7 +47,7 @@ function get_query() {
         tac "$BROWSESHELL_HIST"
     )"
 
-    fzout="$(echo "$hist" | $DMENU_PROGRAM --fast --print-query)"
+    fzout="$(echo "$hist" | dropmenu --fast --print-query)"
 
     if [ -z "$(echo "$fzout" | head -n 1)" ]; then # we just chose sum, no type
         prequery="$(echo "$fzout" | tail -n 1)"

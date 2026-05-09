@@ -253,11 +253,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778290179,
-        "narHash": "sha256-Xy9ZzAD0ytaS0bVWw1OZl+ujiU6lMb3uazVBE8EdPhg=",
+        "lastModified": 1778292238,
+        "narHash": "sha256-DAs7nrxs/UXdDybCu6cXMqvwgOc9yZi1HLmeO9HRitU=",
         "owner": "lifantsev",
         "repo": "niridrop",
-        "rev": "f1f9f6a8a801c8a2f32e861e3d8d8d0ed07dbc72",
+        "rev": "fd18f60ea9025734a6f8e38bf06487f662068c4d",
         "type": "github"
       },
       "original": {
@@ -391,11 +391,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778052687,
-        "narHash": "sha256-mRiMsNRy3h5bvdvvgbENikSp+8My5c543LLaAGwZe8U=",
+        "lastModified": 1778293664,
+        "narHash": "sha256-SNiKgaOuRsdej7lhPZoU278kah7xrf8YwADTCVtnhYw=",
         "owner": "lifantsev",
         "repo": "pinentry-dropdown",
-        "rev": "e3c23b8720f5f399aa72adf682da4659e88e967f",
+        "rev": "3c5ce4c0c8e44852aff7d9b0f2fb2bf553e08ae9",
         "type": "github"
       },
       "original": {
