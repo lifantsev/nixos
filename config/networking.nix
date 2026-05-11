@@ -1,5 +1,5 @@
 { hostname, ... }: {
-    networking.hostName = hostname; # Define your hostname.
+    networking.hostName = hostname;
 
     # Configure network connections interactively with nmcli or nmtui.
     networking.networkmanager = {
