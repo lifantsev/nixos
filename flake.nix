@@ -52,6 +52,12 @@
             inputs.nixpkgs.follows = "nixpkgs";
             inputs.lg.follows = "lg";
         };
+
+        supervisor = {
+            url = "github:lifantsev/supervisor";
+            inputs.nixpkgs.follows = "nixpkgs";
+            inputs.lg.follows = "lg";
+        };
     };
 
     outputs = { nixpkgs, home-manager, ... }@inputs: let

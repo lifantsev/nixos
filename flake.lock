@@ -415,7 +415,31 @@
         "niridrop": "niridrop",
         "nixos-apple-silicon": "nixos-apple-silicon",
         "nixpkgs": "nixpkgs_3",
-        "pinentry-dropdown": "pinentry-dropdown"
+        "pinentry-dropdown": "pinentry-dropdown",
+        "supervisor": "supervisor"
+      }
+    },
+    "supervisor": {
+      "inputs": {
+        "lg": [
+          "lg"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1778619885,
+        "narHash": "sha256-RQEJhOqSjA6iae5SPjudA3oB8mSEz3O2A+t2CvHa3So=",
+        "owner": "lifantsev",
+        "repo": "supervisor",
+        "rev": "877878d5cf42d9d376ef7bdedc48585f38f56060",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lifantsev",
+        "repo": "supervisor",
+        "type": "github"
       }
     },
     "systems": {

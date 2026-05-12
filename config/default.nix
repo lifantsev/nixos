@@ -10,6 +10,7 @@
         inputs.niridrop.nixosModules.default
         inputs.dropmenu.nixosModules.default
         inputs.pinentry-dropdown.nixosModules.default
+        inputs.supervisor.nixosModules.default
     ];
 
     hardware.asahi.peripheralFirmwareDirectory = ./ignore/firmware; # files copied from /mnt/boot/asahi/{all_firmware.tar.gz,kernelcache*} during install

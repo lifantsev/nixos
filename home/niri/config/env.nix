@@ -1,8 +1,4 @@
 { ... }: {
-    spawn-at-startup = [
-        { argv = [ "mako" ];}
-    ];
-
     environment = {
         LGENABLE = "1";
         GET_WINDOW_CLASS = "niri msg --json focused-window | jq -r .app_id";
