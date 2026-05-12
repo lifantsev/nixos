@@ -26,7 +26,7 @@ case "$action" in
         [ "$hour" -lt 5 ] && warning="please fucking go to sleep"
         ;;
     battery*)
-        percentage="$(upower -b | awk '/ percentage: / { print $2 }')"
+        percentage="$(upower -b | awk '/ percentage: / { print $2 }' | sed 's|\.[0-9]*%|%|')"
         # the awk logic just cuts time xx.x -> xx, leaves x.x alone
         time="$(upower -b | awk '/ time to / { if (length($4) == 4) { printf substr($4, 1, 2); } else { printf $4; }; print substr($5, 1, 1) }')"
         state="$(upower -b | awk '/ state: / { if ($2 == "charging") { print "+" } else if ($2 == "discharging") { print "-" } else { print "DONT CHARGE TO 100!" }}')"
