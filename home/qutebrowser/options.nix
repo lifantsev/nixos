@@ -13,7 +13,7 @@
         content.autoplay = false; # video autoplay
 
         # show url in window title
-        window.title_format = "{current_title} [{host}]";
+        window.title_format = "{current_title} [{host}] (({current_url}))";
         # current_url
         # host
 
