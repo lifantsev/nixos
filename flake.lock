@@ -429,11 +429,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778619885,
-        "narHash": "sha256-RQEJhOqSjA6iae5SPjudA3oB8mSEz3O2A+t2CvHa3So=",
+        "lastModified": 1778724648,
+        "narHash": "sha256-eRfs/cw7m58630r5Q6gimUSo7md1ZqAeQZQKmEYBRbk=",
         "owner": "lifantsev",
         "repo": "supervisor",
-        "rev": "877878d5cf42d9d376ef7bdedc48585f38f56060",
+        "rev": "786006c2d8a93e4bfe5080124174f7aa14a101d3",
         "type": "github"
       },
       "original": {

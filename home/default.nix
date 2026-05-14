@@ -11,11 +11,13 @@ in {
     imports = let
         imports = inputs.nixpkgs.lib.attrsets.filterAttrs (n: v: (v == "directory") || (v == "regular" && n != "default.nix")) (builtins.readDir ./.);
     in map (name: ./. + "/${name}") (builtins.attrNames imports) ++ [
+        inputs.niri.homeModules.config
+
         inputs.lifantsev-nixvim.homeManagerModules.default
         inputs.niri-bind-modes.homeManagerModules.default
         inputs.niridrop.homeManagerModules.default
         inputs.dropmenu.homeManagerModules.default
         inputs.pinentry-dropdown.homeManagerModules.default
-        inputs.niri.homeModules.config
+        inputs.supervisor.homeManagerModules.default
     ];
 }
