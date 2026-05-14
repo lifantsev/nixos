@@ -2,7 +2,6 @@
     programs.supervisor  = {
         enable = true;
         updateloop.use = "niri";
-        spawn-at-startup.niri = true;
 
         # TODO make this easier to read (with helper function)
         config = {
