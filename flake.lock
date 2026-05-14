@@ -10,11 +10,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778048504,
-        "narHash": "sha256-aIQPibb0so/biiP007z3LKIERRS1Xc20ODkA5bZ0Okc=",
+        "lastModified": 1778797683,
+        "narHash": "sha256-c9rk+ELfl92LTri4nYYB8UUEUrbBo6I8R15shgw043E=",
         "owner": "lifantsev",
         "repo": "dropmenu",
-        "rev": "f2b1d453939886453f25490bf085b415a6a373a6",
+        "rev": "89894714e92637902e5f65ce10bebdc0e76d5f08",
         "type": "github"
       },
       "original": {
@@ -253,11 +253,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778292238,
-        "narHash": "sha256-DAs7nrxs/UXdDybCu6cXMqvwgOc9yZi1HLmeO9HRitU=",
+        "lastModified": 1778797846,
+        "narHash": "sha256-GrZYnXlbS7nKwLv7UkMs3WtPx5Y5zep9nxxBqdwpZoU=",
         "owner": "lifantsev",
         "repo": "niridrop",
-        "rev": "fd18f60ea9025734a6f8e38bf06487f662068c4d",
+        "rev": "f6361d0561386da6897b113f319638d2fb90c0f7",
         "type": "github"
       },
       "original": {
@@ -391,11 +391,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778293664,
-        "narHash": "sha256-SNiKgaOuRsdej7lhPZoU278kah7xrf8YwADTCVtnhYw=",
+        "lastModified": 1778798571,
+        "narHash": "sha256-OFFx/ccgUDzjsU+sSBnXAeHPyHRsXKfUln/b8OAzUXo=",
         "owner": "lifantsev",
         "repo": "pinentry-dropdown",
-        "rev": "3c5ce4c0c8e44852aff7d9b0f2fb2bf553e08ae9",
+        "rev": "1ceeef18d77cb8099b01adafe3edae3a006adaaa",
         "type": "github"
       },
       "original": {
