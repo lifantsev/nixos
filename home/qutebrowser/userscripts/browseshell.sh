@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # pre-open ui to make it look snappier
-niridrop --forget --show menu-ui &
+niridrop --forget --show dropmenu-ui &
 
 BROWSESHELL_HIST="/tmp/browseshell.hist"
 touch $BROWSESHELL_HIST > /dev/null
