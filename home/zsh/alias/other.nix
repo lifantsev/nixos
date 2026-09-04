@@ -6,6 +6,9 @@
     ooooo = "e ../../../../..";
     oooooo = "e ../../../../../..";
 
+    ssh = "gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1; ssh";
+    sshfs = "gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1; sshfs";
+
     k = "mkdir -p";
     l = "touch";
     c = "chmod";
