@@ -25,4 +25,6 @@
 
     # handling power keys & stuff if we ever want to
     # services.logind.settings.Login
+
+    services.usbmuxd.enable = true; # for interfacing with ios devices
 }

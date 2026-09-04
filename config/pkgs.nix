@@ -17,10 +17,25 @@
         spotify-player
         libqalculate
 
+        ### ART
+        gimp
+        krita
+
         ## OTHER
         sioyek
         kitty
         kicad
+        transmission_4-qt
+        parted
+        qrcode
+        ipatool
+        libplist
+        gparted
+
+        mkosi-full
+        gptfdisk
+        arch-install-scripts
+        pacman
 
         ###############
         # DESKTOP ENV #
@@ -50,6 +65,7 @@
         ansifilter
         bat
         bc
+        # cope
         dragon-drop
         eza
         ffmpeg
@@ -72,6 +88,11 @@
         trash-cli
         unzip
         upower
+        usbutils
         yt-dlp
+
+        # IOS
+        ifuse
+        libimobiledevice
     ];
 }
