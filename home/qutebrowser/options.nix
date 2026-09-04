@@ -7,8 +7,8 @@
         zoom.default = 110;
         qt.highdpi = true;
 
-        # content.headers.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"; # btw there are variables like {os_info} u can use
-        content.headers.user_agent = "Mozilla/5.0 ({os_info}; rv:135.0) Gecko/20100101 Firefox/135";
+        content.headers.user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"; # btw there are variables like {os_info} u can use
+        # content.headers.user_agent = "Mozilla/5.0 ({os_info}; rv:135.0) Gecko/20100101 Firefox/135";
         content.pdfjs = true; # view pdf files in browser
         content.autoplay = false; # video autoplay
 
