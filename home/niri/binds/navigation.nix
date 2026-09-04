@@ -11,8 +11,6 @@
         SHIFT.O = "consume-or-expel-window-right";
 
         Left  = "swap-window-left";
-        Up    = "move-column-right";
-        Down  = "move-column-left";
         Right = "swap-window-right";
 
         SHIFT.Up = "move-workspace-up";
@@ -25,8 +23,11 @@
         SHIFT.Y = [ "set-column-width" "+5%" ];
         SHIFT.C = [ "set-column-width" "-5%" ];
 
-        CTRL.Y = [ "set-window-height" "+3%" ];
-        CTRL.C = [ "set-window-height" "-3%" ];
+        CTRL.Y = "move-workspace-to-monitor-up";
+        CTRL.C = "move-workspace-to-monitor-down";
+
+        Up = "focus-monitor-up";
+        Down = "focus-monitor-down";
 
         Semicolon = "close-window";
     };
