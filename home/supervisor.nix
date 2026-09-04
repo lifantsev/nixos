@@ -23,8 +23,11 @@
                     "\\[calendar\\.google\\.com\\]"
                 ];
 
-                myucla = "\\[my\\.ucla\\.edu\\]";
-                canvas = "\\[bruinlearn\\.ucla\\.edu\\]";
+                school = [
+                    "\\[bruinlearn\\.ucla\\.edu\\]"
+                    "\\[my\\.ucla\\.edu\\]"
+                    "\\[kudu\\.com\\]"
+                ];
 
                 repository = [
                     "\\[github\\.com\\]"
