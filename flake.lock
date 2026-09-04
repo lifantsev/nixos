@@ -10,11 +10,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778797683,
-        "narHash": "sha256-c9rk+ELfl92LTri4nYYB8UUEUrbBo6I8R15shgw043E=",
+        "lastModified": 1778974693,
+        "narHash": "sha256-chgFCguG6W6UiMylA/Uu4UtEA+gAlc1M1PmDdC7tBPo=",
         "owner": "lifantsev",
         "repo": "dropmenu",
-        "rev": "89894714e92637902e5f65ce10bebdc0e76d5f08",
+        "rev": "613cb2a0feb8645b1cb955000e23decf047f31b9",
         "type": "github"
       },
       "original": {
@@ -167,6 +167,32 @@
       "original": {
         "owner": "lifantsev",
         "repo": "nixvim",
+        "type": "github"
+      }
+    },
+    "manager": {
+      "inputs": {
+        "lg": [
+          "lg"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "supervisor": [
+          "supervisor"
+        ]
+      },
+      "locked": {
+        "lastModified": 1778801727,
+        "narHash": "sha256-oqwiVLHYyv5le2leS4SjvmeYC5vS14mCukYEP2km0bY=",
+        "owner": "lifantsev",
+        "repo": "manager",
+        "rev": "fa08b9d0fc035fc2242366893ca519c0c6fa89aa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lifantsev",
+        "repo": "manager",
         "type": "github"
       }
     },
@@ -410,6 +436,7 @@
         "home-manager": "home-manager",
         "lg": "lg",
         "lifantsev-nixvim": "lifantsev-nixvim",
+        "manager": "manager",
         "niri": "niri",
         "niri-bind-modes": "niri-bind-modes",
         "niridrop": "niridrop",
