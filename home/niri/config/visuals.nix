@@ -21,7 +21,22 @@
         place-within-backdrop = true;
     }];
 } (let
-    maximal = {
+    maximal = let
+        shadow = {
+            enable = true;
+            softness = 12;
+            spread = 0;
+            offset = { x=0; y=0; };
+            color = rice.col.blue.h + "FF";
+        };
+        geometry-corner-radius = let r = rice.window.radius * 1.0; in
+            {
+            top-left = r;
+            top-right = r;
+            bottom-left = r;
+            bottom-right = r;
+        };
+    in {
         layout = {
             gaps = rice.window.gaps-in;
             struts = let g = rice.window.gaps-out - rice.window.gaps-in; in
@@ -36,26 +51,18 @@
             focus-ring.enable = false;
         };
 
-        window-rules = [
-            {
-                matches = [{ is-focused = true; }];
+        layer-rules = [{
+            matches = [{ namespace = "^notifications$"; }];
+            inherit shadow geometry-corner-radius;
+        }];
 
-                shadow = {
-                    enable = true;
-                    softness = 12;
-                    spread = 0;
-                    offset = { x=0; y=0; };
-                    color = rice.col.blue.h + "FF";
-                };
+        window-rules = [
+            { # highlight focused
+                matches = [{ is-focused = true; }];
+                inherit shadow;
             }
-            {
-                geometry-corner-radius = let r = rice.window.radius * 1.0; in
-                    {
-                    top-left = r;
-                    top-right = r;
-                    bottom-left = r;
-                    bottom-right = r;
-                };
+            { # round all corners
+                inherit geometry-corner-radius;
                 clip-to-geometry = true;
             }
         ];

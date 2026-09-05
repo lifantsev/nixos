@@ -10,7 +10,7 @@
         border = 2;
         radius = 7;
         gaps-in = gaps;
-        gaps-out = 1.5*gaps;
+        gaps-out = builtins.floor (1.5*gaps);
     };
 
     font = {

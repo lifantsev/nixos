@@ -9,22 +9,39 @@
             default-timeout = 7*1000; # millis
             ignore-timeout = false;
             layer = "overlay";
-            anchor = "bottom-right";
+            anchor = "top-right";
             max-visible = -1;
             
             width = 300;
             height = 150;
-            border-size = rice.window.border;
-            border-radius = if rice.style.rounding then rice.window.radius else 0;
+            border-size = 0;
+            border-radius = rice.window.radius;
             
-            margin = toString rice.window.gaps-out + ",0";
-            outer-margin = 0;
-            padding = toString rice.window.gaps-in;
+            margin = 0;
+            outer-margin = rice.window.gaps-out + rice.window.gaps-in; # outside of total border
+            padding = rice.window.gaps-in; # internal
             
             text-color = "${fg.h}ff";
             border-color = "${fg.h}b0";
             background-color = "${bg.h}d0";
             progress-color = "${blue.h}ff";
         };
+
+        extraConfig = ''
+            [category=time]
+            width=58
+
+            [category=volume]
+            width=93
+
+            [category=date]
+            width=100
+
+            [category=brightness]
+            width=152
+
+            [category=battery]
+            width=178
+        '';
     };
 }

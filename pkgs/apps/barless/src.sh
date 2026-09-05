@@ -6,6 +6,7 @@ action="$1"
 title=""
 body=""
 warning=""
+category=""
 
 case "$action" in
     volume*)
@@ -66,4 +67,4 @@ esac
 [[ "$action" == *"warn" ]] && [ -z "$warning" ] && exit # only warn when theres a warning
 
 makoctl dismiss -a # NOTE requires us to be using mako
-notify-send -t "$ms" "$title" "$body$warning"
+notify-send -c "$action" -t "$ms" "$title" "$body$warning"
