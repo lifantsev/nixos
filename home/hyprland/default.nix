@@ -9,6 +9,7 @@
     };
 
     # submap keybinds
+    wayland.windowManager.hyprland.configType = "hyprlang";
     wayland.windowManager.hyprland.extraConfig = let
         mkBindsStr = binds: lib.strings.concatStrings (map (b: "bind = ${b}\n") binds);
         mkSubmapStr = submap: binds: "submap = ${submap}\n${mkBindsStr binds}submap = reset\n";

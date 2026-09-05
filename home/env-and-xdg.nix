@@ -13,7 +13,8 @@
         TERMINALS = "kitty";
     };
 
-    xdg = let home = config.home.homeDirectory; in {
+    xdg = let home = config.home.homeDirectory; in
+        {
         enable = true;
 
         configHome = "${home}/.config";
@@ -24,6 +25,7 @@
         userDirs = {
             enable = true;
             createDirectories = false;
+            setSessionVariables = true;
 
             download = "${home}/dl";
             music = "${home}/mus";
@@ -36,7 +38,7 @@
             templates = "${home}/.local/public/templates";
 
             extraConfig = {
-                XDG_REPOSITORY_DIR = "${home}/repos";
+                REPOSITORY = "${home}/repos";
             };
         };
     };

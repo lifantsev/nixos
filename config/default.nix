@@ -14,8 +14,6 @@
         inputs.manager.nixosModules.default
     ];
 
-    hardware.asahi.peripheralFirmwareDirectory = ./ignore/firmware; # files copied from /mnt/boot/asahi/{all_firmware.tar.gz,kernelcache*} during install
-
     nixpkgs.config.allowUnfree = true;
     nix.settings = {
         experimental-features = [ "flakes" "nix-command" "pipe-operators" ];

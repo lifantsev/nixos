@@ -5,15 +5,16 @@
     description = "configuration flake for asahi macbook";
 
     inputs = {
-        nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+        # switched from 25.11 to 26.05
+        nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 
-        home-manager.url = "github:nix-community/home-manager/release-25.11";
+        home-manager.url = "github:nix-community/home-manager/release-26.05";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-        # FIXME using master branch to get around kernel build error
+        # FIXME kernel build error
         # (https://github.com/nix-community/nixos-apple-silicon/issues/427)
-        # will revert to a stable branch when this is fixed
-        nixos-apple-silicon.url = "github:nix-community/nixos-apple-silicon";
+        # will pin to 26.05 when released
+        nixos-apple-silicon.url = "github:nix-community/nixos-apple-silicon/release-2026-07-30";
         nixos-apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
 
         # auxiliary

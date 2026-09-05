@@ -49,7 +49,7 @@
         config = {
             vertical_move_amount = "0.5";
 
-            startup_commands = "toggle_custom_color";
+            startup_commands = [ "toggle_custom_color" ];
             should_launch_new_window = "1";
             should_launch_new_instance = "1";
             should_draw_unrendered_pages = "1";

@@ -1,5 +1,6 @@
 { config, pkgs, lib, ... }: {
-    home.activation.pyprland = lib.hm.dag.entryAfter ["onFilesChange"] "$DRY_RUN_CMD ${pkgs.pyprland}/bin/pypr reload > /dev/null";
+    # disabled pyprland b/c i'm not currently using hyprland
+    # home.activation.pyprland = lib.hm.dag.entryAfter ["onFilesChange"] "$DRY_RUN_CMD ${pkgs.pyprland}/bin/pypr reload > /dev/null";
 
     # NOTE make sure to set float when class='scratchpad' in your wm config
 

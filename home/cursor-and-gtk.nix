@@ -22,16 +22,19 @@ in {
 
     dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
 
-    gtk = {
-        enable = true;
-        colorScheme = "dark";
-
-        cursorTheme = cursor;
-
+    gtk = let
         theme = {
             name = rice.col.gtk-name;
             package = pkgs.${rice.col.gtk-package};
         };
+    in {
+        inherit theme;
+        gtk4.theme = theme;
+
+        enable = true;
+        colorScheme = "dark";
+
+        cursorTheme = cursor;
 
         font = {
             name = rice.font.code.full.family;
