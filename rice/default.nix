@@ -6,12 +6,11 @@
         animation = false;
     };
 
-    window = let gaps = 5; in {
+    window = let gaps = 7; in {
         border = 2;
-        radius = 0;
-        gaps = 0; # TODO make this make sense
+        radius = 7;
         gaps-in = gaps;
-        gaps-out = 2*gaps;
+        gaps-out = 1.5*gaps;
     };
 
     font = {

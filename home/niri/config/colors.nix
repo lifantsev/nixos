@@ -2,8 +2,6 @@
     overview.backdrop-color = black.h;
 
     layout = {
-        background-color = black.h;
-
         border = let
             grad = from: to: {
                 inherit from to;

@@ -90,6 +90,10 @@ scriptdir: {
 
     # APP INTEGRATION
 
+    custom_wall = /*sh*/ ''%{{
+    awww img "$f"
+    }}'';
+
     custom_drag = /*sh*/ ''%{{
         num="$(echo "$fx" | wc -l)"
 

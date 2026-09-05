@@ -1,14 +1,68 @@
-{ rice, ... }: {
+{ rice, lib, ... }: lib.recursiveUpdate {
     prefer-no-csd = true; # disable annoying decoration
 
     animations.slowdown = 0.5;
 
     layout = {
-        gaps = rice.window.gaps;
-
         center-focused-column = "never";
-
         default-column-width.proportion = 0.5;
+    };
+
+    overview.workspace-shadow = {
+        offset = { x=0; y=0; };
+        softness = 70;
+        color = "#000000";
+    };
+
+    # move wallpaper into backdrop
+    layout.background-color = "transparent";
+    layer-rules = [{
+        matches = [{ namespace = "^awww-daemon$"; }];
+        place-within-backdrop = true;
+    }];
+} (let
+    maximal = {
+        layout = {
+            gaps = rice.window.gaps-in;
+            struts = let g = rice.window.gaps-out - rice.window.gaps-in; in
+                {
+                left = g;
+                right = g;
+                top = g;
+                bottom = g;
+            };
+
+            border.enable = false;
+            focus-ring.enable = false;
+        };
+
+        window-rules = [
+            {
+                matches = [{ is-focused = true; }];
+
+                shadow = {
+                    enable = true;
+                    softness = 12;
+                    spread = 0;
+                    offset = { x=0; y=0; };
+                    color = rice.col.blue.h + "FF";
+                };
+            }
+            {
+                geometry-corner-radius = let r = rice.window.radius * 1.0; in
+                    {
+                    top-left = r;
+                    top-right = r;
+                    bottom-left = r;
+                    bottom-right = r;
+                };
+                clip-to-geometry = true;
+            }
+        ];
+    };
+
+    minimal = { layout = {
+        gaps = 0;
 
         focus-ring.enable = false;
 
@@ -16,6 +70,6 @@
             enable = true;
             width = rice.window.border;
         };
-    };
-}
 
+    };};
+in maximal)

@@ -37,4 +37,5 @@
     "." = "set hidden!";
     "x" = "custom_extract";
     "<c-d>" = "custom_drag";
+    "w" = "custom_wall";
 }
