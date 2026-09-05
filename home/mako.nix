@@ -22,9 +22,9 @@
             padding = rice.window.gaps-in; # internal
             
             text-color = "${fg.h}ff";
-            border-color = "${fg.h}b0";
-            background-color = "${bg.h}d0";
+            background-color = "${bg.h}f0";
             progress-color = "${blue.h}ff";
+            border-color = "${fg.h}b0";
         };
 
         extraConfig = ''

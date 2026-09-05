@@ -53,7 +53,11 @@
 
         layer-rules = [{
             matches = [{ namespace = "^notifications$"; }];
-            inherit shadow geometry-corner-radius;
+            shadow = shadow // {
+                softness = 10;
+                draw-behind-window = true;
+            };
+            inherit  geometry-corner-radius;
         }];
 
         window-rules = [
