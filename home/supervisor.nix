@@ -13,7 +13,7 @@
                 youtube = {
                     match = "\\[www\\.youtube\\.com\\]";
                     exclude = [
-                        "^YouTube " # allow homepage
+                        "^YouTube " "^\\*" # allow homepage & search
                         "Music" "music" # allow music
                         "Song" "song"
                         "Track" "track"
