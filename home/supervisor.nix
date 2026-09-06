@@ -10,15 +10,20 @@
                     "\\(\\(.*www\\.instagram\\.com\\/\\)\\)"
                     "\\(\\(.*www\\.instagram\\.com\\/reels.*\\)\\)"
                 ];
-                youtube = {
-                    match = "\\[www\\.youtube\\.com\\]";
+                yt_home = "\\(\\(.*www\\.youtube\\.com\\/\\)\\)";
+                yt_search = "\\(\\(.*www\\.youtube\\.com\\/results.*\\)\\)";
+                yt_watch = {
+                    match = "\\(\\(.*www\\.youtube\\.com\\/watch.*\\)\\)";
                     exclude = [
-                        "^YouTube " "^\\*" # allow homepage & search
-                        "Music" "music" # allow music
-                        "Song" "song"
-                        "Track" "track"
-                        "Beat" "beat"
-                        "Piano" "piano"
+                        "[Mm]usic" # exclude music
+                        "[Ss]ong"
+                        "[Tt]rack"
+                        "[Bb]eat"
+                        "[Pp]iano"
+                        "[Aa]nimenz"
+                        "[Mm]ix"
+                        "[Oo]ST" "OST"
+                        "[0-9] [Hh]our"
                     ];
                 };
                 games = [
