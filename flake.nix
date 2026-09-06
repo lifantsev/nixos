@@ -19,7 +19,8 @@
 
         # auxiliary
         niri = {
-            url = "github:sodiboo/niri-flake";
+            # switched epireyn's (sodiboo's module is out of date)
+            url = "github:epireyn/niri-flake";
             inputs.nixpkgs-stable.follows = "nixpkgs";
         };
 

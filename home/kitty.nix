@@ -56,7 +56,7 @@
             undercurl_style = "thick-sparse";
             underline_hyperlinks = "always";
 
-            background_opacity = "1";
+            background_opacity = "0.9";
             foreground = "${col.fg.h}";
             background = "${col.bg.h}";
             color0  = "${col.bg.h}";

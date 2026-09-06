@@ -1,4 +1,8 @@
-{ rice, lib, ... }: lib.recursiveUpdate {
+{ rice, lib, ... }: let awww-rule = {
+    matches = [{ namespace = "^awww-daemon$"; }];
+    place-within-backdrop = true;
+};
+in lib.recursiveUpdate {
     prefer-no-csd = true; # disable annoying decoration
 
     animations.slowdown = 0.5;
@@ -16,10 +20,7 @@
 
     # move wallpaper into backdrop
     layout.background-color = "transparent";
-    layer-rules = [{
-        matches = [{ namespace = "^awww-daemon$"; }];
-        place-within-backdrop = true;
-    }];
+    layer-rules = [awww-rule];
 } (let
     maximal = let
         shadow = {
@@ -51,7 +52,7 @@
             focus-ring.enable = false;
         };
 
-        layer-rules = [{
+        layer-rules = [ awww-rule {
             matches = [{ namespace = "^notifications$"; }];
             shadow = shadow // {
                 softness = 10;
@@ -69,7 +70,13 @@
                 inherit geometry-corner-radius;
                 clip-to-geometry = true;
             }
+            { # blur terminals (except for niridrop ones)
+                matches = [{ app-id = "^kitty$"; }];
+                background-effect.blur = true;
+            }
         ];
+
+        blur.passes = 1;
     };
 
     minimal = { layout = {
@@ -81,6 +88,5 @@
             enable = true;
             width = rice.window.border;
         };
-
     };};
 in maximal)
