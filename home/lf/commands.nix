@@ -91,7 +91,7 @@ scriptdir: {
     # APP INTEGRATION
 
     custom_wall = /*sh*/ ''%{{
-    awww img "$f"
+        awww img -t wipe --transition-duration 1 "$f"
     }}'';
 
     custom_drag = /*sh*/ ''%{{
