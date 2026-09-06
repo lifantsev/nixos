@@ -69,6 +69,17 @@
                     s = "sh/";
                 };
 
+                n."niri/" = {
+                    inherit d;
+                    b = "binds/";
+                    c."config/" = {
+                        inherit d;
+                        v = "visuals.nix";
+                        c = "colors.nix";
+                        e = "env.nix";
+                    };
+                };
+
                 l."lf/" = {
                     inherit d;
                     b = "binds.nix";
