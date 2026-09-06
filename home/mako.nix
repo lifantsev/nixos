@@ -9,7 +9,7 @@
             default-timeout = 7*1000; # millis
             ignore-timeout = false;
             layer = "overlay";
-            anchor = "top-right";
+            anchor = "bottom-right";
             max-visible = -1;
             
             width = 300;
