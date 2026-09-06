@@ -41,7 +41,7 @@
             width=152
 
             [category=battery]
-            width=178
+            width=184
         '';
     };
 }
