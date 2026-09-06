@@ -14,8 +14,8 @@ in lib.recursiveUpdate {
 
     overview.workspace-shadow = {
         offset = { x=0; y=0; };
-        softness = 70;
-        color = "#000000";
+        softness = 60;
+        color = "#000000A0";
     };
 
     # move wallpaper into backdrop
