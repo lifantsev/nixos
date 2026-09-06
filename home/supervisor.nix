@@ -10,7 +10,17 @@
                     "\\(\\(.*www\\.instagram\\.com\\/\\)\\)"
                     "\\(\\(.*www\\.instagram\\.com\\/reels.*\\)\\)"
                 ];
-                youtube = "\\[www\\.youtube\\.com\\]";
+                youtube = {
+                    match = "\\[www\\.youtube\\.com\\]";
+                    exclude = [
+                        "^YouTube " # allow homepage
+                        "Music" "music" # allow music
+                        "Song" "song"
+                        "Track" "track"
+                        "Beat" "beat"
+                        "Piano" "piano"
+                    ];
+                };
                 games = [
                     "\\[www\\.chess\\.com\\]"
                     "\\[www\\.slither\\.io\\]"
