@@ -1,8 +1,8 @@
 { rice, ... }: {
-    services.mako = {
+    services.mako = with rice.col; {
         enable = true;
         
-        settings = with rice.col; {
+        settings = {
             font = "monospace ${toString rice.font.code.size}";
             icons = false;
             actions = false;
@@ -14,7 +14,7 @@
             
             width = 300;
             height = 150;
-            border-size = 0;
+            border-size = 1; # irrelevant b/c transparent color
             border-radius = rice.window.radius;
             
             margin = 0;
@@ -25,7 +25,7 @@
             background-color = "${bg.h}e6";
 
             progress-color   = "${blue.h}ff";
-            border-color     = "${fg.h}b0";
+            border-color     = "${fg.h}00";
         };
 
         extraConfig = ''
@@ -43,6 +43,12 @@
 
             [category=battery]
             width=184
+
+            [urgency=critical]
+            text-color=${red.h}ff
+
+            [urgency=low]
+            text-color=${yellow.h}ff
         '';
     };
 }

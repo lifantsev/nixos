@@ -56,7 +56,7 @@ in lib.recursiveUpdate {
             matches = [{ namespace = "^notifications$"; }];
             shadow = shadow // {
                 softness = 10;
-                draw-behind-window = true;
+                draw-behind-window = false;
             };
             inherit  geometry-corner-radius;
         }];

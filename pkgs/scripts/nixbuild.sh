@@ -9,7 +9,7 @@ NOTIF_DAEMON="mako"
 source color-helper
 
 function timestamp() { date +'(%H:%M)'; }
-function notify() { [ -n "$(pgrep $NOTIF_DAEMON)" ] && notify-send "$1" "$2"; }
+function notify() { [ -n "$(pgrep $NOTIF_DAEMON)" ] && notify-send "$@"; }
 
 while true; do
     printf "$COL_PROMPT"
@@ -26,7 +26,7 @@ while true; do
         notify "nix rebuild succeeded"
     else
         printmsg "failed to build $(timestamp)"
-        notify "ERROR IN NIX REBUILD"
+        notify -u critical "error in nix rebuild!"
     fi
 
     [ "$1" == "loop" ] && echo || exit $result
