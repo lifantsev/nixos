@@ -19,9 +19,10 @@
                         "[Ss]ong"
                         "[Tt]rack"
                         "[Bb]eat"
-                        "[Pp]iano"
+                        "[Pp]ian"
                         "[Aa]nimenz"
                         "[Mm]ix"
+                        "[Ll]ofi"
                         "[Oo]ST" "OST"
                         "[0-9] [Hh]our"
                     ];
