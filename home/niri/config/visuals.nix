@@ -50,6 +50,17 @@ in lib.recursiveUpdate {
 
             border.enable = false;
             focus-ring.enable = false;
+
+            tab-indicator = let
+                width = 4;
+            in {
+                length.total-proportion = 0.6;
+                position = "right";
+                inherit width;
+                gap = -width * 2;
+                corner-radius = width / 2;
+                gaps-between-tabs = width * 2;
+            };
         };
 
         layer-rules = [ awww-rule {
