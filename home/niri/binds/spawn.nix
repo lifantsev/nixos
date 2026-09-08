@@ -3,6 +3,7 @@
         T = spawn "kitty";
         H = spawn "qutebrowser";
         B = sh "brave --ozone-platform=wayland";
+        X = spawn "zen-beta";
 
         Z = spawn "screenshot";
         SHIFT.Z = spawn "screenrecord";
