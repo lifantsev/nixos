@@ -3,5 +3,8 @@
         LGENABLE = "1";
         GET_WINDOW_CLASS = "niri msg --json focused-window | jq -r .app_id";
         GET_WINDOW_TITLE = "niri msg --json focused-window | jq -r .title";
+
+        XDG_CURRENT_DESKTOP = "niri";
+        XDG_SESSION_TYPE = "wayland";
     };
 }

@@ -47,6 +47,7 @@
         # OTHER
         mako libnotify
         awww
+        makima evtest
         networkmanagerapplet wireguard-tools
         grim slurp
         brightnessctl
