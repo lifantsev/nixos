@@ -70,13 +70,13 @@ in lib.recursiveUpdate {
                 inherit geometry-corner-radius;
                 clip-to-geometry = true;
             }
-            { # blur terminals (except for niridrop ones)
-                matches = [{ app-id = "^kitty$"; }];
+            { # blur all tiled windows
+                matches = [{ is-floating = false; }];
                 background-effect.blur = true;
             }
         ];
 
-        blur.passes = 1;
+        blur.passes = 3;
     };
 
     minimal = { layout = {

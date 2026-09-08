@@ -23,6 +23,28 @@
         "type": "github"
       }
     },
+    "firefox-addons": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "pkgs/firefox-addons",
+        "lastModified": 1788753789,
+        "narHash": "sha256-fF3kADy1rDKsDUB393y7z4ft9wu4Hw5vAOYk1VYH/ak=",
+        "owner": "rycee",
+        "repo": "nur-expressions",
+        "rev": "3edc116eae1af5c2cc785691f5fdc129073bef1a",
+        "type": "gitlab"
+      },
+      "original": {
+        "dir": "pkgs/firefox-addons",
+        "owner": "rycee",
+        "repo": "nur-expressions",
+        "type": "gitlab"
+      }
+    },
     "flake-compat": {
       "locked": {
         "lastModified": 1761640442,
@@ -434,6 +456,7 @@
     "root": {
       "inputs": {
         "dropmenu": "dropmenu",
+        "firefox-addons": "firefox-addons",
         "home-manager": "home-manager",
         "lg": "lg",
         "lifantsev-nixvim": "lifantsev-nixvim",
@@ -444,7 +467,8 @@
         "nixos-apple-silicon": "nixos-apple-silicon",
         "nixpkgs": "nixpkgs_3",
         "pinentry-dropdown": "pinentry-dropdown",
-        "supervisor": "supervisor"
+        "supervisor": "supervisor",
+        "zen-browser": "zen-browser"
       }
     },
     "supervisor": {
@@ -530,6 +554,29 @@
       "original": {
         "owner": "Supreeeme",
         "repo": "xwayland-satellite",
+        "type": "github"
+      }
+    },
+    "zen-browser": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788672837,
+        "narHash": "sha256-FgtxJIiNZfqNkLeIz30/CDE6v6gbou0MhuiFLt2En7w=",
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
+        "rev": "ec2c94c95846c36130edb9872a8ca4c203028c84",
+        "type": "github"
+      },
+      "original": {
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
         "type": "github"
       }
     }

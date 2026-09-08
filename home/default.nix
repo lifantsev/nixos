@@ -12,6 +12,7 @@ in {
         imports = inputs.nixpkgs.lib.attrsets.filterAttrs (n: v: (v == "directory") || (v == "regular" && n != "default.nix")) (builtins.readDir ./.);
     in map (name: ./. + "/${name}") (builtins.attrNames imports) ++ [
         inputs.niri.homeModules.config
+        inputs.zen-browser.homeModules.beta
 
         inputs.lifantsev-nixvim.homeManagerModules.default
         inputs.niri-bind-modes.homeManagerModules.default
