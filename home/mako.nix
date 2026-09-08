@@ -21,10 +21,11 @@
             outer-margin = rice.window.gaps-out + rice.window.gaps-in; # outside of total border
             padding = rice.window.gaps-in; # internal
             
-            text-color = "${fg.h}ff";
-            background-color = "${bg.h}f0";
-            progress-color = "${blue.h}ff";
-            border-color = "${fg.h}b0";
+            text-color       = "${fg.h}ff";
+            background-color = "${bg.h}e6";
+
+            progress-color   = "${blue.h}ff";
+            border-color     = "${fg.h}b0";
         };
 
         extraConfig = ''
