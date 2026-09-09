@@ -24,7 +24,7 @@
 
         niridrop = {
             enable = true;
-            windows = import ./dropdowns.nix args;
+            windows = import ./config/dropdowns.nix args;
         };
     };
 };}
