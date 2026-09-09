@@ -65,7 +65,6 @@
         filter: saturate(250%);
         margin-left: 0 !important;
         margin-right: 5px !important;
-        padding-top: 4px;
     }
     /* ^ cute colorful icons ^ */
 
