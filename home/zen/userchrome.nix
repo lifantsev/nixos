@@ -82,7 +82,7 @@
     /* urlbar */
     /**********/
 
-    /* v disable clicking off of urlbar v */
+    /* v disable clicking when in urlbar v */
     .urlbar::before { scale: 100; }
     
     #urlbar[open][zen-floating-urlbar="true"]::before {
@@ -92,7 +92,11 @@
         z-index: -1;
         pointer-events: auto;
     }
-    /* ^ disable clicking off of urlbar ^ */
+
+    .urlbarView-row:active {
+        pointer-events: none !important;
+    }
+    /* ^ disable clicking when in urlbar ^ */
 
     /* v move urlbar to bottom v */
 
@@ -118,6 +122,13 @@
     }
     /* ^ move urlbar to bottom ^ */
 
+    /* hide first search suggestion (it's just a copy of the query) */
+    .urlbarView-row:first-child {
+        display: none !important;
+    }
+
+    .urlbarView-body-inner {border: none !important;} /* remove urlbar separator bar */
+
     .urlbar-container { background-color: #00000000 !important; }
     .urlbar-background {
         background-color: ${fg.h}30 !important;
@@ -140,11 +151,11 @@
         background-color: #00000000 !important;    
     }
 
-    .urlbarView-row[selected] .urlbarView-title {
-        color: ${blue.h} !important;
-    }
     .urlbarView-row:hover .urlbarView-title {
-        color: ${purple.h} !important;
+        color: ${mg.h};
+    }
+    .urlbarView-row[selected] .urlbarView-title {
+        color: ${green.h} !important;
     }
 
     .urlbarView-url {
