@@ -10,9 +10,7 @@
                     "\\(\\(.*www\\.instagram\\.com\\/\\)\\)"
                     "\\(\\(.*www\\.instagram\\.com\\/reels.*\\)\\)"
                 ];
-                yt_other = [
-                    "^(\\([0-9]*\\) )?(Liked videos|Watch history)?( - )?(YouTube|\\* .*) \\[www\\.youtube\\.com\\]" # home
-                ];
+                yt_other = "^(\\([0-9]*\\) )?(Liked videos|Watch history)?( - )?(YouTube|\\* .*) \\[www\\.youtube\\.com\\]";
                 yt_watch = {
                     match = "\\[www\\.youtube\\.com\\]";
                     exclude = [
@@ -27,6 +25,7 @@
                         "[Mm]ix"
                         "[Ll]ofi"
                         "[Oo]ST" "OST"
+                        "[Dd][Nn][Bb]"
                         "[0-9] [Hh]our"
                     ];
                 };
