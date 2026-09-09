@@ -2,14 +2,14 @@
     home.sessionVariables = {
         VISUAL = "nvim";
         EDITOR = "nvim";
-        BROWSER = "org.qutebrowser.qutebrowser";
+        BROWSER = "zen-beta";
         TERMINAL = "kitty";
         NIX_BUILD_SHELL = "zsh";
         DMENU_PROGRAM = "dropmenu";
         MANPAGER = "nvimpager";
 
         EDITORS = "nvim";
-        BROWSERS = "firefox\nbrave-browser\norg.qutebrowser.qutebrowser";
+        BROWSERS = "firefox\nbrave-browser\norg.qutebrowser.qutebrowser\nzen-beta";
         TERMINALS = "kitty";
     };
 
