@@ -1,5 +1,5 @@
 # only configuring makima here, the service is installed in config/keyremap.nix
-{ pkgs, lib, ... }@args: let
+{ pkgs, lib, ... }: let
         mkkey = k: "KEY_${lib.toUpper k}";
         strwrap = s: "\"${s}\"";
         mk_keysin = x: x |> map mkkey |> lib.concatStringsSep "-";
@@ -75,5 +75,4 @@ in {
         KEY_CAPSLOCK-KEY_E = [ "${browseshell}/bin/browseshell" ]
         KEY_CAPSLOCK-KEY_P = [ "${pass-autotype}/bin/pass-autotype" ]
     '';
-        # KEY_CAPSLOCK-KEY_E = [ "browseshell" ]
 }
