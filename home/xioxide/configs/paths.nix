@@ -112,7 +112,7 @@
                     b = "bind/";
                 };
 
-                ze."zen/" = mkBinds 1 ../../zen;
+                ze."zen/" = mkBinds 1 ../../zen // { inherit d; };
 
                 o."obsidian/" = {
                     inherit d;
