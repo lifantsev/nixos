@@ -56,14 +56,18 @@
         filter: blur(3px);
     }
 
-    /* cute colorful icons */
+    /* v cute colorful icons v */
+    .tab-icon-image[src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFNElEQVRYR8WXW2wUVRjHf2d2dku7W7bQaqEIAhKQYm1JfJBLUR9MDEqAPqCJl0AClqhBjA/4oEFMRGM0kpAI6oPGBC8xSi0Go4mhQJFIFIoWQYhCa7S0QO/b2+7MZ87M7uzs9pqI4deczOnZ7zvff875zmUUE0REKoA1wL3APd4PmRwG6oAapVSD1zoGyquNgoisB7YC5V7jxDgN7FJKfei1jMCoAkRkNqCdR3vbiaJHZb1S6pLX4mNEASKih1oHj3qN/42upIgaryXJMAHJIf/Aa/DzQz0cq4dfGqCtFUQ3Gm43xdOQ8nJYVolacnfKI5sN2VOSISD55vu9hhSNJ+HtndDaCnHT9RLlFhUAAs5TjACin9OmY2x9ClW2yOvCx1r/SHgCknOuMzdz2D9/HWq+gN6Q+/9QKB1cuystyC2CQgJBxAg6pmrVAxgbH3f90ujpqEjlhF+AXj6ZCffxC3D0a+jOhaFAsowhIDUKKQFzZmG8+hKE85IdehxWSunl7AoYcd6/2wI/74e+IFyNQL8JAyb05oBtgKVdTTB0YNOpi6GFGI6AMYKncPIhJUAPfXqdt9VC3WPQnA+TbGjNh5YwGALmXKjaBEsqIRxx7WMxOP4j9r7P4Gon3DZ3vOCa00qpCpXc4U55zZoj8+HyZYgFIRZyBfQG4c4qWLctHTibWAz56iBq9YPjBU+xWAt4GdjuNXUcgN/XQZ8BA7oE4FoI8qvgkb2e2XVihxaQmXwXn4SufZAAepT7jE2BlY0Qul77ksdhLcDZTjzOlsJgkxs4VQqfhoVveCZ+fmr2qpmIzvB017peElVMK/AWnsMwAdKQ62Sycpaa2xHzvoHJlZ6Nn8WvedVMst5Ls7kSqivHFTDJ2dmU3uFsG1EKVaqH/1bPxs+oAvzoEEqxebmML8A+FUKpoCPA+6n0DCo0y61nMSEBSaqXu6PgZ7iAk6YT3CaABVgI5rxvCeav8Gz8aAGCnZwrjXL+0qTrExPQOA8ZaqJX7zkqQLttkVu8haKZb3k2fvYe1e7+LtyAtb9Ci971JyAgYxkmLm3AuvYRAxgMCgwCV40CysovYAYKUmZj0jMAK98RerWzgyvi/UfhrsyZdJZhxkYU76yh7UIVHQI2ijaBZjtI4dQ1rF7wacpsTHYdj/HuUYVlWISsEEoMRAmN25InahpnIxq2FZ9qmE3zQBM5KNoFLskk2iWXhTc9wcNzXyFi5nu22ew58zfbj/RiWjnYyiY8FCUnHmbNHQF2rnRPSR+LnbHJPoy6u+s49Nt9dIqiSwwuSph2O48OCTMUKmfj7GruL1pG1AynXKht+YPd585T39JPqH8mZiKXYCLPERCwghzalM+MqD85k4eRro10HNddfI5D/+yhS4I0SZRuCdMjYVqtYgYJESeHuB0hEphMZ9xC4lEYnA4SQPXPJJAIE0qECQ5OpbqskB0rhuVP+jjWZCejZt/5ar5sraVFCrHEpMOeQo8UkUBhSQ42QRK2nihBrDD2wHRQNgyWYPaXYBkJKiK3cGxtqddnkswLiWa0K9nu88/yyeXv6bPz6HNGoYiEmFiYjgBb9IYVcARIIoxYEUcAiTCrSubw3tIyoiF9b/QY+UqmGe1SeqLzJM+ffZM/+7vplyiCgeiLKArb1rcgvWRyECsXiU8lIjN48fYlPLNgvteHj5EvpSlGyocUB6+c4MCVBuo7zvHXwDXHXcRwpmByoICl0QpWFS/ioZvLiAZzPD8fY1/LU9zQDxOfiBv3aebnhn2cZvN/fZ7/C+T0M/VuWOGOAAAAAElFTkSuQmCC"] {
+        filter: blur(3px) saturate(900%); /* google search icon */
+    }
     .tab-icon-image {
         scale: 0.8;
-        filter: blur(2.5px) saturate(250%);
+        filter: saturate(250%);
         margin-left: 0 !important;
         margin-right: 5px !important;
         padding-top: 4px;
     }
+    /* ^ cute colorful icons ^ */
 
     .zen-workspace-tabs-section {
         margin-top: 3px !important;
