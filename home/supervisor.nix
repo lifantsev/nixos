@@ -10,11 +10,14 @@
                     "\\(\\(.*www\\.instagram\\.com\\/\\)\\)"
                     "\\(\\(.*www\\.instagram\\.com\\/reels.*\\)\\)"
                 ];
-                yt_home = "\\(\\(.*www\\.youtube\\.com\\/\\)\\)";
-                yt_search = "\\(\\(.*www\\.youtube\\.com\\/results.*\\)\\)";
+                yt_other = [
+                    "^(\\([0-9]*\\) )?(Liked videos|Watch history)?( - )?(YouTube|\\* .*) \\[www\\.youtube\\.com\\]" # home
+                ];
                 yt_watch = {
-                    match = "\\(\\(.*www\\.youtube\\.com\\/watch.*\\)\\)";
+                    match = "\\[www\\.youtube\\.com\\]";
                     exclude = [
+                        "^(\\([0-9]*\\) )?(Liked videos|Watch history)?( - )?(YouTube|\\* )" # home, search, liked, history
+
                         "[Mm]usic" # exclude music
                         "[Ss]ong"
                         "[Tt]rack"
