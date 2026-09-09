@@ -42,6 +42,11 @@
                 "ui.systemUsesDarkTheme" = 1;
                 "zen.view.window.scheme" = 0;
 
+                "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # allow userchrome
+
+                "zen.view.show-newtab-button-top" = false; # open new tabs at bottom
+                "browser.tabs.insertAfterCurrent" = false;
+
                 "zen.window-sync.enabled" = false; # allow multiple windows
 
                 "browser.tabs.closeWindowWithLastTab" = true; # close on last
@@ -50,10 +55,9 @@
                 "signon.autofillForms" = false;
                 "signon.management.page.breachAlert" = false;
 
-                "browser.tabs.insertAfterCurrent" = false;
                 "zen.urlbar.behavior" = "float"; # always float
 
-                "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # allow userchrome
+                "widget.disable-swipe-tracker" = true; # disable swipe to go back
 
                 "media.videocontrols.picture-in-picture.enabled" = false; # no PiP
 
@@ -68,6 +72,7 @@
             };
 
             userChrome = import ./userchrome.nix args;
+            userContent = import ./usercontent.nix args;
 
             # jq -c '.shortcuts[] | {id, key, keycode, action}' ~/.config/zen/default/zen-keyboard-shortcuts.json | fzf
             keyboardShortcutsVersion = 20;
