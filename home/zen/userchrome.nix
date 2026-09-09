@@ -79,6 +79,18 @@
     /* urlbar */
     /**********/
 
+    /* v disable clicking off of urlbar v */
+    .urlbar::before { scale: 100; }
+    
+    #urlbar[open][zen-floating-urlbar="true"]::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: auto;
+    }
+    /* ^ disable clicking off of urlbar ^ */
+
     /* v move urlbar to bottom v */
 
     toolbarbutton#zen-create-new-button,
@@ -151,7 +163,6 @@
     .urlbarView-type-icon,
     .urlbarView-switchToTab::after {display: none !important;}
     .urlbarView-switchToTab { margin-right: 0 !important; }
-
 
     /*********/
     /* other */
