@@ -30,7 +30,7 @@
 
         extraConfig = ''
             [category=time]
-            width=58
+            width=60
 
             [category=volume]
             width=93
@@ -42,7 +42,7 @@
             width=152
 
             [category=battery]
-            width=184
+            width=190
 
             [urgency=critical]
             text-color=${red.h}ff
