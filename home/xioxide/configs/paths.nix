@@ -63,6 +63,8 @@
             h."home/" = mkBinds 2 ../.. // {
                 inherit d;
 
+                mk = "mako.nix";
+
                 y."hyprland/" = {
                     inherit d;
                     b = "binds/";
@@ -115,21 +117,19 @@
                     b = "bind/";
                 };
 
+                ze."zen/" = {
+                    inherit d;
+                    # TODO
+                };
+
                 o."obsidian/" = {
                     inherit d;
                     p."plugins/".c = "config/";
                 };
             };
 
-            c."config/" = {
+            c."config/" = mkBinds 1 ../../../config // {
                 inherit d;
-                p = "pkgs.nix";
-
-                b = "boot.nix";
-                e = "desktop.nix";
-                f = "font.nix";
-                n = "networking.nix";
-                t = "tty.nix";
             };
 
             p."pkgs/" = {
