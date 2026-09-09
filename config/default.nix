@@ -14,6 +14,10 @@
         inputs.manager.nixosModules.default
     ];
 
+    nixpkgs.overlays = [(final: prev: {
+        zen-beta = inputs.zen-browser.packages.${final.system}.beta;
+    })];
+
     nixpkgs.config.allowUnfree = true;
     nix.settings = {
         experimental-features = [ "flakes" "nix-command" "pipe-operators" ];
