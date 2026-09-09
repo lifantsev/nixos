@@ -1,0 +1,82 @@
+if [ -n "${1:-}" ]; then
+    browser="$1"
+else
+    browser="$(niri msg -j focused-window | jq -r .app_id)"
+fi
+
+# pre-open ui to make it look snappier
+niridrop --forget --show dropmenu-ui &
+
+BROWSESHELL_HIST="/tmp/browseshell.hist"
+touch $BROWSESHELL_HIST > /dev/null
+
+function encode() {
+    local escape="$(echo "$@" | sed 's|"|\"|g')"
+    python3 -c "import sys, urllib.parse as ul; print (ul.quote_plus(\"$escape\"))"
+}
+
+function open() {
+    case "$browser" in
+        "org.qutebrowser.qutebrowser") echo "open -t $1" ;;
+        "zen-beta") zen-beta --new-tab "$1" ;;
+    esac
+}
+
+function default() {
+    open "google.com/search?q=$(encode "$query")"
+}
+
+function xio() {
+    xioxide sites "$@" --no-passthrough
+}
+
+function handle_query() {
+    case "$(echo "$query" | wc -w)" in
+        0) true ;;
+        1) 
+            out="$(xio "$query")"
+            if [ -z "$out" ]; then default
+            else open "$out"; fi
+            ;;
+        *)
+            searchout="$(xio "${query%% *}s")"
+
+            if [ -z "$searchout" ];
+            then default
+            else open "$searchout$(encode "${query#* }")"; fi
+            ;;
+    esac
+}
+
+function get_query() {
+    hist="$(
+        cat "$XDG_CONFIG_HOME"/xioxide/sites.binds
+        tac "$BROWSESHELL_HIST"
+    )"
+
+    fzout="$(echo "$hist" | dropmenu --fast --print-query)"
+
+    if [ -z "$(echo "$fzout" | head -n 1)" ]; then # we just chose sum, no type
+        prequery="$(echo "$fzout" | tail -n 1)"
+        if echo "$prequery" | grep -q " \*$"; then
+            query="$(echo "$prequery" | sed 's/ \*$//')"
+        else
+            query="$(echo "$prequery" | awk '{ print $1 }')"
+        fi
+    elif echo "$fzout" | head -n 1 | grep -q "\*$"; then # we selected hist w/ *
+        query="$(echo "$fzout" | tail -n 1 | sed 's/ \*$//')"
+    else # we typed something, not selecting history though
+        query="$(echo "$fzout" | head -n 1)"
+        [ "$query" == ":q" ] && exit
+        if ! grep -q "$query *" "$BROWSESHELL_HIST"; then # not already in history
+            if [ -z "$(xio "$query")" ]; then # not a xioxide entry
+                if [[ $query != [[:space:]]* ]]; then # entries that start with space are ugly, omit them
+                    echo "$query *" >> "$BROWSESHELL_HIST"
+                fi
+            fi
+        fi
+    fi
+}
+
+get_query
+handle_query
