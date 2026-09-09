@@ -35,11 +35,11 @@ in {
     xdg.configFile."makima/Apple SPI Keyboard::zen-beta.toml".text = let
         allbut = [ # all keys except those bound specially
             "b" "c" "f" "g" "h" "j" "k" "l" "m" "n" 
-            "o" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z"
+            "o" "q" "r" "s" "t" "u" "w" "x" "y" "z"
             "space" "minus" "equal" "slash"
         ];
 
-        allkeys = allbut ++ [ "a" "i" "d" "e" "p" ]; # adding back all keys with special binds
+        allkeys = allbut ++ [ "a" "i" "d" "e" "p" "v" ]; # adding back all keys with special binds
 
         nirispawn = cmd: /*sh*/ ''
             export NIRI_SOCKET="$(find /run/user/*/niri* | head -n 1)"
@@ -55,6 +55,10 @@ in {
         pass-autotype = pkgs.writeShellScriptBin "pass-autotype" /*sh*/ ''
             ${nirispawn "${focus-first-field}/bin/focus-first-field"}
             ${nirispawn "pass-autotype"}
+        '';
+
+        open-clip = pkgs.writeShellScriptBin "open-clip" /*sh*/ ''
+            ${nirispawn "${pkgs.writeShellScriptBin "tmp" ''${pkgs.zen-beta}/bin/zen-beta --new-tab "$(${pkgs.wl-clipboard}/bin/wl-paste)"''}/bin/tmp"}
         '';
     in /*toml*/ ''
         [remap]
@@ -74,5 +78,6 @@ in {
         [commands]
         KEY_CAPSLOCK-KEY_E = [ "${browseshell}/bin/browseshell" ]
         KEY_CAPSLOCK-KEY_P = [ "${pass-autotype}/bin/pass-autotype" ]
+        KEY_CAPSLOCK-KEY_V = [ "${open-clip}/bin/open-clip" ]
     '';
 }
