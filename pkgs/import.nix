@@ -14,6 +14,7 @@
                     interpreter = "${pkgs.bash}/bin/bash";
                     inputs = [ pkgs.coreutils ] ++ settings.inputs;
                     execer = (settings.execer or []) ++ [ "cannot:${pkgs.lg}/bin/lg" ];
+                    keep = settings.keep or {};
                 }) (builtins.readFile (fpath + "/src.sh"))
             else
                 pkgs.callPackage fpath {}

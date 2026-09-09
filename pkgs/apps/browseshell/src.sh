@@ -17,8 +17,8 @@ function encode() {
 
 function open() {
     case "$browser" in
-        "org.qutebrowser.qutebrowser") echo "open -t $1" ;;
-        "zen-beta") zen-beta --new-tab "$1" ;;
+        "org.qutebrowser.qutebrowser") echo "open -t $1" ;; # qutebrowser userscript will redirect us to QUTE_FIFO
+        *) "$browser" --new-tab "$1" ;;
     esac
 }
 

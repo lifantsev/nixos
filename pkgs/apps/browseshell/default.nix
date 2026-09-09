@@ -9,6 +9,8 @@ in {
         "cannot:${pkgs.zen-beta}/bin/zen-beta"
     ];
 
+    keep."$browser" = true;
+
     inputs = [
         xioxide
 
