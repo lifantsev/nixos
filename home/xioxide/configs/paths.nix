@@ -73,13 +73,8 @@
 
                 n."niri/" = {
                     inherit d;
-                    b = "binds/";
-                    c."config/" = {
-                        inherit d;
-                        v = "visuals.nix";
-                        c = "colors.nix";
-                        e = "env.nix";
-                    };
+                    b."binds/" = mkBinds 1 ../../niri/binds;
+                    c."config/" = mkBinds 1 ../../niri/config;
                 };
 
                 l."lf/" = {
