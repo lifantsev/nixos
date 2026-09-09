@@ -23,6 +23,9 @@
                 # also
                 # select after closing current [https://addons.mozilla.org/en-GB/firefox/addon/select-after-closing-current/]
                 # unhook [https://addons.mozilla.org/en-US/firefox/addon/youtube-recommended-videos/]
+                # move tab hotkeys [https://addons.mozilla.org/en-US/firefox/addon/move-tab-hotkeys/]
+                # domain in title [https://addons.mozilla.org/en-US/firefox/addon/domain-in-title/]
+                # inputter [https://addons.mozilla.org/en-US/firefox/addon/inputter/]
             ];
 
             settings = {
@@ -39,7 +42,15 @@
                 "ui.systemUsesDarkTheme" = 1;
                 "zen.view.window.scheme" = 0;
 
-                "browser.tabs.insertAfterCurrent" = true;
+                "zen.window-sync.enabled" = false; # allow multiple windows
+
+                "browser.tabs.closeWindowWithLastTab" = true; # close on last
+
+                "signon.rememberSignons" = false; # disable password manager
+                "signon.autofillForms" = false;
+                "signon.management.page.breachAlert" = false;
+
+                "browser.tabs.insertAfterCurrent" = false;
                 "zen.urlbar.behavior" = "float"; # always float
 
                 "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # allow userchrome
