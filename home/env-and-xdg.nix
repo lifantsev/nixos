@@ -1,8 +1,9 @@
-{ config, ... }: {
+{ pkgs, config, ... }: {
     home.sessionVariables = {
         VISUAL = "nvim";
         EDITOR = "nvim";
         BROWSER = "zen-beta";
+        DEFAULT_BROWSER = "${config.home.sessionVariables.BROWSER}";
         TERMINAL = "kitty";
         NIX_BUILD_SHELL = "zsh";
         DMENU_PROGRAM = "dropmenu";
@@ -21,6 +22,22 @@
         dataHome = "${home}/.local/share";
         stateHome = "${home}/.local/state";
         cacheHome = "${home}/.local/cache";
+
+        desktopEntries.zen-beta = {
+            name = "zen-beta";
+            exec = "${pkgs.zen-beta}/bin/zen-beta";
+        };
+
+        mimeApps.enable = true;
+        mimeApps.defaultApplications = let
+            zen = "${config.home.sessionVariables.BROWSER}.desktop";
+        in {
+            "text/html" = zen;
+            "x-scheme-handler/http" = zen;
+            "x-scheme-handler/https" = zen;
+            "x-scheme-handler/about" = zen;
+            "x-scheme-handler/unknown" = zen;
+        };
 
         userDirs = {
             enable = true;
