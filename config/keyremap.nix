@@ -1,4 +1,13 @@
 { pkgs, username, ... }: {
+    # every virtual keyboard needs a libinput quirk that marks it as an internal keyboard
+    # that way, settings that rely on that (like disable touchpad while typing) work
+    environment.etc."libinput/local-overrides.quirks".text = pkgs.lib.mkForce ''
+        [Serial Keyboards]
+        MatchUdevType=keyboard
+        MatchName=Makima Virtual Keyboard/Mouse
+        AttrKeyboardIntegration=internal
+    '';
+
     # for gmmk pro keyboard, swap meta & alt (to match mac keyboard)
     services.keyd = {
         enable = false;
