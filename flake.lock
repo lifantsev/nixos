@@ -1,5 +1,43 @@
 {
   "nodes": {
+    "asahi-widevine": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1723388729,
+        "narHash": "sha256-ox2xU7PraSexer7+M+4Bc5gxpRYr1d4elh1e6erpsUg=",
+        "owner": "AsahiLinux",
+        "repo": "widevine-installer",
+        "rev": "eab8c668ad3f9db27a444ee1f94b82d8f3ab5336",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AsahiLinux",
+        "repo": "widevine-installer",
+        "type": "github"
+      }
+    },
+    "chromium-widevine": {
+      "inputs": {
+        "asahi-widevine": "asahi-widevine",
+        "lacros": "lacros",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "dir": "chromium-widevine",
+        "lastModified": 1763138101,
+        "narHash": "sha256-Wn9PjCxedv/ZBKBHiSwLoPuxauT+xRFzRmeHEIF57KU=",
+        "owner": "heywoodlh",
+        "repo": "flakes",
+        "rev": "664f4f1a6059faeb09b8074c1f4d8096b42b1c25",
+        "type": "github"
+      },
+      "original": {
+        "dir": "chromium-widevine",
+        "owner": "heywoodlh",
+        "repo": "flakes",
+        "type": "github"
+      }
+    },
     "dropmenu": {
       "inputs": {
         "lg": [
@@ -151,6 +189,18 @@
         "type": "github"
       }
     },
+    "lacros": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-+BvpWlYv4E0XSmnL0gGISUp0WflexbKtYnNE293nik0=",
+        "type": "file",
+        "url": "https://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/chromeos-lacros-arm64-squash-zstd-120.0.6098.0"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/chromeos-lacros-arm64-squash-zstd-120.0.6098.0"
+      }
+    },
     "lg": {
       "inputs": {
         "nixpkgs": [
@@ -222,7 +272,7 @@
       "inputs": {
         "niri-stable": "niri-stable",
         "niri-unstable": "niri-unstable",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "nixpkgs-stable": [
           "nixpkgs"
         ],
@@ -338,6 +388,18 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 0,
+        "narHash": "sha256-+5qdtgXceqhK5ZR1YbP1fAUsweBIrhL38726oIEAtDs=",
+        "path": "/nix/store/w5fqkpwgg6q0iw7c5sd9nab8dq94wapk-source",
+        "type": "path"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1768323494,
         "narHash": "sha256-yBXJLE6WCtrGo7LKiB6NOt6nisBEEkguC/lq/rP3zRQ=",
         "owner": "NixOS",
@@ -352,7 +414,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1788614874,
         "narHash": "sha256-7QYjT2vHLuX9Z1pdxHXDKCbh1CR3D/2rywB9Tx0MPRg=",
@@ -368,7 +430,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1788405554,
         "narHash": "sha256-r2f1oUwixlgq9zOdYLqJLfS/lWBT60/IITjhTKI59JU=",
@@ -387,7 +449,7 @@
     "nixvim": {
       "inputs": {
         "flake-parts": "flake-parts",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "nuschtosSearch": "nuschtosSearch",
         "systems": "systems_2"
       },
@@ -455,6 +517,7 @@
     },
     "root": {
       "inputs": {
+        "chromium-widevine": "chromium-widevine",
         "dropmenu": "dropmenu",
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager",
@@ -465,7 +528,7 @@
         "niri-bind-modes": "niri-bind-modes",
         "niridrop": "niridrop",
         "nixos-apple-silicon": "nixos-apple-silicon",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_4",
         "pinentry-dropdown": "pinentry-dropdown",
         "supervisor": "supervisor",
         "zen-browser": "zen-browser"

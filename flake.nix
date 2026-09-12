@@ -35,6 +35,8 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
+        chromium-widevine.url = "github:heywoodlh/flakes?dir=chromium-widevine";
+
         # my flakes
         niri-bind-modes.url = "github:lifantsev/niri-bind-modes";
 

@@ -1,17 +1,29 @@
-# TODO make this a list that gets zipped for readability
-{ config, ... }: let 
-    term = config.home.sessionVariables.TERMINAL;
-    mkTerm = name: sh: extra: {
-        ${name} = {
-            app_id = "dropdown-${name}";
-            cmd = "${term} --class dropdown-${name} ${sh}";
-        } // extra;
+{ config, lib, ... }: {
+    spotify = {
+        app_id = "chrome-open.spotify.com__-Default";
+        cmd = ''chromium --js-flags=--no-decommit-pooled-pages --app="https://open.spotify.com"'';
+        lazy = true;
     };
-in {} //
-mkTerm "term" "" {} //
-mkTerm "qalc" "qalc" {} //
-mkTerm "net" "net" {} //
-mkTerm "blue" "blue" {} //
-mkTerm "nixbuild" "nixbuild loop" {} //
-mkTerm "spotify" "spotify_player" { lazy = true; } //
-{}
+} // # terminal dropdowns
+([
+    { name = "term"; cmd = ""; }
+    { name = "nixbuild"; cmd = "nixbuild loop"; }
+    { name = "qalc"; }
+    { name = "net"; }
+    { name = "blue"; }
+    # { name = "spotify"; cmd = "spotify_player"; lazy = true; }
+] 
+    |> map (let
+        mk = attrs: let
+            name = attrs.name;
+            cmd = attrs.cmd or name;
+            lazy = attrs.lazy or false;
+        in {
+            ${attrs.name} = let term = config.home.sessionVariables.TERMINAL; in {
+                app_id = "dropdown-${name}";
+                cmd = "${term} --class dropdown-${name} ${cmd}";
+                inherit lazy;
+            };
+        };
+    in mk) |> lib.mergeAttrsList
+)

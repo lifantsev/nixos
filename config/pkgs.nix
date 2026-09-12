@@ -1,5 +1,7 @@
 { pkgs, ... }@args: {
     environment.systemPackages = with pkgs; (import ../pkgs args) ++ [
+        chromium-widevine
+
         #############
         # USER APPS #
         #############
@@ -8,9 +10,12 @@
         qutebrowser
         brave
 
-        ### TUI
+        ### TERMINAL
+        kitty
         zsh
         bash
+
+        ### TUI
         vim
         git
         lf
@@ -23,7 +28,6 @@
 
         ## OTHER
         sioyek
-        kitty
         kicad
         transmission_4-qt
         parted

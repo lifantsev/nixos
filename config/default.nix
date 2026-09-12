@@ -16,6 +16,7 @@
 
     nixpkgs.overlays = [(final: prev: {
         zen-beta = inputs.zen-browser.packages.${final.system}.beta;
+        chromium-widevine = inputs.chromium-widevine.packages.${final.system}.chromium-widevine;
     })];
 
     nixpkgs.config.allowUnfree = true;
