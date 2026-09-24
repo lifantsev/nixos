@@ -4,6 +4,13 @@
         cmd = ''chromium --js-flags=--no-decommit-pooled-pages --app="https://open.spotify.com"'';
         lazy = true;
     };
+
+    calendar = {
+        app_id = "chrome-calendar.google.com__-Default";
+        cmd = ''chromium --js-flags=--no-decommit-pooled-pages --app="https://calendar.google.com"'';
+        lazy = true;
+    };
+
 } // # terminal dropdowns
 ([
     { name = "term"; cmd = ""; }

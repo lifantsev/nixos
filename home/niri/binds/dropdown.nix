@@ -5,8 +5,11 @@
         drop = name: sh "niridrop ${name}";
     in {
         W = spawn "niridrop";
+
         T = drop "term";
+
         S = drop "spotify";
+        C = drop "calendar";
 
         Q = drop "qalc";
         N = drop "nixbuild";
