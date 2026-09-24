@@ -6,10 +6,12 @@
         # TODO make this easier to read (with helper function)
         config = {
             browser = {
-                instagram = [
-                    "\\(\\(.*www\\.instagram\\.com\\/\\)\\)"
-                    "\\(\\(.*www\\.instagram\\.com\\/reels.*\\)\\)"
-                ];
+                instagram_other = {
+                    match = "\\[www\\.instagram\\.com\\]";
+                    exclude = "Messages";
+                };
+                instagram_messages = " Messages \\[www\\.instagram\\.com\\]";
+
                 yt_other = "^(\\([0-9]*\\) )?(Liked videos|Watch history)?( - )?(YouTube|\\* .*) \\[www\\.youtube\\.com\\]";
                 yt_watch = {
                     match = "\\[www\\.youtube\\.com\\]";
