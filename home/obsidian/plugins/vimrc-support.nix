@@ -12,7 +12,7 @@
         hash = "sha256-st5aS+ORuI69konjgVYtFJGlh5ef0Iu9pqf/Ub4n0FY=";
     };
 
-    datajson = ./config/vimrc-support.json;
+    datajson = ./config/vimrc-support-data.json;
     vimrc = ./config/vimrc-support.vimrc;
 
     dontUnpack = true;
