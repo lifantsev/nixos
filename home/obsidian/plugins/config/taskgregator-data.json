@@ -1,0 +1,45 @@
+{
+  "bucketRoots": [
+    "main"
+  ],
+  "ignorePaths": [ ],
+  "inboxRoots": [ ],
+  "priorityTags": [
+    "p1",
+    "p2",
+    "p3"
+  ],
+  "smartLists": [
+    {
+      "name": "Today",
+      "tag": "today",
+      "icon": "star"
+    },
+    {
+      "name": "Follow-up",
+      "tag": "followup",
+      "icon": "reply"
+    },
+    {
+      "name": "Snippet Ideas",
+      "tag": "snippetIdea",
+      "icon": "lightbulb"
+    },
+    {
+      "name": "Someday",
+      "tag": "someday",
+      "icon": "clock"
+    }
+  ],
+  "sidecarFolder": "Taskgregator/tasksData",
+  "dateFormat": "YYYY-MM-DD",
+  "showCompleted": false,
+  "useEmojiMetadata": false,
+  "enableContextSidebar": true,
+  "startupView": "all",
+  "soonDays": 7,
+  "agingDays": 14,
+  "taskFormat": "dataview",
+  "showChangelogOnUpdate": true,
+  "lastSeenVersion": "2.5.0"
+}
