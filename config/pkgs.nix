@@ -97,6 +97,7 @@
         upower
         usbutils
         yt-dlp
+        zbar
 
         # IOS
         ifuse
