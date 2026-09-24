@@ -27,6 +27,7 @@
         krita
 
         ## OTHER
+        mcomix
         sioyek
         kicad
         transmission_4-qt

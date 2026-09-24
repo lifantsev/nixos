@@ -8,5 +8,6 @@ case "$type" in
     video/*) mpv "$f" ;;
     audio/*) mpv "$f" ;;
     */pdf) sioyek "$f" ;;
+    application/zip) mcomix "$f" ;;
     *) lf --remote "send $id \$nvim \"$f\"" ;;
 esac
