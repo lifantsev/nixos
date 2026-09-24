@@ -36,7 +36,7 @@
             width=93
 
             [category=date]
-            width=100
+            width=110
 
             [category=brightness]
             width=152
