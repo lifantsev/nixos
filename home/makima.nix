@@ -23,8 +23,8 @@
         KEY_LEFTALT-KEY_LEFTSHIFT-KEY_A = [ "KEY_PAGEUP" ]
         KEY_LEFTALT-KEY_LEFTSHIFT-KEY_I = [ "KEY_PAGEDOWN" ]
 
-        KEY_LEFTALT-KEY_G = [ "KEY_END" ]
-        KEY_LEFTALT-KEY_LEFTSHIFT-KEY_G = [ "KEY_HOME" ]
+        KEY_LEFTALT-KEY_G = [ "KEY_HOME" ]
+        KEY_LEFTALT-KEY_LEFTSHIFT-KEY_G = [ "KEY_END" ]
         '';
 in {
     xdg.configFile."makima/Apple SPI Keyboard.toml".text = /*toml*/ ''
