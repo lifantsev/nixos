@@ -9,5 +9,9 @@
 
         XF86MonBrightnessUp   = sh "brightnessctl -e3 set 3%+ ; sleep 0.01 ; barless brightness 500";
         XF86MonBrightnessDown = sh "brightnessctl -e3 set 3%- ; sleep 0.01 ; barless brightness 500";
+
+        XF86AudioPlay = sh "plyr toggle";
+        XF86AudioNext = sh "plyr next";
+        XF86AudioPrev = sh "plyr prev";
     };
 }
