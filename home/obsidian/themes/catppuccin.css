@@ -1,0 +1,15 @@
+.cm-header-1 { color: var(--hex-mauve) !important; }
+.cm-header-2 { color: var(--hex-blue) !important; }
+.cm-header-3 { color: var(--hex-green) !important; }
+.cm-header-4 { color: var(--hex-peach) !important; }
+.cm-header-5 { color: var(--hex-red) !important; }
+.cm-header-6 { color: var(--hex-pink) !important; }
+
+body {
+    --inline-title-color: var(--hex-lavender) !important;
+    --inline-title-size: 2.5em !important;
+}
+
+*, :root {
+    --list-marker-color: var(--hex-green) !important;
+}

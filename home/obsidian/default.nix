@@ -2,11 +2,7 @@
     programs.obsidian = {
         enable = true;
 
-        vaults = lib.genAttrs [
-            "stem"
-            "hum"
-            "projects"
-        ] (n: { target = "obsidian/"+n; });
+        vaults.default.target = "obsidian";
 
         defaultSettings = {
             app = {
@@ -31,10 +27,10 @@
                 fileset = lib.attrsets.filterAttrs (n: v: v == "regular") (builtins.readDir path);
             in map (name: path + "/${name}") (builtins.attrNames fileset);
 
-            mkPackages = flist: map (f: { pkg = pkgs.callPackage f {}; }) flist;
+            mkpkg = f: { pkg = pkgs.callPackage f {}; };
         in {
-            themes = mkPackages [(./themes + "/${rice.col.name}.nix")];
-            communityPlugins = mkPackages (filesIn ./plugins);
+            themes = [( mkpkg ./themes/${rice.col.name}.nix )];
+            communityPlugins = map mkpkg (filesIn ./plugins);
         });
     };
 
