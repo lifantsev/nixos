@@ -34,7 +34,7 @@ case "$action" in
 
         title="battery: $percentage ($state$time)"
 
-        [ "$state" == "-" ] && [ "${percentage//%/}" -le 30 ] && warning="warning: please charge"
+        [ "$state" == "-" ] && [ "${percentage//%/}" -le 20 ] && warning="warning: please charge"
         [ "$state" == "+" ] && [ "${percentage//%/}" -ge 80 ] && warning="warning: please disconnect"
         ;;
     music*)
