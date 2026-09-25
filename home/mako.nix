@@ -44,6 +44,9 @@
             [category=battery]
             width=190
 
+            [category=calendar]
+            width=190
+
             [urgency=critical]
             text-color=${red.h}ff
 

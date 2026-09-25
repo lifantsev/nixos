@@ -17,6 +17,7 @@ in {
         pkgs.gawk # awk
         pkgs.gnused # sed
         pkgs.libnotify # notify-send
+        pkgs.util-linux # cal
         pkgs.bc
         pkgs.brightnessctl
         pkgs.upower

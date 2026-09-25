@@ -7,5 +7,6 @@
         B = sh "barless battery";
         V = sh "barless volume";
         M = sh "barless music";
+        C = sh "barless calendar";
     };
 }

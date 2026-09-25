@@ -62,6 +62,10 @@ case "$action" in
         title="$song"
         [[ "$action" != *"short" ]] && [ "$(plyr client)" == "spotify" ] && body="$(plyr indicator)$(plyr progress)%"
         ;;
+    calendar*)
+        title="$(cal | head -n 1)"
+        body="$(cal | tail -n +2)"
+        ;;
 esac
 
 [[ "$action" == *"warn" ]] && [ -z "$warning" ] && exit # only warn when theres a warning
