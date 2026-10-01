@@ -26,20 +26,9 @@ sudo nixos-rebuild switch --flake path:/path/to/flake --show-trace
 
 Top level aesthetic config is done from [rice/](rice/). Change window gaps, font, and colorscheme [here](rice/default.nix). Colorschemes are [generated](rice/colors/.generate.sh) from [source files](rice/colors/src/).
 
-System level [config/](config/) includes:
-- [installed pkgs](config/pkgs.nix)
-- [tty customization](config/tty.nix)
-- [evdev level key remaps](config/keyremap.nix)
-- [desktop env components](config/desktop.nix)
-- [nix settings](config/default.nix)
+User-facing program config is in [home/](home/). Notable programs include: [niri](home/niri/), [kitty](home/kitty.nix), [zen](home/zen/), [nvim](home/nvim.nix), [lf](home/lf/), [mako](home/mako.nix).
 
-User level config is in [home/](home/). These define configuration of user-facing programs. Notable ones include:
-- [niri](home/niri/)
-- [kitty](home/kitty.nix)
-- [zen](home/zen/)
-- [nvim](home/nvim.nix)
-- [lf](home/lf/)
-- [mako](home/mako.nix)
+System level [config/](config/) includes: [installed pkgs](config/pkgs.nix), [tty customization](config/tty.nix), [evdev level key remaps](config/keyremap.nix), [desktop env components](config/desktop.nix), [nix settings](config/default.nix)
 
 Custom packages not large enough to factor out into their own repo live in [pkgs/](pkgs/). Notable ones:
 - [barless](pkgs/apps/barless/), supplies info since I don't use a bar
