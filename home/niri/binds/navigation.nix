@@ -1,5 +1,7 @@
 { ... }: {
     default = {
+        Space = "focus-window-previous"; # last focused
+
         N = "focus-column-left";
         A = "focus-window-or-workspace-up";
         I = "focus-window-or-workspace-down";
