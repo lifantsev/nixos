@@ -1,11 +1,6 @@
 {
     col = import ./colors/catppuccin.nix;
 
-    style = {
-        rounding = false; # just use window.radius instead
-        animation = false;
-    };
-
     window = let gaps = 7; in {
         border = 2;
         radius = 7;
