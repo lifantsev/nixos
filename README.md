@@ -2,9 +2,9 @@
 
 My personal NixOS system config, running on my apple silicon macbook m1 pro thanks to [nixos-apple-silicon](https://github.com/nix-community/nixos-apple-silicon) and [asahi linux](https://asahilinux.org/). Includes a suite of daily use tools I find useful.
 
-<img width="1080" height="675" alt="nixos" src="https://github.com/user-attachments/assets/d52f43ec-a2d0-43ad-8370-5bbaa7d6e025" />
-
 - [installation](#installation), [usage](#usage), [documentation](#documentation)
+
+<img width="1080" height="675" alt="nixos" src="https://github.com/user-attachments/assets/d52f43ec-a2d0-43ad-8370-5bbaa7d6e025" />
 
 ## Installation
 
@@ -24,7 +24,7 @@ sudo nixos-rebuild switch --flake path:/path/to/flake --show-trace
 
 This section describes key usage info. To see more information, investigate the relevant `.nix` files.
 
-### Niri
+### Niri (window manager)
 Useful keybinds [see more](home/niri/binds/)
 ``` sh
 Super+H browser
@@ -46,7 +46,7 @@ Super+. Super+S dropdown spotify
 Super+. Super+C dropdown calendar
 ```
 
-### ZSH
+### ZSH (shell)
 Common aliases/functions/binds [see more](home/zsh/)
 ``` sh
 e -> change dir
@@ -67,7 +67,7 @@ S-<right> -> end of line
 S-<tab> -> accept autosuggestion
 ```
 
-### LF
+### LF (file manager)
 Common binds [see more](home/lf/)
 ``` sh
 k -> mkdir
