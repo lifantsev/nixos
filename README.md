@@ -22,13 +22,77 @@ sudo nixos-rebuild switch --flake path:/path/to/flake --show-trace
 
 ## Usage
 
+This section describes key usage info. To see more information, investigate the relevant `.nix` files.
+
+### Niri
+Useful keybinds [see more](home/niri/binds/)
+``` sh
+Super+H browser
+Super+T terminal
+Super+B obsidian
+
+Super+S program launcher
+
+Super+Z screenshot
+Super+Shift+Z screenrecord
+
+Super+W Super+D show date
+Super+W Super+T show time
+Super+W Super+B show battery
+
+Super+. Super+W dropdown last
+Super+. Super+T dropdown terminal
+Super+. Super+S dropdown spotify
+Super+. Super+C dropdown calendar
+```
+
+### ZSH
+Common aliases/functions/binds [see more](home/zsh/)
+``` sh
+e -> change dir
+n -> list files
+k -> make dir
+ke -> make + enter dir
+
+a -> lf file manager
+h -> neovim
+g -> git
+
+x -> extract archive
+
+C-h -> history
+C-y -> copy current commandline
+S-<left> -> start of line
+S-<right> -> end of line
+S-<tab> -> accept autosuggestion
+```
+
+### LF
+Common binds [see more](home/lf/)
+``` sh
+k -> mkdir
+m -> move (rename)
+l -> touch file
+
+r -> trash file
+u -> undo trash operation
+x -> extract archive
+
+e<space> -> change dir
+; -> quit
+z -> quit and drop into directory
+
+C-d -> drag and drop file
+w -> set image as wallpaper
+```
+
 ## Documentation
 
 Top level aesthetic config is done from [rice/](rice/). Change window gaps, font, and colorscheme [here](rice/default.nix). Colorschemes are [generated](rice/colors/.generate.sh) from [source files](rice/colors/src/).
 
 User-facing program config is in [home/](home/). Notable programs include: [niri](home/niri/), [kitty](home/kitty.nix), [zen](home/zen/), [nvim](home/nvim.nix), [lf](home/lf/), [mako](home/mako.nix).
 
-System level [config/](config/) includes: [installed pkgs](config/pkgs.nix), [tty customization](config/tty.nix), [evdev level key remaps](config/keyremap.nix), [desktop env components](config/desktop.nix), [nix settings](config/default.nix)
+System level [config/](config/) includes: [installed pkgs](config/pkgs.nix), [nix settings](config/default.nix), [tty customization](config/tty.nix), [evdev level key remaps](config/keyremap.nix), [desktop env components](config/desktop.nix).
 
 Custom packages not large enough to factor out into their own repo live in [pkgs/](pkgs/). Notable ones:
 - [barless](pkgs/apps/barless/), supplies info since I don't use a bar
