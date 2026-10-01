@@ -49,41 +49,41 @@ Super+. Super+C   dropdown calendar
 ### ZSH (shell)
 Common aliases/functions/binds [see more](home/zsh/)
 ```
-e  -> change dir
-n  -> list files
-k  -> make dir
-ke -> make + enter dir
+e  > change dir
+n  > list files
+k  > make dir
+ke > make + enter dir
 
-a  -> lf file manager
-h  -> neovim
-g  -> git
+a  > lf file manager
+h  > neovim
+g  > git
 
-x  -> extract archive
+x  > extract archive
 
-C-h       -> history
-C-y       -> copy current commandline
-S-<left>  -> start of line
-S-<right> -> end of line
-S-<tab>   -> accept autosuggestion
+C-h       > history
+C-y       > copy current commandline
+S-<left>  > start of line
+S-<right> > end of line
+S-<tab>   > accept autosuggestion
 ```
 
 ### LF (file manager)
 Common binds [see more](home/lf/)
 ```
-k -> mkdir
-m -> move (rename)
-l -> touch file
+k > mkdir
+m > move (rename)
+l > touch file
 
-r -> trash file
-u -> undo trash operation
-x -> extract archive
+r > trash file
+u > undo trash operation
+x > extract archive
 
-; -> quit
-z -> quit and drop into directory
+; > quit
+z > quit and drop into directory
 
-w        -> set image as wallpaper
-C-d      -> drag and drop file
-e<space> -> change dir
+w        > set image as wallpaper
+C-d      > drag and drop file
+e<space> > change dir
 ```
 
 ## Documentation
