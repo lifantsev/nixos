@@ -27,11 +27,11 @@
                 o = "school.md";
                 l = "linux.md";
             };
-            s."school/1-3-freshman-spring/" = {
-                c = "cs-33/";
-                m = "math-115a/";
-                p = "phys-1b/";
-                h = "philos-31/";
+            s."school/2-1-sophomore-fall/" = {
+                c = "cs-35l/";
+                m = "cs-m51a/";
+                p = "phys-1c/";
+                l = "phys-4al/";
             };
         };
 

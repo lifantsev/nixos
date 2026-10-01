@@ -22,14 +22,16 @@
 
         u = "my.ucla.edu/";
         o."bruinlearn.ucla.edu/courses/" = {
-            c = "227811/";
-            m = "233028/";
-            p = "232091/";
-            h = "231956/";
+            c = "235524/"; # 35l
+            m = "235522/"; # m51a
+            p = "238538/"; # 1c
+            l = "238494/"; # 4al
         };
 
         y."youtube.com/".s = "results?q=";
         ig = "instagram.com/direct/inbox/";
+
+        "in" = "linkedin.com/";
 
         gm."mail.google.com/mail/" = googleusers;
         gd."docs.google.com/document/" = googleusers;
