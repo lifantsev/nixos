@@ -26,50 +26,50 @@ This section describes key usage info. To see more information, investigate the 
 
 ### Niri (window manager)
 Useful keybinds [see more](home/niri/binds/)
-``` sh
-Super+H browser
-Super+T terminal
-Super+B obsidian
+```
+Super+H           browser
+Super+T           terminal
+Super+B           obsidian
 
-Super+S program launcher
+Super+S           program launcher
 
-Super+Z screenshot
-Super+Shift+Z screenrecord
+Super+Z           screenshot
+Super+Shift+Z     screenrecord
 
-Super+W Super+D show date
-Super+W Super+T show time
-Super+W Super+B show battery
+Super+W Super+D   show date
+Super+W Super+T   show time
+Super+W Super+B   show battery
 
-Super+. Super+W dropdown last
-Super+. Super+T dropdown terminal
-Super+. Super+S dropdown spotify
-Super+. Super+C dropdown calendar
+Super+. Super+W   dropdown last
+Super+. Super+T   dropdown terminal
+Super+. Super+S   dropdown spotify
+Super+. Super+C   dropdown calendar
 ```
 
 ### ZSH (shell)
 Common aliases/functions/binds [see more](home/zsh/)
-``` sh
-e -> change dir
-n -> list files
-k -> make dir
+```
+e  -> change dir
+n  -> list files
+k  -> make dir
 ke -> make + enter dir
 
-a -> lf file manager
-h -> neovim
-g -> git
+a  -> lf file manager
+h  -> neovim
+g  -> git
 
-x -> extract archive
+x  -> extract archive
 
-C-h -> history
-C-y -> copy current commandline
-S-<left> -> start of line
+C-h       -> history
+C-y       -> copy current commandline
+S-<left>  -> start of line
 S-<right> -> end of line
-S-<tab> -> accept autosuggestion
+S-<tab>   -> accept autosuggestion
 ```
 
 ### LF (file manager)
 Common binds [see more](home/lf/)
-``` sh
+```
 k -> mkdir
 m -> move (rename)
 l -> touch file
@@ -78,17 +78,17 @@ r -> trash file
 u -> undo trash operation
 x -> extract archive
 
-e<space> -> change dir
 ; -> quit
 z -> quit and drop into directory
 
-C-d -> drag and drop file
-w -> set image as wallpaper
+w        -> set image as wallpaper
+C-d      -> drag and drop file
+e<space> -> change dir
 ```
 
 ## Documentation
 
-Top level aesthetic config is done from [rice/](rice/). Change window gaps, font, and colorscheme [here](rice/default.nix). Colorschemes are [generated](rice/colors/.generate.sh) from [source files](rice/colors/src/).
+Top level aesthetic config is done from [rice/](rice/). Change window gaps, font, and colorscheme [here](rice/default.nix). Colorschemes are [generated](rice/colors/.generate.sh) from [these files](rice/colors/src/).
 
 User-facing program config is in [home/](home/). Notable programs include: [niri](home/niri/), [kitty](home/kitty.nix), [zen](home/zen/), [nvim](home/nvim.nix), [lf](home/lf/), [mako](home/mako.nix).
 
