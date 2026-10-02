@@ -38,29 +38,38 @@ case "$action" in
         [ "$state" == "+" ] && [ "${percentage//%/}" -ge 80 ] && warning="warning: please disconnect"
         ;;
     music*)
-        song="$(plyr current)"
-        song="$(echo "$song" | rustranslit)"
-        song="$(echo "$song" | iconv -f utf8 -t ascii//TRANSLIT//IGNORE | LC_COLLATE=C sed -e "s/[^ 0-9a-zA-Z':().,-]//g")"
+        current="$(plyr current)"
 
-        # removes trailing whitespace
-        # removes leading whitespace
-        # any trailing [] square brackets
-        # removes any trailing () parens
-        # changes feat. to ft.
-        # compresses all whitespace to single spaces
-        song="$(echo "$song" | sed \
-            -e 's|\s*$||' \
-            -e 's|^\s*||' \
-            -e 's|\[.*\]\s*$||' \
-            -e 's|\s*(.*)$||' \
-            -e 's|feat\.|ft\.|' \
-            -e 's|\s\+| |g'
-        )"
+        function process_str() {
+            out="$(echo "$1" | rustranslit | iconv -f utf8 -t ascii//TRANSLIT//IGNORE | LC_COLLATE=C sed -e "s/[^ 0-9a-zA-Z':().,-]//g")"
 
-        song="$(echo "$song" | tr '[:upper:]' '[:lower:]')"
+            # removes trailing whitespace
+            # removes leading whitespace
+            # any trailing [] square brackets
+            # removes any trailing () parens
+            # changes feat. to ft.
+            # compresses all whitespace to single spaces
+            out="$(echo "$out" | sed \
+                -e 's|\s*$||' \
+                -e 's|^\s*||' \
+                -e 's|\[.*\]\s*$||' \
+                -e 's|\s*(.*)$||' \
+                -e 's|feat\.|ft\.|' \
+                -e 's|\s\+| |g'
+            )"
 
-        title="$song"
-        [[ "$action" != *"short" ]] && [ "$(plyr client)" == "spotify" ] && body="$(plyr indicator)$(plyr progress)%"
+            echo "$out" | tr '[:upper:]' '[:lower:]'
+        }
+
+        song_artist="$(process_str "${current%% - *}")"
+        song_artist="${song_artist//, / \& }"
+        song_title="$(process_str "${current##* - }")"
+
+        title="$song_artist"
+        body="$song_title"
+
+        # song_progress="$(plyr progress)"
+        # [ -n "$song_progress" ] && body+=" ($song_progress%)"
         ;;
     calendar*)
         title="$(cal | head -n 1)"
