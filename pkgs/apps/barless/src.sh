@@ -8,6 +8,23 @@ body=""
 warning=""
 category=""
 
+if [ "$action" == "--daemon" ]; then
+    # kill other daemons
+    my_pid="$$"
+    other_pids="$(pgrep barless)" # avoid opening a pipe b/c it would create a new process
+    other_pids="$(echo "$other_pids" | grep -v "$my_pid")"
+    [ -n "$other_pids" ] && kill $other_pids # don't quote to handle multiple pids
+
+    while true; do
+        "$0" time-warn
+        sleep 30
+        "$0" battery-warn
+        sleep 30
+    done
+
+    exit
+fi
+
 case "$action" in
     volume*)
         title="vol: $(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{ printf $2*100; printf "%"; if ($3 == "[MUTED]") print " (muted)"; else print "";  }')"

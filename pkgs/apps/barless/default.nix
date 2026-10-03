@@ -16,8 +16,10 @@ in {
         pkgs.wireplumber # wpctl
         pkgs.gawk # awk
         pkgs.gnused # sed
+        pkgs.gnugrep # grep
         pkgs.libnotify # notify-send
         pkgs.util-linux # cal
+        pkgs.procps # pgrep
         pkgs.bc
         pkgs.brightnessctl
         pkgs.upower
