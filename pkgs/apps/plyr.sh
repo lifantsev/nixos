@@ -105,9 +105,11 @@ case "$cmd" in
                     name="$(mpc status | head -n 1 | sed 's|\.[^.]*$||')"
                 fi
                 ;;
-            "spotify") name="$(spotify_player get key playback | jq -r '"\(.item.artists[0].name) - \(.item.name)"')" ;;
+            "spotify")
+                name="$(spotify_player get key playback | jq -r '"\(.item.artists[0].name) - \(.item.name)"')"
+                ;;
             "mpv") name="$(mpvc status | head -n 1 | sed 's|^NA - ||')" ;;
-            "playerctl") name="$(playerctl metadata title)" ;;
+            "playerctl") name="$(playerctl metadata artist) - $(playerctl metadata title)" ;;
         esac
 
         echo "$name"
