@@ -80,7 +80,7 @@ case "$action" in
 
         song_artist="$(process_str "${current%% - *}")"
         song_artist="${song_artist//, / \& }"
-        song_title="$(process_str "${current##* - }")"
+        song_title="$(process_str "${current#* - }")"
 
         title="$song_artist"
         body="$song_title"
