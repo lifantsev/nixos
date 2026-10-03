@@ -7,6 +7,8 @@
             repeat-rate = 60;
         };
 
+        power-key-handling.enable = false;
+
         warp-mouse-to-focus.enable = true;
         focus-follows-mouse.enable = true;
 
