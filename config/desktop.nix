@@ -23,8 +23,10 @@
 
     security.sudo.extraConfig = "Defaults pwfeedback"; # show asterisks on sudo prompt
 
-    # handling power keys & stuff if we ever want to
-    # services.logind.settings.Login
+    services.logind.settings.Login = {
+        HandlePowerKey = "ignore";
+        HandlePowerKeyLongPress = "poweroff";
+    };
 
     services.usbmuxd.enable = true; # for interfacing with ios devices
 }
