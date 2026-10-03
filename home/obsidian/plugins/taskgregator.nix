@@ -30,5 +30,10 @@
         cp $manifestjson $out/manifest.json
         cp $stylescss $out/styles.css
         cp $datajson $out/data.json
+
+        # patch main.js to respect timezone
+        # sv: Sweden uses ISO-8601, so we get 'YYYY-MM-DD' and not 'DD/MM/YYYY'
+        # https://stackoverflow.com/questions/44733694/why-new-date-toisostring-is-loosing-timezone
+        sed -i "s|\.toISOString()\.slice(0, 10)|.toLocaleDateString('sv')|" $out/main.js
     '';
 }
