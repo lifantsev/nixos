@@ -26,10 +26,12 @@ file="/tmp/plyr.current"
 #######################
 # FIND CURRENT PLAYER #
 #######################
+# order of precedence is intentional
 playerctl_playing && current='playerctl'
 mpc_playing && current='mpc'
 mpv_playing && current='mpv'
-spotify_playing && current='spotify'
+# spotify_player is currently broken & hangs for a second, no point keeping this in, just makes everything laggy
+# spotify_playing && current='spotify'
 
 if [ -z "$current" ]; then
     current="$(cat "$file")"
