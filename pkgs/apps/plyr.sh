@@ -61,9 +61,9 @@ case "$cmd" in
         esac
         ;;
     "play"):
-        [ "$(plyr playing)" = "false" ] && plyr toggle ;;
+        plyr playing || plyr toggle ;;
     "pause"):
-        [ "$(plyr playing)" = "true" ] && plyr toggle ;;
+        plyr playing && plyr toggle ;;
     "prev"):
         case "$current" in
             "mpc") mpc prev;;
@@ -90,10 +90,10 @@ case "$cmd" in
         ;;
     "playing"):
         case "$current" in
-            "mpc")       mpc_playing && echo true || echo false ;;
-            "spotify")   spotify_playing && echo true || echo false ;;
-            "mpv")       mpv_playing && echo true || echo false;;
-            "playerctl") playerctl_playing && echo true || echo false;;
+            "mpc")       if mpc_playing;       then exit 0; else exit 1; fi ;;
+            "spotify")   if spotify_playing;   then exit 0; else exit 1; fi ;;
+            "mpv")       if mpv_playing;       then exit 0; else exit 1; fi ;;
+            "playerctl") if playerctl_playing; then exit 0; else exit 1; fi ;;
         esac
         ;;
     "current"):

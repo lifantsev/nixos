@@ -44,10 +44,10 @@ function reload() {
     then printmsg "failed to reload: not currently connected to anything" ; return 1
     fi
 
-    playing="$(plyr playing)"
+    plyr playing && was_playing=true
 
     if disconnect && connect_address "$current"; then
-        [ "$playing" == "true" ] && plyr play
+        [ "$was_playing" == "true" ] && plyr play
         printmsg "succesfully reloaded $(address_to_name "$current")"
     else
         printmsg "failed to reload $(address_to_name "$current")"
