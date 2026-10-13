@@ -27,8 +27,7 @@
         krita
 
         ## OTHER
-        mcomix
-        sioyek
+        mcomix sioyek foliate
         kicad
         transmission_4-qt
         parted
@@ -36,11 +35,6 @@
         ipatool
         libplist
         gparted
-
-        mkosi-full
-        gptfdisk
-        arch-install-scripts
-        pacman
 
         ###############
         # DESKTOP ENV #
