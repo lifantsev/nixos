@@ -62,6 +62,7 @@ case "$action" in
 
             # removes trailing whitespace
             # removes leading whitespace
+            # removes leading dash
             # any trailing [] square brackets
             # removes any trailing () parens
             # changes feat. to ft.
@@ -69,6 +70,7 @@ case "$action" in
             out="$(echo "$out" | sed \
                 -e 's|\s*$||' \
                 -e 's|^\s*||' \
+                -e 's|- *||' \
                 -e 's|\[.*\]\s*$||' \
                 -e 's|\s*(.*)$||' \
                 -e 's|feat\.|ft\.|' \
