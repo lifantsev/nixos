@@ -10,6 +10,7 @@
         B = spawn "obsidian";
 
         # utilities
+        Q = spawn "qrcopy";
         Z = spawn "screenshot";
         SHIFT.Z = spawn "screenrecord";
 
