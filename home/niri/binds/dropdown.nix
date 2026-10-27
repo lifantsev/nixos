@@ -10,10 +10,11 @@
 
         S = drop "spotify";
         C = drop "calendar";
+        B = drop "obsidian";
 
         Q = drop "qalc";
         N = drop "nixbuild";
         M = drop "net";
-        B = drop "blue";
+        U = drop "blue";
     };
 }

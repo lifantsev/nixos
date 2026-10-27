@@ -1,13 +1,21 @@
-{ config, lib, ... }: {
+{ config, lib, ... }: let
+    chromium = "chromium --js-flags=--no-decommit-pooled-pages";
+in {
     spotify = {
         app_id = "chrome-open.spotify.com__-Default";
-        cmd = ''chromium --js-flags=--no-decommit-pooled-pages --app="https://open.spotify.com"'';
+        cmd = ''${chromium} --app="https://open.spotify.com"'';
         lazy = true;
     };
 
     calendar = {
         app_id = "chrome-calendar.google.com__-Default";
-        cmd = ''chromium --js-flags=--no-decommit-pooled-pages --app="https://calendar.google.com"'';
+        cmd = ''${chromium} --app="https://calendar.google.com"'';
+        lazy = true;
+    };
+
+    obsidian = {
+        app_id = "md.Obsidian";
+        cmd = ''obsidian'';
         lazy = true;
     };
 
