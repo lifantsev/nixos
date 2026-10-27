@@ -5,6 +5,9 @@
         I = "focus-window-or-workspace-down";
         O = "focus-column-right";
 
+        F = "fullscreen-window";
+        SHIFT.F = "toggle-window-floating";
+
         SHIFT.N = "consume-or-expel-window-left";
         SHIFT.A = "move-window-up-or-to-workspace-up";
         SHIFT.I = "move-window-down-or-to-workspace-down";
