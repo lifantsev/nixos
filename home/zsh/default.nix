@@ -68,41 +68,41 @@
     programs.starship = {
         enable = true;
         settings = let
-            dirstyle      = "blue italic";
-            nixshellstyle = "cyan italic";
-            gitstyle      = "purple";
-            gitstylealt   = "red bold";
+            dir       = "blue italic";
+            nixshell  = "green italic";
+            gitremote = "purple";
+            gitstage  = "red bold";
         in {
             add_newline = true;
-            format = "$env_var$git_status$directory";
+            format = "$git_status$env_var$directory";
 
             env_var = {
                 variable = "IN_NIX_SHELL";
-                format = "[$env_value](${nixshellstyle}) ";
+                format = "[nix](${nixshell}) ";
             };
 
             directory = {
                 truncation_length = 0;
                 truncate_to_repo = true;
 
-                format = "[$path](${dirstyle}) ";
+                format = "[$path](${dir}) ";
             };
 
             git_status = {
-                format = "[$ahead_behind](${gitstyle})[$all_status](${gitstylealt}) ";
+                format = "[$ahead_behind](${gitremote})[$all_status](${gitstage})";
 
-                up_to_date = "->";
-                ahead      = ">>";
-                behind     = "<<";
-                conflicted = "><";
-                diverged   = "><";
+                up_to_date = "-> ";
+                ahead      = ">> ";
+                behind     = "<< ";
+                conflicted = ">< ";
+                diverged   = ">< ";
 
-                untracked = " nw";
-                stashed   = " $$";
-                modified  = " ch";
-                staged    = " gc";
-                renamed   = " mv";
-                deleted   = " rm";
+                untracked = "nw ";
+                stashed   = "$$ ";
+                modified  = "ch ";
+                staged    = "gc ";
+                renamed   = "mv ";
+                deleted   = "rm ";
             };
         };
     };
