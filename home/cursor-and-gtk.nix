@@ -22,15 +22,7 @@ in {
 
     dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
 
-    gtk = let
-        theme = {
-            name = rice.col.gtk-name;
-            package = pkgs.${rice.col.gtk-package};
-        };
-    in {
-        inherit theme;
-        gtk4.theme = theme;
-
+    gtk = {
         enable = true;
         colorScheme = "dark";
 

@@ -2,8 +2,6 @@
     # catppuccin mocha: https://catppuccin.com/palette/
     name = "catppuccin";
     flavor = "mocha";
-    gtk-name = "catppuccin-mocha-mauve-standard+default";
-    gtk-package = "catppuccin-gtk";
     t0 = {
         hex = "11111b"; h = "#11111b";
         r = 17; g = 17; b = 27;
