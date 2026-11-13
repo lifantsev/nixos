@@ -1,27 +1,26 @@
-{ rice, lib, ... }: let awww-rule = {
-    matches = [{ namespace = "^awww-daemon$"; }];
-    place-within-backdrop = true;
-};
-in lib.recursiveUpdate {
-    prefer-no-csd = true; # disable annoying decoration
-
-    animations.slowdown = 0.5;
-
-    layout = {
-        center-focused-column = "never";
-        default-column-width.proportion = 0.5;
+{ rice, lib, ... }: let
+    awww-rule = {
+        matches = [{ namespace = "^awww-daemon$"; }];
+        place-within-backdrop = true;
     };
 
-    overview.workspace-shadow = {
-        offset = { x=0; y=0; };
-        softness = 60;
-        color = "#000000A0";
+    global = {
+        prefer-no-csd = true; # disable annoying decoration
+
+        animations.slowdown = 0.5;
+
+        layout = {
+            center-focused-column = "never";
+            default-column-width.proportion = 0.5;
+        };
+
+        overview.workspace-shadow.enable = false;
+
+        # move wallpaper into backdrop
+        layout.background-color = "transparent";
+        layer-rules = [awww-rule];
     };
 
-    # move wallpaper into backdrop
-    layout.background-color = "transparent";
-    layer-rules = [awww-rule];
-} (let
     maximal = let
         shadow = {
             enable = true;
@@ -100,4 +99,4 @@ in lib.recursiveUpdate {
             width = rice.window.border;
         };
     };};
-in maximal)
+in lib.recursiveUpdate global maximal
