@@ -77,6 +77,7 @@
         imv
         jq
         mediainfo
+        moreutils
         mpc
         mpv
         mpvc
