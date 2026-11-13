@@ -18,15 +18,16 @@
 
         d = download+"/";
         v."${videos}/".p = "playlists/";
-        p."${pictures}/".s = "screenshot/";
+        p."${pictures}/" = {
+            s = "screenshot/";
+            w = "wallpapers/";
+        };
 
         s."${config.programs.password-store.settings.PASSWORD_STORE_DIR}/".m = ".map";
 
         x."${documents}/" = {
-            t."todo/" = {
-                o = "school.md";
-                l = "linux.md";
-            };
+            r = "read/";
+            p = "piano/";
             s."school/2-1-sophomore-fall/" = {
                 c = "cs-35l/";
                 m = "cs-m51a/";

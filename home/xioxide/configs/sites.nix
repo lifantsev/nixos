@@ -44,7 +44,6 @@
         cap = "verified.capitalone.com/auth/signin/";
 
         y."youtube.com/".s = "results?q=";
-        ig = "instagram.com/direct/inbox/";
     };
 }
 
