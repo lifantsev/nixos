@@ -67,7 +67,7 @@
             active_border_color = "none";
             inactive_border_color = col.bg.h;
 
-            background_opacity = "0.9";
+            background_opacity = "0.8";
             foreground = col.fg.h;
             background = col.bg.h;
 

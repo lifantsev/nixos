@@ -33,7 +33,7 @@
                 "zen.widget.linux.transparency" = true;
                 "zen.view.grey-out-inactive-windows" = false;
                 "mod.sameerasw.zen_bg_color_enabled" = true;
-                "mod.sameerasw.zen_transparency_color" = "${rice.col.bg.h}e6";
+                "mod.sameerasw.zen_transparency_color" = "${rice.col.bg.h}c6";
                 "mod.sameerasw.zen_tab_switch_anim" = false;
 
                 "browser.theme.toolbar-theme" = 0; # dark mode
