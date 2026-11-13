@@ -7,7 +7,7 @@
         T = spawn term;
         SHIFT.T = sh "wtype -M ctrl -M alt -M shift -k t -m shift -m alt -m ctrl"; # kitty spawn window with same cwd
 
-        B = spawn "obsidian";
+        # B = spawn "obsidian";
 
         # utilities
         Q = spawn "qrcopy";
