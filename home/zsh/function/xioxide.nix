@@ -1,7 +1,7 @@
 { config, ... }: with config.programs.zsh.shellAliases; /*bash*/ ''
     e() { 
         local dir="$(xioxide paths "$1")"
-        [ -n "$dir" ] && cd "$dir" || cd
+        if [ -n "$dir" ]; then cd "$dir"; else cd; fi
         ${n}
     }
     ke() { ${k} "$1" && e "$1"; }
