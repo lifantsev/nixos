@@ -38,11 +38,6 @@
             update_check_interval = 0;
             mouse_hide_wait = 0;
 
-            font_family      = font.code.full.family;
-            bold_font        = font.code.full.bold;
-            italic_font      = font.code.full.italic;
-            bold_italic_font = font.code.full.bold-italic;
-
             touch_scroll_multiplier = "1.7";
             wheel_scroll_multiplier = "5.0";
 
@@ -50,24 +45,33 @@
             strip_trailing_spaces = "smart";
             copy_on_select = "clipboard";
 
-            cursor = col.fg.h;
             cursor_shape = "beam";
             cursor_beam_thickness = "1.5";
             cursor_stop_blinking_after = 0;
-            cursor_text_color = col.fg.h;
+
+            url_style = "curly";
+            undercurl_style = "thick-sparse";
+            underline_hyperlinks = "always";
+
+            background_opacity = "0.8";
+            
+            # Fonts
+
+            font_family      = font.code.full.family;
+            bold_font        = font.code.full.bold;
+            italic_font      = font.code.full.italic;
+            bold_italic_font = font.code.full.bold-italic;
+
+            # Colors
+
+            cursor = col.t6.h;
+            cursor_text_color = col.bg.h;
 
             selection_foreground = col.fg.h;
             selection_background = col.t3.h;
 
             url_color = col.blue.h;
-            url_style = "curly";
-            undercurl_style = "thick-sparse";
-            underline_hyperlinks = "always";
 
-            active_border_color = "none";
-            inactive_border_color = col.bg.h;
-
-            background_opacity = "0.8";
             foreground = col.fg.h;
             background = col.bg.h;
 
