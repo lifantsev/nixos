@@ -1,9 +1,8 @@
 {
     g = "git";
-    gd = "gitutils diff";
-    gii = "gitutils init";
+    gd = "git diff";
 
-    ga = "echo 'git add %%% && git status' | yargs";
+    ga = "g add";
     gaa = "ga .";
     gau = "ga -u";
 
@@ -11,7 +10,7 @@
     gc = "g commit";
     gco = "g checkout";
     gb = "g branch";
-    gl = "g log --oneline";
+    gl = "g log";
     gm = "g merge";
 
     gll = "g pull";
