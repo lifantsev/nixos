@@ -15,6 +15,9 @@
     r = "trash-put";
     z = "exit";
 
+    nd = "nix develop";
+    ns = "nix shell";
+
     src = "exec zsh";
 
     t = "eza -Ta";
