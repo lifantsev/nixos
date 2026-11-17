@@ -54,28 +54,27 @@
                 "signon.rememberSignons" = false; # disable password manager
                 "signon.autofillForms" = false;
                 "signon.management.page.breachAlert" = false;
+                "extensions.formautofill.creditCards.enabled" = false; # disable card save
+                "extensions.formautofill.addresses.enabled" = false; # disable address save
 
                 "zen.urlbar.behavior" = "float"; # always float
-
-                "widget.disable-swipe-tracker" = true; # disable swipe to go back
-
-                "media.videocontrols.picture-in-picture.enabled" = false; # no PiP
 
                 "devtools.chrome.enabled" = true; # enable remote debug
                 "devtools.debugger.remote-enabled" = true;
 
-                "zen.view.experimental-no-window-controls" = true; # disable navbar popup
-
                 "browser.shell.checkDefaultBrowser" = false; # disable default browser shit
 
-                "zen.mediacontrols.enabled" = false; # media player bar
+                "widget.disable-swipe-tracker" = true; # disable swipe to go back
+                "media.videocontrols.picture-in-picture.enabled" = false; # no PiP
+                "zen.view.experimental-no-window-controls" = true; # disable navbar popup
+                "zen.mediacontrols.enabled" = false;
+                "zen.library.enabled" = false;
             };
 
             userChrome = import ./userchrome.nix args;
             userContent = import ./usercontent.nix args;
 
             # jq -c '.shortcuts[] | {id, key, keycode, action}' ~/.config/zen/default/zen-keyboard-shortcuts.json | fzf
-            keyboardShortcutsVersion = 20;
             keyboardShortcuts = let
                 processKeyAttrs = a: { id = a.name;  } // (
                     if lib.typeOf a.value == "string" then {
