@@ -97,5 +97,10 @@
         # IOS
         ifuse
         libimobiledevice
+
+        #############
+        # MAN PAGES #
+        #############
+        man-pages
     ];
 }
