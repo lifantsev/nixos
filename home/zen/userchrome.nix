@@ -1,5 +1,5 @@
 # ft=css
-{ rice, ... }: /* css */ with rice.col; ''
+{ rice, ... }: with rice.col; /* css */ ''
 /* Catppuccin Mocha Blue userChrome.css*/
 
 @media (prefers-color-scheme: dark) {
@@ -101,20 +101,13 @@
     /* v move urlbar to bottom v */
 
     toolbarbutton#zen-create-new-button,
+    toolbarbutton#zen-library-button,
     toolbarbutton#downloads-button {display: none !important;}
-    #zen-sidebar-foot-buttons {
-        anchor-name: --sidebar-foot;
-    }
-    
-    zen-workspace {
-        margin-top: -37px !important;
-    }
 
-    .urlbar:not([zen-floating-urlbar="true"]){
-        position-anchor: --sidebar-foot !important;;
-        position-area: center;
-        position: absolute;
-        margin-bottom: 30px !important;
+    #zen-appcontent-navbar-container,
+    #nav-bar {
+        order: 100 !important;
+        margin-bottom: 5px !important;
     }
 
     .urlbar-container {
