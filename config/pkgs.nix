@@ -7,7 +7,6 @@
         #############
 
         ### BROWSERS
-        qutebrowser
         brave
 
         ### TERMINAL

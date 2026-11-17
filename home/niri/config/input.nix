@@ -1,5 +1,8 @@
 { ... }: {
-    gestures.hot-corners.enable = false;
+    gestures.hot-corners.bottom-left  = false;
+    gestures.hot-corners.bottom-right = false;
+    gestures.hot-corners.top-left     = false;
+    gestures.hot-corners.top-right    = false;
 
     input = {
         keyboard = {

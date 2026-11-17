@@ -4,7 +4,7 @@
     home.sessionVariables.QT_QPA_PLATFORM = "wayland";
 
     programs.qutebrowser = {
-        enable = true;
+        enable = false; # qutebrowser is now insecure :( 'Still accepts eMudhra TLS certs.'
         enableDefaultBindings = false;
         loadAutoconfig = true; # allow settings changes inside the app
 
