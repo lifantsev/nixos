@@ -14,7 +14,7 @@ in {
     };
 
     obsidian = {
-        app_id = "md.Obsidian";
+        app_id = "md.obsidian.Obsidian";
         cmd = ''obsidian'';
         lazy = true;
     };

@@ -2,7 +2,6 @@
 { ... }: {
     hardware.asahi.enable = true;
 
-
     # previously firmware was from /boot/asahi/{all_firmware.tar.gz,kernelcache*}
     # as of nixos-apple-silicon/release-2026-07-30, it's /boot/vendorfw/firmware.cpio
     # to get the firmware, boot macos and run `https://alx.sh` & select "rebuild vendor firmware cache" option
@@ -10,7 +9,7 @@
 
     # sound
     hardware.asahi.setupAsahiSound = true;
-    boot.kernelParams = [ "apple_dcp.hdmi_audio=1" ]; # doesn't seem to work (experimental)
+    boot.kernelParams = [ "appledrm.hdmi_audio=1" ]; # doesn't seem to work (experimental)
 
     # 80% charging threshold
     services.udev.extraRules = ''
