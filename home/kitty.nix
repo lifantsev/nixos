@@ -56,15 +56,13 @@
             background_opacity = "0.8";
             
             # Fonts
-
             font_family      = font.code.full.family;
             bold_font        = font.code.full.bold;
             italic_font      = font.code.full.italic;
             bold_italic_font = font.code.full.bold-italic;
 
             # Colors
-
-            cursor = col.t6.h;
+            cursor = col.fg.h;
             cursor_text_color = col.bg.h;
 
             selection_foreground = col.fg.h;
